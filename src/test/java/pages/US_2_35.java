@@ -9,5 +9,4 @@ public class US_2_35 {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    // Yorumumu ekledim.
 }
