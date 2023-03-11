@@ -14,11 +14,11 @@ public class US_10_37_41 {
     // US_037 ait locate'ler
 
     // url > Subscribe pop-up
-    @FindBy(xpath = "(//div[@class='close_modal']//i[@class='ti-close'])[1]")
+    @FindBy(css ="#subscriptionModal > div > div.close_modal > i")
     public WebElement subscribePopupExit;
 
     // All Categories Dropdown Menu
-    @FindBy(xpath = "//div/a[@class='Categories_togler']")
+    @FindBy(xpath = "//div[@class='dropdown show category_menu']")
     public WebElement allCategories;
 
     // All categories > Computer & Accessories
