@@ -10,6 +10,7 @@ Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünl
     Then All categories butonuna tiklar
     Then copmuter ve accessories menusunun uzerinde bekler
     Then computer menusune tiklar
+    Then acilen yeni sekmeye gecer
     Then ilk urunun uzerinde bekler
     Then add to cart butonuna tiklar
     Then view cart butonuna tiklar
