@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class US_10_37_41 {
     public US_10_37_41() {
-
         PageFactory.initElements(Driver.getDriver(),this);
+
     }
 
     // US_037 ait locate'ler
@@ -64,5 +64,46 @@ public class US_10_37_41 {
     // Cart > text of VAT/TAX/GST
     @FindBy (xpath = "//div[@class='subtotal_lists']//h4[text()='VAT/TAX/GST']")
     public WebElement vatTaxGstText;
+
+    // Cart > Added Subtotal of Product
+    @FindBy(xpath = "//div[@class='col-lg col-4 order-3 order-lg-0 my-3 my-lg-0']/h4")
+    public WebElement subTotalOfProduct;
+
+    // Cart > Proceed to checkout Button
+    @FindBy (xpath = "//div/a[text()='Proceed to checkout']")
+    public WebElement proceedToCheckoutButton;
+
+
+    // Cart > Continue Button
+    @FindBy (xpath = "//div/a[text()='Continue Shopping']")
+    public WebElement continueShoppingButton;
+
+    // Cart > Green Discount Box %
+    @FindBy (xpath = "//div[@class='col-lg col-4 order-1 order-lg-0 my-3 my-lg-0']/span[@class='green_badge text-nowrap']")
+    public WebElement discountGreenBox;
+
+    // Cart > behind green discount box , Price
+    @FindBy (xpath = "//div[@class='col-lg col-4 order-1 order-lg-0 my-3 my-lg-0']/h4")
+    public WebElement priceOfProduct;
+
+    // Cart > TotalPrice
+    @FindBy(xpath = "(//div[@class='single_total_right']/span)[5]")
+    public WebElement totalPrice;
+
+    //Cart > Value of Quantity
+    @FindBy (xpath = "//input[@class='count_single_item input-number qty']")
+    public WebElement quantityValue;
+
+    // Cart > Decrease QuantityButton
+    @FindBy (xpath = "//button[@class='count_single_item inumber_decrement change_qty']")
+    public WebElement quantityDecreaseButton;
+
+    // cart > Increase QuantityButton
+    @FindBy (xpath = "//button[@class='count_single_item number_increment change_qty']")
+    public WebElement quantityIncreaseButton;
+
+    // Cart > Delete Product which is in cart
+    @FindBy(xpath = "//div/span[@class='close_icon style_2 lh-1 cart_item_delete_btn cursor_pointer']")
+    public WebElement deleteProductButton;
 
 }

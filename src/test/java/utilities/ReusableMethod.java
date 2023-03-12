@@ -1,6 +1,5 @@
 package utilities;
 
-import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -12,7 +11,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
 
 public class ReusableMethod {
@@ -148,4 +146,9 @@ public class ReusableMethod {
 
     }
 
+    // Bir stringi sadece rakam olarak birakir ve integer'a cast eder.
+    public static int onlyTakeNumberandParseInteger(String number){
+        return Integer.parseInt(number.replaceAll("\\D",""));
+
+    }
 }
