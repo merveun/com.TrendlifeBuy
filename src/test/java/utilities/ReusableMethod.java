@@ -3,10 +3,13 @@ package utilities;
 import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+
 import java.io.File;
 import java.io.IOException;
+import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -14,6 +17,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
+
+import static org.openqa.selenium.By.xpath;
+import static utilities.Driver.driver;
 
 public class ReusableMethod {
 
@@ -76,7 +82,7 @@ public class ReusableMethod {
 //   waitFor(5);  => waits for 5 second
     public static void bekle(int saniye) {
         try {
-            Thread.sleep(saniye * 1000);
+            Thread.sleep(saniye * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -148,4 +154,31 @@ public class ReusableMethod {
 
     }
 
+    // ScrollDown_End_Of_Page --> Murat
+    public static void scrolldown() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+    }
+
+       public static void waitToSee(int saniye) {
+        try {
+            Thread.sleep(saniye * 1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void logIn(String userEmailAddress, String userPassword) {
+        WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
+        WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
+        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+        userEmailTextBox.sendKeys(userEmailAddress);
+        useremailTesxtBox.sendKeys(userPassword);
+        ReusableMethod.waitToSee(1);
+        signInbutton.click();
+
+    }
 }
