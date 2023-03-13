@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import pages.US_4_5_6_9_15_24_pages;
 import utilities.ConfigReader;
@@ -44,124 +45,259 @@ public class US_4_5_6_9_15_24_StepDef {
         Driver.quitDriver();
     }
 
-    @Then("verify required texts are visible")
-    public void verify_required_texts_are_visible() {
+    //Scenario: TC_101
+    @Then("verify required links in TC_101 are visible")
+    public void verify_required_texts_in_TC_101_are_visible() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(pages.myAccount.isDisplayed());
         softAssert.assertTrue(pages.orderStatus.isDisplayed());
         softAssert.assertTrue(pages.referral.isDisplayed());
         softAssert.assertTrue(pages.coupons.isDisplayed());
         ReusableMethod.waitToSee(2);
-
+        softAssert.assertAll();
     }
 
-    //
-    @Then("click My Account link")
-    public void click_my_account_link() {
+
+    //Scenario: TC_102
+    @Then("verify the clicked links in TC_102 navigates to relevant pages")
+    public void verifytheclickedlinksinTC_102navigatestorelevantpages() {
+        SoftAssert softAssert = new SoftAssert();
+
         ReusableMethod.waitToSee(1);
         pages.myAccount.click();
         ReusableMethod.logIn(ConfigReader.getProperty("validEmail_Murat"), ConfigReader.getProperty("validPassword_Murat"));
-
-    }
-
-    @And("verify My Account page is opened")
-    public void verifyMyAccountPageIsOpened() {
-        String actualPageUrl = driver.getCurrentUrl();
-        String expectedUrl = "http://qa.trendlifebuy.com/profile";
-        SoftAssert softAssert = new SoftAssert();
+        String myAccount_actualPageUrl = driver.getCurrentUrl();
+        String myAccount_expectedUrl = "https://qa.trendlifebuy.com/profile";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(expectedUrl, actualPageUrl);
+        softAssert.assertEquals(myAccount_expectedUrl, myAccount_actualPageUrl);
 
-    }
-
-    @And("click Order Status link")
-    public void clickOrderStatusLink() {
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(3);
         pages.orderStatus.click();
-        }
-
-    @And("verify Order Status page is opened")
-    public void verifyOrderStatusPageIsOpened() {
-        String actualPageUrl = driver.getCurrentUrl();
-        String expectedUrl = "http://qa.trendlifebuy.com/my-purchase-orders";
-        SoftAssert softAssert = new SoftAssert();
+        String orderStatus_actualPageUrl = driver.getCurrentUrl();
+        String orderStatus_expectedUrl = "https://qa.trendlifebuy.com/my-purchase-orders";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(expectedUrl, actualPageUrl);
-    }
+        softAssert.assertEquals(orderStatus_expectedUrl, orderStatus_actualPageUrl);
 
-    @And("click Referral link")
-    public void clickReferralLink() {
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(3);
         pages.referral.click();
-
-    }
-
-    @And("verify Referral page is opened")
-    public void verifyReferralPageIsOpened() {
-
-        String actualPageUrl = driver.getCurrentUrl();
-        String expectedUrl = "http://qa.trendlifebuy.com/profile/referral";
-        SoftAssert softAssert = new SoftAssert();
+        String referral_actualPageUrl = driver.getCurrentUrl();
+        String referral_expectedUrl = "https://qa.trendlifebuy.com/profile/referral";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(expectedUrl, actualPageUrl);
+        softAssert.assertEquals(referral_expectedUrl, referral_actualPageUrl);
 
-    }
-
-    @And("click Coupons link")
-    public void clickCouponsLink() {
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(3);
         pages.coupons.click();
+        String coupons_actualPageUrl = driver.getCurrentUrl();
+        String coupons_expectedUrl = "https://qa.trendlifebuy.com/profile/coupons";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(coupons_expectedUrl, coupons_actualPageUrl);
+        softAssert.assertAll();
 
     }
 
-    @And("verify Coupons page is opened")
-    public void verifyCouponsPageIsOpened() {
+
+    @Then("verify required links in TC_103 are visible")
+    public void verifyRequiredLinksInTC_103AreVisible() {
+        SoftAssert softAssert = new SoftAssert();
+
+        // softAssert.assertTrue(pages.aboutUs.isDisplayed());
+        softAssert.assertTrue(pages.contactUs.isDisplayed());
+        softAssert.assertTrue(pages.career.isDisplayed());
+        softAssert.assertTrue(pages.refundPolicy.isDisplayed());
+        softAssert.assertTrue(pages.termsCondition.isDisplayed());
+
+        softAssert.assertAll();
+    }
+    /*
+        @Then("click About Us link")
+        public void clickAboutUsLink() {
+            ReusableMethod.scrolldown();
+            ReusableMethod.waitToSee(2);
+            pages.aboutUs.click();
+
+
+        }
+
+        @Then("verify About Us page is opened")
+        public void verifyAboutUsPageIsOpened() {
+
+        }
+    */
+
+
+    @Then("verify the clicked links in TC_104 navigates to relevant pages")
+    public void verifyTheClickedLinksInTC_104NavigatesToRelevantPages() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String aboutUs_actualPageUrl = driver.getCurrentUrl();
+        String aboutUs_expectedUrl = "https://qa.trendlifebuy.com/about-us";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(aboutUs_expectedUrl, aboutUs_actualPageUrl);
+
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.contactUs.click();
+        String contactUs_actualPageUrl = driver.getCurrentUrl();
+        String contactUs_expectedUrl = "https://qa.trendlifebuy.com/con212tact-us";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(contactUs_expectedUrl, contactUs_actualPageUrl);
+
+        ReusableMethod.waitToSee(3);
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.career.click();
+        String career_actualPageUrl = driver.getCurrentUrl();
+        String career_expectedUrl = "https://qa.trendlifebuy.com/career";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(career_expectedUrl, career_actualPageUrl);
+
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.refundPolicy.click();
+        String refundPolicy_actualPageUrl = driver.getCurrentUrl();
+        String refundPolicy_expectedUrl = "qa.trendlifebuy.com/return-exchange";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(refundPolicy_expectedUrl, refundPolicy_actualPageUrl);
+    }
+
+    @Then("click Terms & Condition link")
+    public void clickTermsConditionLink() {
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.termsCondition.click();
+        String termsCondition_actualPageUrl = driver.getCurrentUrl();
+        String termsCondition_expectedUrl = "https://qa.trendlifebuy.com/terms-condition";
+        SoftAssert softAssert = new SoftAssert();
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(termsCondition_expectedUrl, termsCondition_actualPageUrl);
+
+        softAssert.assertAll();
+    }
+
+
+    @Then("verify Google Play button is visible")
+    public void verifyGooglePlayButtonIsVisible() {
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.googlePlayButton.isDisplayed();
+
+
+    }
+
+    @Then("verify Apple Store button is visible")
+    public void verifyAppleStoreButtonIsVisible() {
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.appleStoreButton.isDisplayed();
+    }
+//------------------------
+    @Then("click Google Play button")
+    public void clickGooglePlayButton() {
+        ReusableMethod.scrolldown();
+        ReusableMethod.waitToSee(2);
+        pages.googlePlayButton.click();
+    }
+
+    @And("verify Google Play Store page is opened")
+    public void verifyGooglePlayStorePageIsOpened() {
         String actualPageUrl = driver.getCurrentUrl();
-        String expectedUrl = "http://qa.trendlifebuy.com/profile/coupons";
+        String expectedUrl = "https://play.google.com/store/games";
         SoftAssert softAssert = new SoftAssert();
         ReusableMethod.waitToSee(2);
         softAssert.assertEquals(expectedUrl, actualPageUrl);
 
     }
 
-    @Then("verify About Us link is visible")
-    public void verifyAboutUsLinkIsVisible() {
-
-        SoftAssert softAssert= new SoftAssert();
-        softAssert.assertTrue(pages.aboutUs.isDisplayed());
-
-    }
-
-
-    @Then("verify Contact Us link is visible")
-    public void verifyContactUsLinkIsVisible() {
-        SoftAssert softAssert= new SoftAssert();
-        softAssert.assertTrue(pages.contactUs.isDisplayed());
-
-
-    }
-
-
-    @Then("verify Career link is visible")
-    public void verifyCareerLinkIsVisible() {
-        SoftAssert softAssert= new SoftAssert();
-        softAssert.assertTrue(pages.career.isDisplayed());
-    }
-
-    @Then("verify Refund Policy link is visible")
-    public void verifyRefundPolicyLinkIsVisible() {
-        SoftAssert softAssert= new SoftAssert();
-        softAssert.assertTrue(pages.refundPolicy.isDisplayed());
-    }
-
-    @Then("verify Terms & Condition link is visible")
-    public void verifyTermsConditionLinkIsVisible() {
+    @Then("click Apple Store button")
+    public void clickAppleStoreButton() {
         ReusableMethod.waitToSee(2);
-        SoftAssert softAssert= new SoftAssert();
-        softAssert.assertTrue(pages.termsCondition.isDisplayed());
+        pages.appleStoreButton.click();
     }
+
+    @And("verify Apple Store page is opened")
+    public void verifyAppleStorePageIsOpened() {
+        String actualPageUrl = driver.getCurrentUrl();
+        String expectedUrl = "https://www.apple.com/app-store/";
+        SoftAssert softAssert = new SoftAssert();
+        ReusableMethod.waitToSee(2);
+        Assert.assertEquals(expectedUrl, actualPageUrl);
+
+    }
+
+    @Then("navigate back")
+    public void navigateBack() {
+        driver.navigate().back();
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("click Go To Top button")
+    public void clickGoToTopButton() {
+        pages.goToTop.click();
+        ReusableMethod.waitToSee(3);
+    }
+
+    @And("verify top of the home page is visible")
+    public void verifyTopOfTheHomePageIsVisible() {
+        ReusableMethod.waitToSee(2);
+        Assert.assertTrue(pages.searchBox.isDisplayed());
+    }
+
+    @Then("verify required icons are visible")
+    public void verify_required_icons_are_visible() {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(pages.facebookIcon.isDisplayed());
+        softAssert.assertTrue(pages.twitterIcon.isDisplayed());
+        softAssert.assertTrue(pages.linkedinIcon.isDisplayed());
+        softAssert.assertTrue(pages.instagramIcon.isDisplayed());
+        softAssert.assertAll();
+
+
+    }
+
+
+    @Then("verify clicked icons navigate to relevant pages")
+    public void verifyClickedIconsNavigateToRelevantPages() {
+        SoftAssert softAssert = new SoftAssert();
+
+        pages.facebookIcon.click();
+        String fb_actualPageUrl = driver.getCurrentUrl();
+        String fb_expectedUrl = "https://www.facebook.com/";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(fb_expectedUrl, fb_actualPageUrl);
+        driver.navigate().back();
+        ReusableMethod.waitToSee(3);
+
+        pages.twitterIcon.click();
+        String tw_actualPageUrl = driver.getCurrentUrl();
+        String tw_expectedUrl = "https://twitter.com/";
+        ReusableMethod.waitToSee(3);
+        softAssert.assertEquals(tw_expectedUrl, tw_actualPageUrl);
+        driver.navigate().back();
+        ReusableMethod.waitToSee(3);
+
+
+        pages.linkedinIcon.click();
+        String lnkd_actualPageUrl = driver.getCurrentUrl();
+        String lnkd_expectedUrl = "https://www.linkedin.com/";
+        ReusableMethod.waitToSee(3);
+        softAssert.assertEquals(lnkd_expectedUrl, lnkd_actualPageUrl);
+        driver.navigate().back();
+        ReusableMethod.waitToSee(3);
+
+        pages.instagramIcon.click();
+        String ins_actualPageUrl = driver.getCurrentUrl();
+        String ins_expectedUrl = "https://www.instagram.com/";
+        ReusableMethod.waitToSee(3);
+        softAssert.assertEquals(ins_expectedUrl, ins_actualPageUrl);
+        driver.navigate().back();
+        ReusableMethod.waitToSee(3);
+        softAssert.assertAll();
+
+
+    }
+
 
 }

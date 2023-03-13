@@ -33,7 +33,7 @@ public class US_4_5_6_9_15_24_pages {
     public WebElement coupons;
 
     //Home page subnemu--> About Us
-    @FindBy(xpath = "(//a[text()='About Us'])[2]")
+    @FindBy(xpath = "((*text()='About Us'])[2]")
     public WebElement aboutUs;
 
     //Home page subnemu--> Contact Us link
@@ -52,8 +52,41 @@ public class US_4_5_6_9_15_24_pages {
     @FindBy(xpath = "//a[text()='Terms & Condition']")
     public WebElement termsCondition;
 
+    //Home page subnemu--> Google Play button
+    @FindBy(xpath = "//a[@class='google_play_box d-flex align-items-center mb_10']")
+    public WebElement googlePlayButton;
+
+    //Home page subnemu--> Apple Store button
+    @FindBy(xpath = "//*[h4='Apple Store']")
+    public WebElement appleStoreButton;
 
 
+    //Home page subnemu--> Go To Top
+    @FindBy(xpath = "//a[@title= 'Go to Top']")
+    public WebElement goToTop;
+
+    //Home page --> Search Your Item Box
+    @FindBy(xpath = "//input[@class='form-control category_box_input']")
+    public WebElement searchBox;
+
+    //Home page subnemu--> facebook icon
+    @FindBy(xpath = "//*[@class='fab fa-facebook-f']")
+    public WebElement facebookIcon;
+
+
+    //Home page subnemu--> twitter icon
+    @FindBy(xpath = "//*[@class='fab fa-twitter']")
+    public WebElement twitterIcon;
+
+
+    //Home page subnemu--> liknedin icon
+    @FindBy(xpath = "//*[@class='fab fa-linkedin']")
+    public WebElement linkedinIcon;
+
+
+    //Home page subnemu--> instagram icon
+    @FindBy(xpath = "//*[@class='fab fa-instagram']")
+    public WebElement instagramIcon;
 
 
 

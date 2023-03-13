@@ -162,9 +162,9 @@ public class ReusableMethod {
 
     }
 
-       public static void waitToSee(int saniye) {
+       public static void waitToSee(int second) {
         try {
-            Thread.sleep(saniye * 1000L);
+            Thread.sleep(second * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
