@@ -1,6 +1,5 @@
 package utilities;
 
-import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +14,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
 
 import static org.openqa.selenium.By.xpath;
@@ -154,6 +152,10 @@ public class ReusableMethod {
 
     }
 
+    // Bir stringi sadece rakam olarak birakir ve integer'a cast eder.
+    public static int onlyTakeNumberandParseInteger(String number) {
+        return Integer.parseInt(number.replaceAll("\\D", ""));
+    }
     // ScrollDown_End_Of_Page --> Murat
     public static void scrolldown() {
 
@@ -162,7 +164,7 @@ public class ReusableMethod {
 
     }
 
-       public static void waitToSee(int saniye) {
+    public static void waitToSee(int saniye) {
         try {
             Thread.sleep(saniye * 1000L);
         } catch (InterruptedException e) {
@@ -179,6 +181,5 @@ public class ReusableMethod {
         useremailTesxtBox.sendKeys(userPassword);
         ReusableMethod.waitToSee(1);
         signInbutton.click();
-
     }
 }
