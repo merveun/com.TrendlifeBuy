@@ -14,7 +14,7 @@ import utilities.ReusableMethod;
 import static org.junit.Assert.assertTrue;
 
 public class US_3_16_19_28_29_StepDef {
-
+    Actions actions = new Actions(Driver.getDriver());
     US_3_16_19_28_29 pages;
 
 
@@ -64,7 +64,7 @@ public class US_3_16_19_28_29_StepDef {
     assertTrue(pages.toysAndKidsAndBabiesMenu.isEnabled());
     pages.bagAndShoesItem.click();
     assertTrue(pages.bagAndShoesMenu.isEnabled());
-        Actions actions = new Actions(Driver.getDriver());
+
         actions.
                 sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN)
@@ -86,6 +86,73 @@ public class US_3_16_19_28_29_StepDef {
     pages.autoMobilesAndBikesItem.click();
     pages.autoMobilesAndBikesMenu.isEnabled();
 
+    }
+    @Then("Sayfayi kapatir")
+    public void sayfayi_kapatir() {
+        Driver.quitDriver();
+    }
+    @Then("Login butonuna basar")
+    public void login_butonuna_basar() {
+        pages= new US_3_16_19_28_29();
+        pages.homePageLogin.click();
 
     }
+    @Then("Gecerli bir {string} ve {string} girer")
+    public void gecerli_bir_ve_girer(String string, String string2) {
+        pages= new US_3_16_19_28_29();
+        pages.emailTextBox.sendKeys(ConfigReader.getProperty("customerEmail"));
+        ReusableMethod.bekle(1);
+        pages.passwordTextBox.sendKeys(ConfigReader.getProperty("customerPassword"));
+        ReusableMethod.bekle(1);
+
+    }
+    @Then("Signed in butonuna basar")
+    public void signed_in_butonuna_basar() {
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+        pages.signInButton.click();
+        ReusableMethod.bekle(1);
+    }
+    @Then("DashBoard butonuna tiklar")
+    public void dash_board_butonuna_tiklar() {
+        pages= new US_3_16_19_28_29();
+        pages.dashBoard.click();
+
+    }
+    @Then("Purchase History Linki tiklanir")
+    public void purchase_history_linki_tiklanir() {
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+        pages.purchaseHistory.click();
+
+    }
+    @Then("Purchase History sayfasina yonlendirdigi dogrulanir")
+    public void purchase_history_sayfasina_yonlendirdigi_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        assertTrue(pages.purchaseHistoryTitle.isDisplayed());
+
+    }
+    @Then("All History dropdown tiklanir")
+    public void all_history_dropdown_tiklanir() {
+
+        pages= new US_3_16_19_28_29();
+        pages.purchaseHistoryAllHistory.click();
+
+    }
+    @Then("ilgili seceneklere gore filtrelendigi gorulur")
+    public void ilgili_seceneklere_gore_filtrelendigi_gorulur() {
+
+        pages= new US_3_16_19_28_29();
+        assertTrue(pages.purchaseHistoryAllHistoryAllHistory.isDisplayed());
+        assertTrue(pages.purchaseHistoryAllHistoryPendingOrders.isDisplayed());
+        assertTrue(pages.purchaseHistoryAllHistoryConfirmedOrders.isDisplayed());
+        assertTrue(pages.purchaseHistoryAllHistoryCompletedOrders.isDisplayed());
+        assertTrue(pages.purchaseHistoryAllHistoryRefusedAndCancelledOrders.isDisplayed());
+
+    }
+
+
 }

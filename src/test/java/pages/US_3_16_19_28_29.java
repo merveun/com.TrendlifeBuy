@@ -16,7 +16,7 @@ public class US_3_16_19_28_29 {
 
     //HomePage>Login
     @FindBy(xpath = "(//a[text()='Login'])[1]")
-    public WebElement HomePageLogin;
+    public WebElement homePageLogin;
 
     //HomePage>Subscribe pop-up
     @FindBy(xpath = "//div[@id='subscriptionModal']//div/i")
@@ -99,7 +99,59 @@ public class US_3_16_19_28_29 {
     @FindBy(xpath = "(//div/ul[@class='dropdown_menu catdropdown_menu dropdown_menu_active']/li/ul)[9]")
     public WebElement autoMobilesAndBikesMenu;
 
+    // US_016 ait locate'ler
 
+    //HomePage>Login > Email
+    @FindBy(xpath = "//input[@id='text']")
+    public WebElement emailTextBox;
+
+    //HomePage>Login > Password
+    @FindBy(xpath = "//input[@id='password']")
+    public WebElement passwordTextBox;
+
+    //HomePage>Login > Sign In Button
+    @FindBy(xpath = "//*[@id=\"sign_in_btn\"]")
+    public WebElement signInButton;
+
+    //HomePage>Login > Sign In Button> Dashboard
+    @FindBy(xpath = "(//span[@class='d-inline-block lh-1 ']/a)[1]")
+    public WebElement dashBoard;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History
+    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[1]")
+    public WebElement purchaseHistory;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Title
+    @FindBy(xpath = "//h3[text()='Purchase History']")
+    public WebElement purchaseHistoryTitle;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>All History
+    @FindBy(xpath = "//div[@class='nice-select amaz_select3']")
+    public WebElement purchaseHistoryAllHistory;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>All History>All History
+    @FindBy(xpath = "(//ul[@class='list']/li)[1]")
+    public WebElement purchaseHistoryAllHistoryAllHistory;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>All History>Pending Orders
+    @FindBy(xpath = "(//ul[@class='list']/li)[2]")
+    public WebElement purchaseHistoryAllHistoryPendingOrders;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>All History>Confirmed Orders
+    @FindBy(xpath = "(//ul[@class='list']/li)[3]")
+    public WebElement purchaseHistoryAllHistoryConfirmedOrders;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>All History>Completed Orders
+    @FindBy(xpath = "(//ul[@class='list']/li)[4]")
+    public WebElement purchaseHistoryAllHistoryCompletedOrders;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>All History>Refused&Cancelled Orders
+    @FindBy(xpath = "(//ul[@class='list']/li)[5]")
+    public WebElement purchaseHistoryAllHistoryRefusedAndCancelledOrders;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action
+    @FindBy(xpath = "(//a[@class='amazy_status_btn'])[1]")
+    public WebElement purchaseHistoryAction;
 
 
 
