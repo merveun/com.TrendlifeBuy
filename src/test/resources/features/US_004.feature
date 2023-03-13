@@ -9,7 +9,6 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     And   quit driver
 
 
-
   Scenario: TC_102 As a user, verify that clicking the My Account, Order Status, Referral, Coupons links redirects to the relevant page
 
     Given go to "Url"
@@ -37,18 +36,13 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     And   quit driver
 
 
-
-
   Scenario: TC_105 Verify that the Google Play and Apple Store buttons are visible
 
     Given go to "Url"
     Then  close popup
     And   scroll down
-    And   verify Google Play button is visible
-    And   verify Apple Store button is visible
+    Then  verify Google Play  and Apple Store buttons are visible
     And   quit driver
-
-
 
 
   Scenario: TC_106 Verify as a visitor that Google Play and Apple Store buttons redirect to their relevant pages
