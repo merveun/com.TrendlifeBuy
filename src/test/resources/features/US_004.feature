@@ -50,11 +50,7 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  click Google Play button
-    And   verify Google Play Store page is opened
-    Then  navigate back
-    Then  click Apple Store button
-    And   verify Apple Store page is opened
+    Then  verify Google Play and Apple Store buttons navigate to relevant pages after clicking
     And   quit driver
 
 
@@ -63,8 +59,7 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  click Go To Top button
-    And   verify top of the home page is visible
+    Then  verify clicking Go To Top button goes top of the home page
     And   quit driver
 
 

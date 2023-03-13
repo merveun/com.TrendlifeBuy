@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
-import pages.US_4_5_6_9_15_24_pages;
+import pages.US_04_05_06_09_15_24_pages;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
@@ -13,9 +13,9 @@ import utilities.ReusableMethod;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
 
-public class US_4_5_6_9_15_24_StepDef {
+public class US_04_05_06_09_15_24_StepDef {
 
-    US_4_5_6_9_15_24_pages pages = new US_4_5_6_9_15_24_pages();
+    US_04_05_06_09_15_24_pages pages = new US_04_05_06_09_15_24_pages();
 
     //Url page
     @Given("go to {string}")
@@ -26,7 +26,7 @@ public class US_4_5_6_9_15_24_StepDef {
     // Popup closed
     @Then("close popup")
     public void close_pop_up() {
-        ReusableMethod.waitForClickablility(pages.PopupExit, 10);
+        ReusableMethod.waitForClickablility(pages.PopupExit, 15);
         pages.PopupExit.click();
 
 
@@ -98,12 +98,12 @@ public class US_4_5_6_9_15_24_StepDef {
 
     }
 
-
+    //Scenario: TC_103
     @Then("verify required links in TC_103 are visible")
     public void verifyRequiredLinksInTC_103AreVisible() {
         SoftAssert softAssert = new SoftAssert();
 
-        // softAssert.assertTrue(pages.aboutUs.isDisplayed());
+        softAssert.assertTrue(pages.aboutUs.isDisplayed());
         softAssert.assertTrue(pages.contactUs.isDisplayed());
         softAssert.assertTrue(pages.career.isDisplayed());
         softAssert.assertTrue(pages.refundPolicy.isDisplayed());
@@ -111,27 +111,14 @@ public class US_4_5_6_9_15_24_StepDef {
 
         softAssert.assertAll();
     }
-    /*
-        @Then("click About Us link")
-        public void clickAboutUsLink() {
-            ReusableMethod.scrolldown();
-            ReusableMethod.waitToSee(2);
-            pages.aboutUs.click();
 
 
-        }
-
-        @Then("verify About Us page is opened")
-        public void verifyAboutUsPageIsOpened() {
-
-        }
-    */
-
-
+    //Scenario: TC_104
     @Then("verify the clicked links in TC_104 navigates to relevant pages")
     public void verifyTheClickedLinksInTC_104NavigatesToRelevantPages() {
 
         SoftAssert softAssert = new SoftAssert();
+        pages.aboutUs.click();
         String aboutUs_actualPageUrl = driver.getCurrentUrl();
         String aboutUs_expectedUrl = "https://qa.trendlifebuy.com/about-us";
         ReusableMethod.waitToSee(2);
@@ -141,7 +128,7 @@ public class US_4_5_6_9_15_24_StepDef {
         ReusableMethod.waitToSee(2);
         pages.contactUs.click();
         String contactUs_actualPageUrl = driver.getCurrentUrl();
-        String contactUs_expectedUrl = "https://qa.trendlifebuy.com/con212tact-us";
+        String contactUs_expectedUrl = "https://qa.trendlifebuy.com/contact-us";
         ReusableMethod.waitToSee(2);
         softAssert.assertEquals(contactUs_expectedUrl, contactUs_actualPageUrl);
 
@@ -158,100 +145,82 @@ public class US_4_5_6_9_15_24_StepDef {
         ReusableMethod.waitToSee(2);
         pages.refundPolicy.click();
         String refundPolicy_actualPageUrl = driver.getCurrentUrl();
-        String refundPolicy_expectedUrl = "qa.trendlifebuy.com/return-exchange";
+        String refundPolicy_expectedUrl = "https://qa.trendlifebuy.com/return-exchange";
         ReusableMethod.waitToSee(2);
         softAssert.assertEquals(refundPolicy_expectedUrl, refundPolicy_actualPageUrl);
-    }
 
-    @Then("click Terms & Condition link")
-    public void clickTermsConditionLink() {
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(2);
         pages.termsCondition.click();
         String termsCondition_actualPageUrl = driver.getCurrentUrl();
         String termsCondition_expectedUrl = "https://qa.trendlifebuy.com/terms-condition";
-        SoftAssert softAssert = new SoftAssert();
         ReusableMethod.waitToSee(2);
         softAssert.assertEquals(termsCondition_expectedUrl, termsCondition_actualPageUrl);
 
         softAssert.assertAll();
     }
 
+    //Scenario: TC_105
+    @Then("verify Google Play  and Apple Store buttons are visible")
+    public void verifyGooglePlayAndAppleStoreButtonsAreVisible() {
+        SoftAssert softAssert = new SoftAssert();
 
-    @Then("verify Google Play button is visible")
-    public void verifyGooglePlayButtonIsVisible() {
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(2);
-        pages.googlePlayButton.isDisplayed();
-
-
-    }
-
-    @Then("verify Apple Store button is visible")
-    public void verifyAppleStoreButtonIsVisible() {
-        ReusableMethod.scrolldown();
+        softAssert.assertTrue(pages.googlePlayButton.isDisplayed());
         ReusableMethod.waitToSee(2);
-        pages.appleStoreButton.isDisplayed();
+        softAssert.assertTrue(pages.appleStoreButton.isDisplayed());
+
+        softAssert.assertAll();
     }
-//------------------------
-    @Then("click Google Play button")
-    public void clickGooglePlayButton() {
+
+    //Scenario: TC_106
+    @Then("verify Google Play and Apple Store buttons navigate to relevant pages after clicking")
+    public void verifyGooglePlayAndAppleStoreButtonsNavigateToRelevantPagesAfterClicking() {
+        SoftAssert softAssert = new SoftAssert();
+
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(2);
         pages.googlePlayButton.click();
-    }
-
-    @And("verify Google Play Store page is opened")
-    public void verifyGooglePlayStorePageIsOpened() {
-        String actualPageUrl = driver.getCurrentUrl();
-        String expectedUrl = "https://play.google.com/store/games";
-        SoftAssert softAssert = new SoftAssert();
+        String googlePlayButton_actualPageUrl = driver.getCurrentUrl();
+        String googlePlayButton_expectedUrl = "https://play.google.com/store/games";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(expectedUrl, actualPageUrl);
+        softAssert.assertEquals(googlePlayButton_expectedUrl, googlePlayButton_actualPageUrl);
+        ReusableMethod.waitToSee(2);
+        driver.navigate().back();
 
-    }
-
-    @Then("click Apple Store button")
-    public void clickAppleStoreButton() {
         ReusableMethod.waitToSee(2);
         pages.appleStoreButton.click();
+        String appleStoreButton_actualPageUrl = driver.getCurrentUrl();
+        String appleStoreButton_expectedUrl = "https://www.apple.com/app-store/";
+        ReusableMethod.waitToSee(2);
+        softAssert.assertEquals(appleStoreButton_expectedUrl, appleStoreButton_actualPageUrl);
+
+        softAssert.assertAll();
     }
 
-    @And("verify Apple Store page is opened")
-    public void verifyAppleStorePageIsOpened() {
-        String actualPageUrl = driver.getCurrentUrl();
-        String expectedUrl = "https://www.apple.com/app-store/";
+    //Scenario: TC_107
+
+    @Then("verify clicking Go To Top button goes top of the home page")
+    public void verifyclickingGoToTopButtonGoesTopOfTheHomePage() {
         SoftAssert softAssert = new SoftAssert();
-        ReusableMethod.waitToSee(2);
-        Assert.assertEquals(expectedUrl, actualPageUrl);
 
-    }
-
-    @Then("navigate back")
-    public void navigateBack() {
-        driver.navigate().back();
-        ReusableMethod.waitToSee(2);
-    }
-
-    @Then("click Go To Top button")
-    public void clickGoToTopButton() {
         pages.goToTop.click();
         ReusableMethod.waitToSee(3);
-    }
-
-    @And("verify top of the home page is visible")
-    public void verifyTopOfTheHomePageIsVisible() {
-        ReusableMethod.waitToSee(2);
         Assert.assertTrue(pages.searchBox.isDisplayed());
+
+        softAssert.assertAll();
     }
 
     @Then("verify required icons are visible")
     public void verify_required_icons_are_visible() {
         SoftAssert softAssert = new SoftAssert();
+
         softAssert.assertTrue(pages.facebookIcon.isDisplayed());
         softAssert.assertTrue(pages.twitterIcon.isDisplayed());
         softAssert.assertTrue(pages.linkedinIcon.isDisplayed());
         softAssert.assertTrue(pages.instagramIcon.isDisplayed());
+
         softAssert.assertAll();
 
 

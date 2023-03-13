@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class US_4_5_6_9_15_24_pages {
+public class US_04_05_06_09_15_24_pages {
 
-    public US_4_5_6_9_15_24_pages() {
+    public US_04_05_06_09_15_24_pages() {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -33,7 +33,7 @@ public class US_4_5_6_9_15_24_pages {
     public WebElement coupons;
 
     //Home page subnemu--> About Us
-    @FindBy(xpath = "((*text()='About Us'])[2]")
+    @FindBy(xpath = "(//a[text()='About Us'])[3]")
     public WebElement aboutUs;
 
     //Home page subnemu--> Contact Us link
