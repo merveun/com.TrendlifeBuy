@@ -156,46 +156,54 @@ public class ReusableMethod {
     public static int onlyTakeNumberandParseInteger(String number) {
         return Integer.parseInt(number.replaceAll("\\D", ""));
     }
-    // ScrollDown_End_Of_Page --> Murat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // ScrollDown_End_Of_Page --> Murat
     public static void scrolldown() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
        public static void waitToSee(int second) {
                try {
