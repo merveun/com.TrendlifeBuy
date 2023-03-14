@@ -13,7 +13,7 @@ Feature: Bir kullanici olarak satin alma gecmisimi görüntüleyebilmek icin
     Then  Purchase History Linki tiklanir
     And   Purchase History sayfasina yonlendirdigi dogrulanir
     And   Sayfayi kapatir
-  @must
+
   Scenario: TC_002-Purchase History sayfasindaki Purchase History listesinde
             görüntülenecek iceriklerin All History acilir penceresinde All History, Pending Orders,
             Confirmed Orders, Completed Orders, Refused&Cancelled Orders
@@ -30,7 +30,7 @@ Feature: Bir kullanici olarak satin alma gecmisimi görüntüleyebilmek icin
     Then  ilgili seceneklere gore filtrelendigi gorulur
     And   Sayfayi kapatir
 
-
+  @must
     Scenario: TC_003-Purchase History sayfasinda Purchase History listesindeki
               Actions sütunundan siparis özetlerinin görüntülenebildigi ve
               siparis faturasinin indirilebildigi dogrulanmali.
@@ -42,6 +42,9 @@ Feature: Bir kullanici olarak satin alma gecmisimi görüntüleyebilmek icin
       And   Signed in butonuna basar
       Then  DashBoard butonuna tiklar
       Then  Purchase History Linki tiklanir
-      #pencereler arasi gecis
+      Then  Siparis ozetlerinin goruntulenebildigi dogrulanir
+      And   Siparis faturasinin indirildigi dogrulanir
+      And   Sayfayi kapatir
+
 
 
