@@ -1,10 +1,12 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.IOException;
@@ -172,7 +174,6 @@ public class ReusableMethod {
         }
     }
 
-
     public static void logIn(String userEmailAddress, String userPassword) {
         WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
         WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
@@ -181,5 +182,13 @@ public class ReusableMethod {
         useremailTesxtBox.sendKeys(userPassword);
         ReusableMethod.waitToSee(1);
         signInbutton.click();
+    }
+
+
+    // Sayfa üzerinde istenilen elemente gider
+    public static void focusToElement(WebElement element)
+    {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.scrollToElement(element);
     }
 }
