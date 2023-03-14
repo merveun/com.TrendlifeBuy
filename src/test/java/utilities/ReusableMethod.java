@@ -1,10 +1,12 @@
 package utilities;
 
-import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.asserts.SoftAssert;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -12,8 +14,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
+
+import static utilities.Driver.driver;
 
 public class ReusableMethod {
 
@@ -76,7 +79,7 @@ public class ReusableMethod {
 //   waitFor(5);  => waits for 5 second
     public static void bekle(int saniye) {
         try {
-            Thread.sleep(saniye * 1000);
+            Thread.sleep(saniye * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -148,4 +151,103 @@ public class ReusableMethod {
 
     }
 
+    // Bir stringi sadece rakam olarak birakir ve integer'a cast eder.
+    public static int onlyTakeNumberandParseInteger(String number) {
+        return Integer.parseInt(number.replaceAll("\\D", ""));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // ScrollDown_End_Of_Page --> Murat
+    public static void scrolldown() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+    }
+
+    public static void scrolldown_600() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,600)");
+
+    }
+    public static void scrolldown_bypixel_2000() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+
+    }
+
+
+    public static void logIn(String userEmailAddress, String userPassword) {
+        WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
+        WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
+        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+        userEmailTextBox.sendKeys(userEmailAddress);
+        useremailTesxtBox.sendKeys(userPassword);
+        ReusableMethod.waitToSee(1);
+        signInbutton.click();
+    }
+
+
+    // Sayfa üzerinde istenilen elemente gider
+    public static void focusToElement(WebElement element)
+    {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.scrollToElement(element);
+    }
+
+    public static void scrolldown_for_Load_More() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,5500)");
+
+    }
+
+       public static void waitToSee(int second) {
+               try {
+                   Thread.sleep(second * 1000L);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+
 }
+
