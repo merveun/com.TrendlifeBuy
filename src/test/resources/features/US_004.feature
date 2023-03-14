@@ -5,23 +5,17 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     Then  scroll down
-    *     verify required texts are visible
-   # And   quit driver
+    *     verify required links in TC_101 are visible
+    And   quit driver
 
 
-  Scenario: TC_102 Verify that My Account, Order Status, Referral, Coupons links are navigates to relevant pages
+  Scenario: TC_102 As a user, verify that clicking the My Account, Order Status, Referral, Coupons links redirects to the relevant page
 
     Given go to "Url"
     Then  close popup
     Then  scroll down
-    Then  click My Account link
-    And   verify My Account page is opened
-    Then  click Order Status link
-    And   verify Order Status page is opened
-    Then  click Referral link
-    And   verify Referral page is opened
-    Then  click Coupons link
-    And   verify Coupons page is opened
+    * verify the clicked links in TC_102 navigates to relevant pages
+    And   quit driver
 
 
   Scenario: TC_103 Verify that the About Us, Contact Us, Career, Refund Policy, Terms & Condition links are visible
@@ -29,25 +23,72 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify About Us link is visible
-    Then  verify Contact Us link is visible
-    Then  verify Career link is visible
-    Then  verify Refund Policy link is visible
-    Then  verify Terms & Condition link is visible
+    Then  verify required links in TC_103 are visible
+    And   quit driver
 
 
-  Scenario: TC_104 Verify that the About Us, Contact Us, Career, Refund Policy, Terms & Condition links are navigates to relevant pages
+  Scenario: TC_104 As a visitor, verify that clicking on About Us, Contact Us, Career, Refund Policy, Terms & Condition links redirects to the relevant pages
 
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  click About Us link
-    Then  verify About Us page is opened
-    Then  click Contact Us link
-    Then  verify Contact Us page is opened
-    Then  click Career link
-    Then  verify Career link page is opened
-    Then  click Refund Policy page link
-    Then  verify Refund Policy link page is opened
-    Then  click Terms & Condition link
-    Then  verify Terms & Condition page is opened
+    Then  verify the clicked links in TC_104 navigates to relevant pages
+    And   quit driver
+
+
+  Scenario: TC_105 Verify that the Google Play and Apple Store buttons are visible
+
+    Given go to "Url"
+    Then  close popup
+    And   scroll down
+    Then  verify Google Play  and Apple Store buttons are visible
+    And   quit driver
+
+
+  Scenario: TC_106 Verify as a visitor that Google Play and Apple Store buttons redirect to their relevant pages
+
+    Given go to "Url"
+    Then  close popup
+    And   scroll down
+    Then  verify Google Play and Apple Store buttons navigate to relevant pages after clicking
+    And   quit driver
+
+
+  Scenario: TC_107 Verify that clicking the Go to Top button goes to the top of the home page
+
+    Given go to "Url"
+    Then  close popup
+    And   scroll down
+    Then  verify clicking Go To Top button goes top of the home page
+    And   quit driver
+
+
+  Scenario: TC_108 Verify that facebook, twitter, linkedin and instagram icons are visible
+
+    Given go to "Url"
+    Then  close popup
+    And   scroll down
+    *     verify required icons are visible
+    And   quit driver
+
+
+  Scenario: TC_109 Verify that clicking on facebook, twitter, linkedin and instagram icons
+
+    Given go to "Url"
+    Then  close popup
+    And   scroll down
+    Then  verify clicked icons navigate to relevant pages
+    And   quit driver
+
+
+
+
+
+
+
+
+
+
+
+
+
