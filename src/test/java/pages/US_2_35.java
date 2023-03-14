@@ -11,6 +11,11 @@ public class US_2_35 {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
+    //Homepage/popup
+    @FindBy(xpath = "(//i[@class=\"ti-close\"])[1]")
+    public WebElement popupclose;
+
     //Homepage/Header > playstore button
     @FindBy(xpath = "//span[text()='Play store']")
     public WebElement playstoreButton;
