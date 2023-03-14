@@ -1,8 +1,10 @@
 package stepdefinitions;
 
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Point;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import pages.US_04_05_06_09_15_24_pages;
@@ -39,6 +41,31 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitToSee(2);
 
     }
+
+    @Then("scroll down bypixel_600")
+    public void scroll_down_by_pixel_600() {
+        ReusableMethod.scrolldown_600();
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("scroll down bypixel_2000")
+    public void scrollDownBypixel_2000() {
+        ReusableMethod.scrolldown_bypixel_2000();
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("scroll down bypixel_5500")
+    public void scrollDownBypixel_5500() {
+
+        //ReusableMethod.waitToSee(2);
+    }
+
+    @Then("scroll down for Load More")
+    public void scrollDownForLoadMore() {
+        ReusableMethod.scrolldown_for_Load_More();
+        ReusableMethod.waitToSee(2);
+    }
+
 
     @And("quit driver")
     public void quitDriver() {
@@ -212,6 +239,7 @@ public class US_04_05_06_09_15_24_StepDef {
         softAssert.assertAll();
     }
 
+    //Scenario: TC_108
     @Then("verify required icons are visible")
     public void verify_required_icons_are_visible() {
         SoftAssert softAssert = new SoftAssert();
@@ -226,7 +254,7 @@ public class US_04_05_06_09_15_24_StepDef {
 
     }
 
-
+    //Scenario: TC_109
     @Then("verify clicked icons navigate to relevant pages")
     public void verifyClickedIconsNavigateToRelevantPages() {
         SoftAssert softAssert = new SoftAssert();
@@ -264,9 +292,85 @@ public class US_04_05_06_09_15_24_StepDef {
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
         softAssert.assertAll();
+    }
+
+    //Scenario: TC_110
+    @Then("verify required links in TC_110 are visible")
+    public void verifyRequiredLinksInTC_AreVisible() {
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertTrue(pages.trendingProducts.isDisplayed());
+        softAssert.assertTrue(pages.hotCategories.isDisplayed());
+        softAssert.assertTrue(pages.houseAppliances.isDisplayed());
+        softAssert.assertTrue(pages.recommendtaionForYou.isDisplayed());
+        softAssert.assertTrue(pages.topBrand.isDisplayed());
+        softAssert.assertTrue(pages.popularSearches.isDisplayed());
+        softAssert.assertTrue(pages.trenbuylifeOnlineShopping.isDisplayed());
+
+        softAssert.assertAll();
+    }
+
+    //Scenario: TC_111
+    @Then("Verify that the View All button redirects to the relevant page")
+    public void verifyThatTheViewAllButtonRedirectsToTheRelevantPage() {
+        SoftAssert softAssert = new SoftAssert();
+
+
+        pages.viewAll_trendingProducts.click();
+        String viewAll_trendingProducts_actualPageUrl = driver.getCurrentUrl();
+        String expected_trend_url = "https://qa.trendlifebuy.com/category/best_deals?item=product";
+        softAssert.assertTrue(viewAll_trendingProducts_actualPageUrl.contains(expected_trend_url));
+        ReusableMethod.waitToSee(2);
+        driver.navigate().back();
+        ReusableMethod.waitToSee(3);
+
+        pages.viewAll_hotcategories.click();
+        String viewAll_hotcategories_actualPageUrl = driver.getCurrentUrl();
+        String expected_hot_url = "https://qa.trendlifebuy.com/category";
+        softAssert.assertTrue(viewAll_hotcategories_actualPageUrl.contains(expected_hot_url));
+        ReusableMethod.waitToSee(2);
+        driver.navigate().back();
+        ReusableMethod.waitToSee(3);
+
+        softAssert.assertAll();
 
 
     }
 
+    //Scenario: TC_112
+    @Then("Verify that the More Deal button redirects to the relevant page")
+    public void verifyThatTheMoreDealButtonRedirectsToTheRelevantPage() {
+        pages.moreDealsButton.click();
+        String moreDeals_actualUrl = driver.getCurrentUrl();
+        System.out.println(moreDeals_actualUrl);
+        String moreDeals_expectedUrl = "https://qa.trendlifebuy.com/category/furnitures?item=category";
+        Assert.assertTrue(moreDeals_expectedUrl.contains(moreDeals_actualUrl));
+
+    }
+    //Scenario: TC_113
+
+    @Then("verify that more products are seen as the Load More button is clicked")
+    public void verifyThatMoreProductsAreSeenAsTheLoadMoreButtonIsClicked() {
+
+        //System.out.println(pages.loadMoreButton.getLocation());
+        int loc1= ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
+        //System.out.println(loc1);
+        ReusableMethod.waitToSee(2);
+        pages.loadMoreButton.click();
+        ReusableMethod.waitToSee(3);
+        //System.out.println(pages.loadMoreButton.getLocation());
+        int loc2= ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
+        //System.out.println(loc2);
+        Assert.assertTrue(loc2>loc1);
+
+    }
+
+
+
 
 }
+
+
+
+
+

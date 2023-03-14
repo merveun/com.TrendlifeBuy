@@ -2,13 +2,11 @@ package utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -16,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
-import static org.openqa.selenium.By.xpath;
 import static utilities.Driver.driver;
 
 public class ReusableMethod {
@@ -205,6 +202,24 @@ public class ReusableMethod {
 
     }
 
+    public static void scrolldown_600() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,600)");
+
+    }
+    public static void scrolldown_bypixel_2000() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+
+    }
+
+    public static void scrolldown_for_Load_More() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,5500)");
+
+    }
+
        public static void waitToSee(int second) {
                try {
                    Thread.sleep(second * 1000L);
@@ -223,5 +238,7 @@ public class ReusableMethod {
                ReusableMethod.waitToSee(1);
                signInbutton.click();
            }
-       }
+
+
+}
 

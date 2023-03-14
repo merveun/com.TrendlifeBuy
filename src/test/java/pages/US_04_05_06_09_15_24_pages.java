@@ -89,6 +89,73 @@ public class US_04_05_06_09_15_24_pages {
     public WebElement instagramIcon;
 
 
+    //Home page bodynemu--> Trending Products
+    @FindBy(xpath = "//h3[text()='Trending Products']")
+    public WebElement trendingProducts;
+
+    //Home page bodynemu--> Hot Categories
+    @FindBy(xpath = "//h3[text()='Hot  Categories']")
+    public WebElement hotCategories;
+
+    //Home page bodynemu--> House Appliances
+    @FindBy(xpath = "//h4[text()='House Appliances']")
+    public WebElement houseAppliances;
+
+
+
+
+
+    //Home page bodynemu-->Recommendation For You
+    @FindBy(xpath = "//h4[text()='Recommendation For You']")
+    public WebElement recommendtaionForYou;
+
+
+    //Home page bodynemu-->Top Brand
+    @FindBy(xpath = "//h3[text()='Top Brand']")
+    public WebElement topBrand;
+
+    //Home page bodynemu-->Popular Searches
+    @FindBy(xpath = "//h3[text()='Popular Searches']")
+    public WebElement popularSearches;
+
+    //Home page bodynemu-->Trendlifebuy | ONLINE SHOPPING
+    @FindBy(xpath = "//h3[text()='Trendlifebuy | ONLINE SHOPPING']")
+    public WebElement trenbuylifeOnlineShopping;
+
+
+//Home page bodynemu-->Trending products viewAll
+    @FindBy(xpath = "(//a[@class='title_link d-flex align-items-center lh-1'])[1]")
+    public WebElement viewAll_trendingProducts;
+
+
+
+//Home page bodynemu-->Hot Categories viewAll
+    @FindBy(xpath = "(//span[text()='View All'])[2]")
+    public WebElement viewAll_hotcategories;
+
+
+//Home page subnemu-->More Deals
+    @FindBy(xpath = "(//span[@class='title_text'])[3]")
+    public WebElement moreDealsButton;
+
+
+
+//Home page subnemu-->Load More
+    @FindBy(id = "loadmore")
+    public WebElement loadMoreButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
