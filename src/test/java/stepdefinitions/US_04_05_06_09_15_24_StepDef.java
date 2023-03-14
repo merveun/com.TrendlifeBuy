@@ -1,10 +1,9 @@
 package stepdefinitions;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import pages.US_04_05_06_09_15_24_pages;
@@ -41,18 +40,20 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitToSee(2);
 
     }
-
-    @Then("scroll down bypixel_600")
-    public void scroll_down_by_pixel_600() {
+    @Then("scroll down for View All")
+    public void scrollDownForViewAll() {
         ReusableMethod.scrolldown_600();
         ReusableMethod.waitToSee(2);
     }
 
-    @Then("scroll down bypixel_2000")
-    public void scrollDownBypixel_2000() {
+
+    @Then("scroll down for More Deal button")
+    public void scrollDownForMoreDealButton() {
         ReusableMethod.scrolldown_bypixel_2000();
         ReusableMethod.waitToSee(2);
     }
+
+
 
     @Then("scroll down bypixel_5500")
     public void scrollDownBypixel_5500() {
@@ -66,11 +67,10 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitToSee(2);
     }
 
+    @And("terminate test")
+    public void terminateTest() {Driver.quitDriver(); }
 
-    @And("quit driver")
-    public void quitDriver() {
-        Driver.quitDriver();
-    }
+
 
     //Scenario: TC_101
     @Then("verify required links in TC_101 are visible")
@@ -92,7 +92,7 @@ public class US_04_05_06_09_15_24_StepDef {
 
         ReusableMethod.waitToSee(1);
         pages.myAccount.click();
-        ReusableMethod.logIn(ConfigReader.getProperty("validEmail_Murat"), ConfigReader.getProperty("validPassword_Murat"));
+        ReusableMethod.signIn(ConfigReader.getProperty("validEmail_Murat"), ConfigReader.getProperty("validPassword_Murat"));
         String myAccount_actualPageUrl = driver.getCurrentUrl();
         String myAccount_expectedUrl = "https://qa.trendlifebuy.com/profile";
         ReusableMethod.waitToSee(2);
@@ -314,6 +314,8 @@ public class US_04_05_06_09_15_24_StepDef {
     @Then("Verify that the View All button redirects to the relevant page")
     public void verifyThatTheViewAllButtonRedirectsToTheRelevantPage() {
         SoftAssert softAssert = new SoftAssert();
+        Actions actions= new Actions(driver);
+        actions.moveToElement(pages.viewAll_trendingProducts).perform();
 
 
         pages.viewAll_trendingProducts.click();
@@ -348,7 +350,6 @@ public class US_04_05_06_09_15_24_StepDef {
 
     }
     //Scenario: TC_113
-
     @Then("verify that more products are seen as the Load More button is clicked")
     public void verifyThatMoreProductsAreSeenAsTheLoadMoreButtonIsClicked() {
 
@@ -365,9 +366,86 @@ public class US_04_05_06_09_15_24_StepDef {
 
     }
 
+    //Scenario: TC_114
+
+    @Then("click log in")
+    public void clickLogIn() {
+        pages.logInButton.click();
+    }
+
+    @Then("verify that after clicking Here link next to Password navigates to relevant page")
+    public void verifyThatAfterClickingHereLinkNextToPasswordNavigatesToRelevantPage() {
+        pages.clickHereToReset.click();
+        Assert.assertTrue(pages.resetPasswordSendButton.isDisplayed());
+    }
+
+    //Scenario: TC_115
+    @Then("verify that after clicking Sign Up next to next to Don't have an Account? navigates to relevant page")
+    public void verifyThatAfterClickingSignUpNextToNextToDonTHaveAnAccountNavigatesToRelevantPage() {
+        pages.signUp.click();
+        Assert.assertTrue(pages.signUpText.isDisplayed());
+    }
 
 
+    //Scenario: TC_115
+    @Then("log in")
+    public void logIn() {
+        pages.logInButton.click();
 
+    }
+
+    @Then("type valid email")
+    public void typeValidEmail() {
+        pages.emailBox.sendKeys(ConfigReader.getProperty("validEmail_Murat"));
+    }
+
+    @And("type valid password")
+    public void typeValidPassword() {
+        pages.passwordBox.sendKeys(ConfigReader.getProperty("validPassword_Murat"));
+    }
+
+    @Then("click sign in")
+    public void clickSignIn() {
+        pages.signInButton.click();
+        ReusableMethod.waitToSee(3);
+    }
+
+    @Then("verify that navigates to Home Page")
+    public void verifyThatNavigatesToHomePage() {
+        Assert.assertTrue(pages.dashboardLink.isDisplayed());
+
+    }
+
+    @Then("verify that Welcome message is displayed")
+    public void verifyThatWelcomeMessageIsDisplayed() {
+        Assert.assertTrue(pages.succesMessage.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("type incorrect email")
+    public void typeIncorrectEmail() {
+        pages.emailBox.sendKeys(ConfigReader.getProperty("incorrectEmail_Murat"));
+    }
+
+    @And("type incorrect password")
+    public void typeIncorrectPassword() {
+        pages.passwordBox.sendKeys(ConfigReader.getProperty("incorrectPassword_Murat"));
+    }
+
+   @Then("verify that These credentials do not match our records text is displayed")
+    public void verifyThatTheseCredentialsDoNotMatchOurRecordsTextIsDisplayed() {
+        Assert.assertTrue(pages.wrongDataText.isDisplayed());
+    }
+
+    @Then("Verify that the Remember me checkbox is clickable")
+    public void verifyThatTheRememberMeCheckboxIsClickable() {
+      pages.rememberMeCheckBox.click();
+      ReusableMethod.waitToSee(5);
+        Assert.assertFalse(pages.rememberMeCheckBox.isSelected());
+        //Assert.assertTrue(pages.rememberMeCheckBox.isSelected());
+
+
+    }
 }
 
 
