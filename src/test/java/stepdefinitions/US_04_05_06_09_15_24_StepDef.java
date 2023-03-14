@@ -30,7 +30,6 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitForClickablility(pages.PopupExit, 15);
         pages.PopupExit.click();
 
-
     }
 
     // Scroll down
@@ -40,6 +39,7 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitToSee(2);
 
     }
+
     @Then("scroll down for View All")
     public void scrollDownForViewAll() {
         ReusableMethod.scrolldown_600();
@@ -52,7 +52,6 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.scrolldown_bypixel_2000();
         ReusableMethod.waitToSee(2);
     }
-
 
 
     @Then("scroll down bypixel_5500")
@@ -68,8 +67,9 @@ public class US_04_05_06_09_15_24_StepDef {
     }
 
     @And("terminate test")
-    public void terminateTest() {Driver.quitDriver(); }
-
+    public void terminateTest() {
+        Driver.quitDriver();
+    }
 
 
     //Scenario: TC_101
@@ -314,7 +314,7 @@ public class US_04_05_06_09_15_24_StepDef {
     @Then("Verify that the View All button redirects to the relevant page")
     public void verifyThatTheViewAllButtonRedirectsToTheRelevantPage() {
         SoftAssert softAssert = new SoftAssert();
-        Actions actions= new Actions(driver);
+        Actions actions = new Actions(driver);
         actions.moveToElement(pages.viewAll_trendingProducts).perform();
 
 
@@ -349,20 +349,21 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertTrue(moreDeals_expectedUrl.contains(moreDeals_actualUrl));
 
     }
+
     //Scenario: TC_113
     @Then("verify that more products are seen as the Load More button is clicked")
     public void verifyThatMoreProductsAreSeenAsTheLoadMoreButtonIsClicked() {
 
         //System.out.println(pages.loadMoreButton.getLocation());
-        int loc1= ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
+        int loc1 = ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
         //System.out.println(loc1);
         ReusableMethod.waitToSee(2);
         pages.loadMoreButton.click();
         ReusableMethod.waitToSee(3);
         //System.out.println(pages.loadMoreButton.getLocation());
-        int loc2= ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
+        int loc2 = ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
         //System.out.println(loc2);
-        Assert.assertTrue(loc2>loc1);
+        Assert.assertTrue(loc2 > loc1);
 
     }
 
@@ -432,17 +433,16 @@ public class US_04_05_06_09_15_24_StepDef {
         pages.passwordBox.sendKeys(ConfigReader.getProperty("incorrectPassword_Murat"));
     }
 
-   @Then("verify that These credentials do not match our records text is displayed")
+    @Then("verify that These credentials do not match our records text is displayed")
     public void verifyThatTheseCredentialsDoNotMatchOurRecordsTextIsDisplayed() {
         Assert.assertTrue(pages.wrongDataText.isDisplayed());
     }
 
     @Then("Verify that the Remember me checkbox is clickable")
     public void verifyThatTheRememberMeCheckboxIsClickable() {
-      pages.rememberMeCheckBox.click();
-      ReusableMethod.waitToSee(5);
-        Assert.assertFalse(pages.rememberMeCheckBox.isSelected());
-        //Assert.assertTrue(pages.rememberMeCheckBox.isSelected());
+       pages.rememberMeCheckBox.click();
+       // ReusableMethod.waitToSee(2);
+       Assert.assertTrue(pages.rememberMeCheckBox1.isSelected());
 
 
     }

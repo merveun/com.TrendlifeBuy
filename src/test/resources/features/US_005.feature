@@ -11,7 +11,7 @@ Feature: US_005 Verify that the functions in the body of the home page are activ
 
     Given   go to "Url"
     Then    close popup
-    #Then    scroll down for View All
+    Then    scroll down for View All
     Then    Verify that the View All button redirects to the relevant page
     And     terminate test
 

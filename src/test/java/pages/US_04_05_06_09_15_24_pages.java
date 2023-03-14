@@ -206,8 +206,14 @@ public class US_04_05_06_09_15_24_pages {
 
 
     //Home page/login --> Remember me
-    @FindBy(xpath = "//span[@class='checkmark mr_15']")
+    @FindBy(xpath = "//label[@class='primary_checkbox d-flex']")
     public WebElement rememberMeCheckBox;
+
+
+
+    //Home page/login --> Remember me
+    @FindBy(id = "remember")
+    public WebElement rememberMeCheckBox1;
 
 
 
