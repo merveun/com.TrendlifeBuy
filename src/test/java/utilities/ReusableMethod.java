@@ -3,14 +3,12 @@ package utilities;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -18,7 +16,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
-import static org.openqa.selenium.By.xpath;
 import static utilities.Driver.driver;
 
 public class ReusableMethod {
@@ -158,7 +155,48 @@ public class ReusableMethod {
     public static int onlyTakeNumberandParseInteger(String number) {
         return Integer.parseInt(number.replaceAll("\\D", ""));
     }
-    // ScrollDown_End_Of_Page --> Murat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // ScrollDown_End_Of_Page --> Murat
     public static void scrolldown() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -166,13 +204,18 @@ public class ReusableMethod {
 
     }
 
-    public static void waitToSee(int saniye) {
-        try {
-            Thread.sleep(saniye * 1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public static void scrolldown_600() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,600)");
+
     }
+    public static void scrolldown_bypixel_2000() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+
+    }
+
 
     public static void logIn(String userEmailAddress, String userPassword) {
         WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
@@ -191,4 +234,20 @@ public class ReusableMethod {
         Actions actions = new Actions(Driver.getDriver());
         actions.scrollToElement(element);
     }
+
+    public static void scrolldown_for_Load_More() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,5500)");
+
+    }
+
+       public static void waitToSee(int second) {
+               try {
+                   Thread.sleep(second * 1000L);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+
 }
+
