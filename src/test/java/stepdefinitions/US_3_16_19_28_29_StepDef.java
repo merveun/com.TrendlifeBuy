@@ -11,11 +11,14 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
+import java.util.Set;
+
 import static org.junit.Assert.assertTrue;
 
 public class US_3_16_19_28_29_StepDef {
     Actions actions = new Actions(Driver.getDriver());
     US_3_16_19_28_29 pages;
+    String ilkSayfaHandleDegeri;
 
 
     @Given("Kullanici Anasayfa {string} 'ine gider.")
@@ -126,6 +129,7 @@ public class US_3_16_19_28_29_StepDef {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethod.bekle(2);
         pages.purchaseHistory.click();
+        ilkSayfaHandleDegeri=Driver.getDriver().getWindowHandle();
 
     }
     @Then("Purchase History sayfasina yonlendirdigi dogrulanir")
@@ -151,6 +155,44 @@ public class US_3_16_19_28_29_StepDef {
         assertTrue(pages.purchaseHistoryAllHistoryConfirmedOrders.isDisplayed());
         assertTrue(pages.purchaseHistoryAllHistoryCompletedOrders.isDisplayed());
         assertTrue(pages.purchaseHistoryAllHistoryRefusedAndCancelledOrders.isDisplayed());
+
+    }
+
+    @Then("Siparis ozetlerinin goruntulenebildigi dogrulanir")
+    public void siparis_ozetlerinin_goruntulenebildigi_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+
+        pages.purchaseHistoryActionOrderSummary.click();
+        ReusableMethod.bekle(2);
+        assertTrue(pages.purchaseHistoryActionOrderSummaryCheck.isDisplayed());
+        pages.purchaseHistoryActionOrderSummaryCheckExit.click();
+
+    }
+    @Then("Siparis faturasinin indirildigi dogrulanir")
+    public void siparis_faturasinin_indirildigi_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        //assertTrue(pages.purchaseHistoryActionInvoiceDownload.isEnabled());
+        pages.purchaseHistoryActionInvoiceDownload.click();
+
+        Set<String> tumWHDegerleriSeti=Driver.getDriver().getWindowHandles();
+
+        String ikinciSayfaWHD="";
+
+        for (String eachWhd:tumWHDegerleriSeti
+        ) {
+            if (!eachWhd.equals(ilkSayfaHandleDegeri))
+                ikinciSayfaWHD=eachWhd;
+        }
+
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD);
+
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD).close();
+
+        Driver.getDriver().switchTo().window(ilkSayfaHandleDegeri);
+
+
 
     }
 

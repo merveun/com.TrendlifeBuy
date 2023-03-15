@@ -149,11 +149,26 @@ public class US_3_16_19_28_29 {
     @FindBy(xpath = "(//ul[@class='list']/li)[5]")
     public WebElement purchaseHistoryAllHistoryRefusedAndCancelledOrders;
 
-    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action Order Summary
+    @FindBy(xpath = "(//button[@class='amazy_status_btn purchase_show'])[1]")
+    public WebElement purchaseHistoryActionOrderSummary;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action Invoice Download
     @FindBy(xpath = "(//a[@class='amazy_status_btn'])[1]")
-    public WebElement purchaseHistoryAction;
+    public WebElement purchaseHistoryActionInvoiceDownload;
 
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action Order Summary Check
+    @FindBy(xpath = "//h5[text()='Order Summary']")
+    public WebElement purchaseHistoryActionOrderSummaryCheck;
 
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action Order Summary Check Exit
+    @FindBy(xpath = "(//button[@class='close_modal_icon'])[1]")
+    public WebElement purchaseHistoryActionOrderSummaryCheckExit;
+
+    //HomePage>Login > Sign In Button> Dashboard> Purchase History>Action Invoice DownloadThen
+
+    @FindBy(xpath = "//*[@id=\"download\"]")
+    public WebElement purchaseHistoryActionInvoiceDownloadThen;
 
     }
 
