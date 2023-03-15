@@ -18,7 +18,7 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     And   terminate test
 
 
-  Scenario: TC_103 Verify that the About Us, Contact Us, Career, Refund Policy, Terms & Condition links are visible
+  Scenario: TC_103 Verify that the About Us, Contact Us, Career, Refund Policy, Terms & ConditGIT ion links are visible
 
     Given go to "Url"
     Then  close popup
