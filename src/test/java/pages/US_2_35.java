@@ -13,7 +13,7 @@ public class US_2_35 {
 
 
     //Homepage/popup
-    @FindBy(xpath = "(//i[@class=\"ti-close\"])[1]")
+    @FindBy(css = "#subscriptionModal > div > div.close_modal > i")
     public WebElement popupclose;
 
     //Homepage/Header > playstore button
@@ -21,61 +21,61 @@ public class US_2_35 {
     public WebElement playstoreButton;
 
     //Homepage/Header > appstore button
-    @FindBy(xpath = "//span[text()='Play store']")
+    @FindBy(xpath = "//span[text()='App store']")
     public WebElement appstoreButton;
 
     //Homepage/Header > track your order button
-    @FindBy(xpath = "//span[text()='Track Your Order']")
-    private WebElement trackyourorderButton;
+    @FindBy(xpath = "(//a[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[2]")
+    public WebElement trackyourorderButton;
 
     //Homepage/Header > compare button
     @FindBy(xpath = "//span[text()='Compare(']")
-    private WebElement compareButton;
+    public WebElement compareButton;
 
     //Homepage/Header > wishlist button
     @FindBy(xpath = "//span[text()='Wishlist (']")
-    private WebElement wishlistButton;
+    public WebElement wishlistButton;
 
 
     //Homepage/Header > cart button
     @FindBy(xpath = "//span[text()='Cart (']")
-    private WebElement cartButton;
+    public WebElement cartButton;
 
     //Homepage/Header > logo
     @FindBy(xpath = "(//img[@src=\"https://qa.trendlifebuy.com/public/uploads/settings/63985b425a3e6.png\"])[1]")
-    private WebElement logo;
+    public WebElement logo;
 
     //Homepage/Header/Menu > home button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement homeButton;
+    public WebElement homeButton;
 
     //Homepage/Header/Menu > blog button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement blogButton;
+    public WebElement blogButton;
 
     //Homepage/Header/Menu > aboutus button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement aboutusButton;
+    public WebElement aboutusButton;
 
     //Homepage/Header/Menu > contact button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement contactButton;
+    public WebElement contactButton;
 
     //Homepage/Header_right > login button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement loginButton;
+    public WebElement loginButton;
 
     //Homepage/Header_right > register button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement registerButton;
+    public WebElement registerButton;
 
     //Homepage/Header_right > new user zone button
     @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    private WebElement newuserzoneButton;
+    public WebElement newuserzoneButton;
 
     //Homepage/Header > searchbox
     @FindBy(xpath = "(//input[@class=\"form-control category_box_input\"]")
-    private WebElement searchBox;
+    public WebElement searchBox;
 
 
 
