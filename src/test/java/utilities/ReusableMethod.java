@@ -249,5 +249,22 @@ public class ReusableMethod {
                }
            }
 
+
+
+           public static void signIn(String userEmailAddress, String userPassword){
+               WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
+               WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
+               WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+               userEmailTextBox.sendKeys(userEmailAddress);
+               useremailTesxtBox.sendKeys(userPassword);
+               ReusableMethod.waitToSee(1);
+               signInbutton.click();
+           }
+
+
+
+
+
+
 }
 

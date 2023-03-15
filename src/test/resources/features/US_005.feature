@@ -5,23 +5,23 @@ Feature: US_005 Verify that the functions in the body of the home page are activ
     Given   go to "Url"
     Then    close popup
     Then    verify required links in TC_110 are visible
-    And     quit driver
+    And     terminate test
 
   Scenario: TC 111 Verify that the View All button redirects to the relevant page
 
     Given   go to "Url"
     Then    close popup
-    Then    scroll down bypixel
+    Then    scroll down for View All
     Then    Verify that the View All button redirects to the relevant page
-    And     quit driver
+    And     terminate test
 
   Scenario: TC 112 Verify that the More Deals button redirects to the relevant page
 
     Given   go to "Url"
     Then    close popup
-    Then    scroll down bypixel_2000
+    Then    scroll down for More Deal button
     Then    Verify that the More Deal button redirects to the relevant page
-    And     quit driver
+    And     terminate test
 
   Scenario: TC 113 Verify that more products are displayed when we hit the Load More button
 
@@ -29,5 +29,5 @@ Feature: US_005 Verify that the functions in the body of the home page are activ
     Then    close popup
     Then    scroll down for Load More
     Then    verify that more products are seen as the Load More button is clicked
-    And     quit driver
+    And     terminate test
 
