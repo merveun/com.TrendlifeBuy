@@ -25,6 +25,23 @@ public class US_001_011_018_025_031_038 {
     @FindBy(xpath = "//a[@class=\"amazy_readMore_link\"]")
     public WebElement readmorelinki;
 
+    //searchbox kutusu >
+
+    @FindBy(xpath = "//input[@placeholder=\"Search posts\"]")
+    public WebElement searchboxkutusu;
+
+
+    @FindBy(xpath = "/html/body/div[3]/div/div/div[1]/div/div/div/div/a[1]/h4")
+    public WebElement arananlogismi;
+
+
+    @FindBy(xpath = "//div//a[text()=\"Nature \"]")
+    public WebElement categorTiklananblog;
+
+
+
+    @FindBy(xpath = "//div//a[text()=\"blog\"]")
+    public WebElement keywordProgramminglinki;
 
 
 

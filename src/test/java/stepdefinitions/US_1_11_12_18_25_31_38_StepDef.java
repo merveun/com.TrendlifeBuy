@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
@@ -82,7 +83,11 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
 
     }
-
+    @Then("Read More linkine tiklar")
+    public void readMoreLinkineTiklar() {
+        pages=new US_001_011_018_025_031_038();
+        pages.readmorelinki.click();
+    }
 
     @Then("Read More linkine tiklandiginda ilgili sayfaya yonlendirildigi dogrulanir")
     public void readMoreLinkineTiklandigindaIlgiliSayfayaYonlendirildigiDogrulanir() {
@@ -112,4 +117,85 @@ public class US_1_11_12_18_25_31_38_StepDef {
     }
 
 
+    @And("SearchPostBox kutusunda blog araması icin blog ismi girilir")
+    public void searchpostboxKutusundaBlogAramasıIcinBlogIsmiGirilir() {
+
+        pages=new US_001_011_018_025_031_038();
+        pages.searchboxkutusu.sendKeys("Society – The soil in which we grow",Keys.ENTER);
+        pages.searchboxkutusu.click();
+
+
+
+
+    }
+
+    @Then("Searchboxa girilen blogun arandigi dogru blog un geldigi dogrulanir")
+    public void searchboxaGirilenBlogunArandigiDogruBlogUnGeldigiDogrulanir() {
+pages=new US_001_011_018_025_031_038();
+
+        String expectedKelime="Society – The soil in which we grow";
+        String actualKelime=pages.arananlogismi.getText();
+        Assert.assertTrue(actualKelime.contains(expectedKelime));
+
+
+    }
+
+
+
+
+    @Given("Category bolumundeki baslikllar tiklanir ilgili bloglarin goruntulendigi kontrol edilir dogrulanir")
+    public void categoryBolumundekiBaslikllarTiklanirIlgiliBloglarinGoruntulendigiKontrolEdilirDogrulanir() {
+
+        pages=new US_001_011_018_025_031_038();
+        pages.categorTiklananblog.click();
+
+        String expectedUrl="https://qa.trendlifebuy.com/blog/category/posts/nature-7";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
+
+
+    }
+
+    @Then("sayfada  bir birim asagi yonde inilir")
+    public void sayfadaBirBirimAsagiYondeInilir() {
+
+        Actions actions=new Actions(Driver.getDriver());
+
+        actions.
+                sendKeys(Keys.PAGE_DOWN).perform();
+    }
+
+
+    @And("{int} saniye bekler")
+    public void saniyeBekler(int saniye) {
+
+        try {
+            Thread.sleep(saniye*1000);
+        } catch (InterruptedException e) {
+
+        }
+    }
+    @Given("Keyword bolumundeki basliklara tiklanir  da ilgili bloglarin goruntulendigi kontrol edilir dogrulanir")
+    public void keywordBolumundekiBasliklaraTiklanirDaIlgiliBloglarinGoruntulendigiKontrolEdilirDogrulanir() {
+
+        pages=new US_001_011_018_025_031_038();
+
+        pages.keywordProgramminglinki.click();
+
+        String expectedTiklananUrl2="https://qa.trendlifebuy.com/blog?tag=blog";
+        String actualTiklananUrl2=Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualTiklananUrl2.contains(expectedTiklananUrl2));
+
+
+    }
+
+
+    @Then("Popular Posts bolumundeki basliklar da ilgili bloglarin goruntulendigi kontrol edilir dogrulanir")
+    public void popularPostsBolumundekiBasliklarDaIlgiliBloglarinGoruntulendigiKontrolEdilirDogrulanir() {
+
+
+
+
+
+    }
 }
