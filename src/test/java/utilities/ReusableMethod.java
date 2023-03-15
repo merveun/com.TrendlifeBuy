@@ -207,7 +207,7 @@ public class ReusableMethod {
     public static void scrolldown_600() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,600)");
+        js.executeScript("window.scrollBy(0,400)");
 
     }
     public static void scrolldown_bypixel_2000() {
@@ -249,9 +249,7 @@ public class ReusableMethod {
                }
            }
 
-
-
-           public static void signIn(String userEmailAddress, String userPassword){
+          public static void signIn(String userEmailAddress, String userPassword){
                WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
                WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
                WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
@@ -262,9 +260,8 @@ public class ReusableMethod {
            }
 
 
-
-
-
-
+    public static void navigateback() {
+        driver.navigate().back();
+    }
 }
 
