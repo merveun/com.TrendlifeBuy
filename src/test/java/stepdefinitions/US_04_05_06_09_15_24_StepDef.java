@@ -633,6 +633,12 @@ public class US_04_05_06_09_15_24_StepDef {
 
 
     }
+
+    @Then("verify dashbord button is displayed")
+    public void verifyDashbordButtonIsDisplayed() {
+        Assert.assertTrue(pages.dashboardButton.isDisplayed());
+
+    }
 }
 
 

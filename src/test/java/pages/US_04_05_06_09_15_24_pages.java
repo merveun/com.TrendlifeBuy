@@ -259,6 +259,13 @@ public class US_04_05_06_09_15_24_pages {
 
 
 
+    //Home page --> Dashboard button
+    @FindBy(xpath = "//a[text()='Dashboard']")
+    public WebElement dashboardButton;
+
+
+
+
 
 
 
