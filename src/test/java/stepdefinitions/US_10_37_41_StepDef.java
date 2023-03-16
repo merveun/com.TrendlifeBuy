@@ -205,6 +205,13 @@ public class US_10_37_41_StepDef {
     @Then("shipping charge free yazisinin gorunur oldugunu dogrula")
     public void shipping_charge_free_yazisinin_gorunur_oldugunu_dogrula() {
         Assert.assertTrue(pages.shippinChargeFreeFromText.isDisplayed());
+
+        /*
+        Sofassert. x isdisplayed
+        Sofassert. y isdisplayed
+        Sofassert. z isdisplayed
+        Sofassert. aisdisplayed , " a elementi  "
+         */
     }
     @Then("order summary yazisinin gorunur oldugunu dogrula")
     public void order_summary_yazisinin_gorunur_oldugunu_dogrula() {
