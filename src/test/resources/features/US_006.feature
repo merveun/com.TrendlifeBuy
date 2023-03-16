@@ -4,7 +4,7 @@ Feature: As a user, I want to be able to login with my registered email and pass
 
     Given   go to "Url"
     Then    close popup
-    Then    log in
+    Then    click log in
     Then    verify that after clicking Here link next to Password navigates to relevant page
     And     terminate test
 

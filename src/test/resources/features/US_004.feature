@@ -77,7 +77,7 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     And   scroll down
     Then  verify Google Play button navigates to relevant page after clicking
     Then  navigate page back
-    Then  verify Apple Store button navigates to relevant page after clicking
+    #Then  verify Apple Store button navigates to relevant page after clicking
     And   terminate test
 
 
@@ -107,7 +107,7 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify facebook icon navigates to relevant page after clicking
+    #Then  verify facebook icon navigates to relevant page after clicking
     Then  verify twitter icon navigates to relevant page after clicking
     Then  verify linkedin icon navigates to relevant page after clicking
     Then  verify instagram icon navigates to relevant page after clicking

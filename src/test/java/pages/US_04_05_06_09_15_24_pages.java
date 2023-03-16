@@ -216,6 +216,57 @@ public class US_04_05_06_09_15_24_pages {
     public WebElement rememberMeCheckBox1;
 
 
+    //Home page --> Product select
+    @FindBy(xpath = "(//img[@alt='Beautiful single size sofa -0099'])[1]")
+    public WebElement product1;
+    @FindBy(xpath = "(//img[@alt='Single Seater sofa Premium quality -2021'])[1]")
+    public WebElement product2;
+
+    //Home page --> Product page compare
+    @FindBy(xpath = "//*[@id='add_to_compare_btn']")
+    public WebElement compareButtonProductPage;
+
+    //Home page --> Home page compare
+    @FindBy(xpath = "//span[text()='Compare(']")
+    public WebElement compareButtonHomePage;
+
+
+    //Home page/Product Compare --> picture1
+    @FindBy(xpath = "(//div[@class='product_thumb_upper'])[1]")
+    public WebElement comparedProduct1;
+
+    //Home page/Product Compare --> picture2
+    @FindBy(xpath = "(//div[@class='product_thumb_upper'])[2]")
+    public WebElement comparedProduct2;
+
+    //Home page/Product Compare --> Content Info1
+    @FindBy(xpath = "(//ul[@class='comparison_lists'])[1]")
+    public WebElement comparisonList1;
+
+    //Home page/Product Compare --> Content Info1
+    @FindBy(xpath = "(//ul[@class='comparison_lists'])[2]")
+    public WebElement comparisonList2;
+
+
+    //Home page/Product Compare --> Reset Compare
+    @FindBy(xpath = "//*[text()='Reset Compare']")
+    public WebElement compareReset;
+
+    //Home page/Product Compare --> Reset Compare
+    @FindBy(xpath = "//h4[text()='Compare list is empty.']")
+    public WebElement compareListEmptyText;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,12 +3,15 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.US_04_05_06_09_15_24_pages;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
+import static java.nio.file.Files.getAttribute;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
 
@@ -16,6 +19,7 @@ public class US_04_05_06_09_15_24_StepDef {
 
     US_04_05_06_09_15_24_pages pages = new US_04_05_06_09_15_24_pages();
 
+    //--> Reusable Step Definitions
     //Url page
     @Given("go to {string}")
     public void go_to(String string) {
@@ -69,7 +73,15 @@ public class US_04_05_06_09_15_24_StepDef {
         Driver.quitDriver();
     }
 
+    @Then("navigate page back")
+    public void navigatePageBack() {
+        ReusableMethod.navigateback();
+        ReusableMethod.waitToSee(3);
+    }
 
+    Actions actions = new Actions(Driver.getDriver());
+
+    //-------------------------
     //Scenario: TC_101
     @Then("verify My Account link is visible")
     public void verifyMyAccountLinkIsVisible() {
@@ -344,13 +356,21 @@ public class US_04_05_06_09_15_24_StepDef {
     public void verifyClickedIconsNavigateToRelevantPages() {
 
 
+    }
+
+    @Then("verify facebook icon navigates to relevant page after clicking")
+    public void verifyFacebookIconNavigatesToRelevantPageAfterClicking() {
         pages.facebookIcon.click();
         String fb_actualPageUrl = driver.getCurrentUrl();
         String fb_expectedUrl = "https://www.facebook.com/";
         ReusableMethod.waitToSee(2);
-        Assert.assertEquals(fb_expectedUrl, fb_actualPageUrl);
+        Assert.assertEquals(fb_actualPageUrl, fb_expectedUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
+    }
+
+    @Then("verify twitter icon navigates to relevant page after clicking")
+    public void verifyTwitterIconNavigatesToRelevantPageAfterClicking() {
 
         pages.twitterIcon.click();
         String tw_actualPageUrl = driver.getCurrentUrl();
@@ -359,7 +379,10 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertEquals(tw_expectedUrl, tw_actualPageUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
+    }
 
+    @Then("verify linkedin icon navigates to relevant page after clicking")
+    public void verifyLinkedinIconNavigatesToRelevantPageAfterClicking() {
 
         pages.linkedinIcon.click();
         String lnkd_actualPageUrl = driver.getCurrentUrl();
@@ -368,6 +391,10 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertEquals(lnkd_expectedUrl, lnkd_actualPageUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
+    }
+
+    @Then("verify instagram icon navigates to relevant page after clicking")
+    public void verifyInstagramIconNavigatesToRelevantPageAfterClicking() {
 
         pages.instagramIcon.click();
         String ins_actualPageUrl = driver.getCurrentUrl();
@@ -376,7 +403,6 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertEquals(ins_expectedUrl, ins_actualPageUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
-
     }
 
     //Scenario: TC_110
@@ -434,17 +460,6 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitToSee(2);
         Assert.assertTrue(viewAll_trendingProducts_actualPageUrl.contains(expected_trend_url));
 
-        /*
-        pages.viewAll_hotcategories.click();
-        String viewAll_hotcategories_actualPageUrl = driver.getCurrentUrl();
-        String expected_hot_url = "https://qa.trendlifebuy.com/category";
-        Assert.assertTrue(viewAll_hotcategories_actualPageUrl.contains(expected_hot_url));
-        ReusableMethod.waitToSee(2);
-        driver.navigate().back();
-        ReusableMethod.waitToSee(3);
-*/
-
-
     }
 
     //Scenario: TC_112
@@ -495,14 +510,7 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertTrue(pages.signUpText.isDisplayed());
     }
 
-
-    //Scenario: TC_115
-    @Then("log in")
-    public void logIn() {
-        pages.logInButton.click();
-
-    }
-
+    //Scenario: TC_116 to TC_119
     @Then("type valid email")
     public void typeValidEmail() {
         pages.emailBox.sendKeys(ConfigReader.getProperty("validEmail_Murat"));
@@ -546,23 +554,85 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertTrue(pages.wrongDataText.isDisplayed());
     }
 
+    //Scenario: TC_120
     @Then("Verify that the Remember me checkbox is clickable")
     public void verifyThatTheRememberMeCheckboxIsClickable() {
         pages.rememberMeCheckBox.click();
         // ReusableMethod.waitToSee(2);
         Assert.assertTrue(pages.rememberMeCheckBox1.isSelected());
 
-
     }
 
+    @Then("move to product one")
+    public void movetoProductOne() {
+        actions.moveToElement(pages.product1).perform();
+        ReusableMethod.waitToSee(5);
+    }
 
-    @Then("navigate page back")
-    public void navigatePageBack() {
-        ReusableMethod.navigateback();
+    @Then("click product one")
+    public void clickProductOne() {
+
+        pages.product1.click();
+        ReusableMethod.scrolldown_600();
+        ReusableMethod.waitToSee(3);
+        pages.compareButtonProductPage.click();
         ReusableMethod.waitToSee(3);
     }
 
+    @Then("click product two")
+    public void clickProductTwo() {
 
+        pages.product2.click();
+        ReusableMethod.scrolldown_600();
+        ReusableMethod.waitToSee(1);
+        pages.compareButtonProductPage.click();
+        ReusableMethod.waitToSee(1);
+    }
+
+    @Then("click compare button")
+    public void clickCompareButton() {
+        pages.compareButtonHomePage.click();
+    }
+
+    //--verifies two selected products pictures
+    @Then("verify pictures of products are displayed")
+    public void verifyPicturesOfProductAreDisplayed() {
+
+        Assert.assertTrue(pages.comparedProduct1.isDisplayed());
+        Assert.assertTrue(pages.comparedProduct2.isDisplayed());
+    }
+
+    @Then("verify content information of products are displayed")
+    public void verifyContentInformationOfProductsAreDisplayed() {
+        WebElement contentInfo_product1 = pages.comparisonList1;
+        WebElement contentInfo_product2 = pages.comparisonList2;
+        String a = contentInfo_product1.getText();
+        String b = contentInfo_product2.getText();
+        Assert.assertFalse(a.isEmpty() & b.isEmpty());
+
+    }
+
+
+    @Then("all-in-one logIn")
+    public void allInOneLogIn() {
+    clickLogIn();
+    typeValidEmail();
+    typeValidPassword();
+    clickSignIn();
+    }
+
+    @Then("click reset compare button")
+    public void clickResetCompareButton() {
+        pages.compareReset.click();
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify product compare page is empty")
+    public void verifyProductComparePageIsEmpty() {
+        Assert.assertTrue(pages.compareListEmptyText.isDisplayed());
+
+
+    }
 }
 
 
