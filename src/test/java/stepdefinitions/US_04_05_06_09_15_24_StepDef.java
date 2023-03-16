@@ -615,10 +615,10 @@ public class US_04_05_06_09_15_24_StepDef {
 
     @Then("all-in-one logIn")
     public void allInOneLogIn() {
-    clickLogIn();
-    typeValidEmail();
-    typeValidPassword();
-    clickSignIn();
+        clickLogIn();
+        typeValidEmail();
+        typeValidPassword();
+        clickSignIn();
     }
 
     @Then("click reset compare button")
@@ -634,10 +634,165 @@ public class US_04_05_06_09_15_24_StepDef {
 
     }
 
-    @Then("verify dashbord button is displayed")
+    //Scenario: TC_123
+    @Then("click dashboard button")
+    public void clickDashbordButton() {
+        pages.dashboardButton.click();
+    }
+
+    @Then("verify dashboard button is displayed")
     public void verifyDashbordButtonIsDisplayed() {
         Assert.assertTrue(pages.dashboardButton.isDisplayed());
 
+    }
+
+    //Scenario: TC_124
+    @Then("verify user name is displayed")
+    public void verifyUserNameIsDisplayed() {
+        Assert.assertTrue(pages.userName.isDisplayed());
+
+    }
+
+    @Then("verify user email is displayed")
+    public void verifyUserEmailIsDisplayed() {
+        String a = pages.emailofUser.getText();
+        Assert.assertTrue(a.contains("@") & a.contains("."));
+
+    }
+
+    //Scenario: TC_125
+    @Then("verify All Order board is displayed")
+    public void verifyAllOrderBoardIsDisplayed() {
+        Assert.assertTrue(pages.allOrder.isDisplayed());
+    }
+
+    @Then("verify My Wishlist board is displayed")
+    public void verifyMyWishlistBoardIsDisplayed() {
+        Assert.assertTrue(pages.myWishlist.isDisplayed());
+    }
+
+    @Then("verify Refund Success board is displayed")
+    public void verifyRefundSuccessBoardIsDisplayed() {
+        Assert.assertTrue(pages.refundSuccess.isDisplayed());
+    }
+
+    @Then("verify Product in Cart board is displayed")
+    public void verifyProductInCartBoardIsDisplayed() {
+        Assert.assertTrue(pages.productInCart.isDisplayed());
+    }
+
+    @Then("verify Coupon Used board is displayed")
+    public void verifyCouponUsedBoardIsDisplayed() {
+        Assert.assertTrue(pages.couponUsed.isDisplayed());
+    }
+
+    @Then("verify Completed Order board is displayed")
+    public void verifyCompletedOrderBoardIsDisplayed() {
+        Assert.assertTrue(pages.completedOrder.isDisplayed());
+    }
+
+
+    //Scenario: TC_126
+    @Then("verify Total Balance amount is displayed")
+    public void verifyTotalBalanceAmountIsDisplayed() {
+        Assert.assertTrue(pages.totalBalance.isDisplayed());
+
+    }
+
+
+    //Scenario: TC_127
+    @Then("click Recharge Wallet button")
+    public void clickRechargeWalletButton() {
+        pages.rechargeMyWallet.click();
+    }
+
+    @Then("verify Wallet can be loaded window is displayed")
+    public void verifyWalletCanBeLoadedWindowIsDisplayed() {
+        Assert.assertTrue(pages.rechargeAmount.isDisplayed());
+    }
+
+    //Scenario: TC_128
+    @Then("click See All button on Purchase History board")
+    public void clickSeeAllButtonOnPurchaseHistoryBoard() {
+    }
+
+    @Then("verify Purchase Histroy page is opened")
+    public void verifyPurchaseHistroyPageIsOpened() {
+
+    }
+
+    //Scenario: TC_129
+    @Then("click See All button on My Wishlist board")
+    public void clickSeeAllButtonOnMyWishlistBoard() {
+    }
+
+
+    @Then("verify My Wishlist page is opened")
+    public void verifyMyWishlistPageIsOpened() {
+    }
+
+    //Scenario: TC_130
+    @Then("click Recent Order button on Recent board")
+    public void clickRecentOrderButtonOnRecentBoard() {
+    }
+
+    //Scenario: TC_131
+    @Then("click Recent Order button on Purchase History board")
+    public void clickRecentOrderButtonPurchaseHistoryBoard() {
+    }
+
+
+    @Then("verify Purchase History page is opened")
+    public void verifyPurchaseHistoryPageIsOpened() {
+    }
+
+    //Scenario: TC_132
+    @Then("click Purchase History button on the side bar and verify the relevant page is opened")
+    public void clickPurchaseHistoryButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click My Wishlist button on the side bar and verify the relevant page is opened")
+    public void clickMyWishlistButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click My Order button on the side bar and verify the relevant page is opened")
+    public void clickMyOrderButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click Giftcard button on the side bar and verify the relevant page is opened")
+    public void clickGiftcardButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click My Wallet button on the side bar and verify the relevant page is opened")
+    public void clickMyWalletButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click My Coupons button on the side bar and verify the relevant page is opened")
+    public void clickMyCouponsButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click Refund & Dispute button on the side bar and verify the relevant page is opened")
+    public void clickRefundDisputeButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click My Account button on the side bar and verify the relevant page is opened")
+    public void clickMyAccountButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click Digital Products button on the side bar and verify the relevant page is opened")
+    public void clickDigitalProductsButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click Referral button on the side bar and verify the relevant page is opened")
+    public void clickReferralButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click Support Ticket button on the side bar and verify the relevant page is opened")
+    public void clickSupportTicketButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    }
+
+    @Then("click Notification Ticket button on the side bar and verify the relevant page is opened")
+    public void clickNotificationTicketButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
     }
 }
 

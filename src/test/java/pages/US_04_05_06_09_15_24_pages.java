@@ -168,12 +168,9 @@ public class US_04_05_06_09_15_24_pages {
     public WebElement signUpText;
 
 
-
     //Home page/login --> Email
     @FindBy(xpath = "//input[@name='login']")
     public WebElement emailBox;
-
-
 
 
     //Home page/login --> Password
@@ -181,11 +178,9 @@ public class US_04_05_06_09_15_24_pages {
     public WebElement passwordBox;
 
 
-
     //Home page/login --> Sign In
     @FindBy(id = "sign_in_btn")
     public WebElement signInButton;
-
 
 
     //Home page/home --> Dashboard
@@ -198,17 +193,14 @@ public class US_04_05_06_09_15_24_pages {
     public WebElement succesMessage;
 
 
-
     //Home page/home --> Wrong data message
     @FindBy(xpath = "//*[text()='These credentials do not match our records.']")
     public WebElement wrongDataText;
 
 
-
     //Home page/login --> Remember me
     @FindBy(xpath = "//label[@class='primary_checkbox d-flex']")
     public WebElement rememberMeCheckBox;
-
 
 
     //Home page/login --> Remember me
@@ -256,21 +248,64 @@ public class US_04_05_06_09_15_24_pages {
     @FindBy(xpath = "//h4[text()='Compare list is empty.']")
     public WebElement compareListEmptyText;
 
-
-
-
     //Home page --> Dashboard button
     @FindBy(xpath = "//a[text()='Dashboard']")
     public WebElement dashboardButton;
 
 
+    //profile/dashboard --> User (name)
+    @FindBy(xpath = "//h4[@class='font_20 f_w_700']")
+    public WebElement userName;
+
+    //profile/dashboard --> (user) Email
+    @FindBy(xpath = "//span[@class='email_text font_14 f_w_400 mute_text position-relative']")
+    public WebElement emailofUser;
+
+
+    //profile/dashboard --> All Order
+    @FindBy(xpath = "//span[text()=' All Order']")
+    public WebElement allOrder;
+
+    //profile/dashboard --> My Wishlist
+    @FindBy(xpath = "//span[text()='My Wishlist']")
+    public WebElement myWishlist;
+
+
+    //profile/dashboard --> Refund Success
+    @FindBy(xpath = "//span[text()='Refund Success']")
+    public WebElement refundSuccess;
+
+
+    //profile/dashboard --> Product in Cart
+    @FindBy(xpath = "//span[text()=' Product in Cart']")
+    public WebElement productInCart;
+
+
+    //profile/dashboard --> Coupon Used
+    @FindBy(xpath = "//span[text()=' Coupon Used']")
+    public WebElement couponUsed;
+
+
+    //profile/dashboard --> Completed Order
+    @FindBy(xpath = "//span[text()=' Completed Order']")
+    public WebElement completedOrder;
+
+
+    //profile/dashboard --> Total Balance
+    @FindBy(xpath = "//h4[@class='font_30 f_w_700 secondary_text mb_25']")
+    public WebElement totalBalance;
+
+
+    //profile/dashboard --> Recharge My Wallet
+    @FindBy(xpath = "//span[@class='font_14 f_w_700 secondary_text text-uppercase']")
+    public WebElement rechargeMyWallet;
 
 
 
 
-
-
-
+    //profile/dashboard --> (afterclicking RechargeMyWallet) Recharge Amount
+    @FindBy(xpath = "//span[@class='font_14 f_w_700 secondary_text text-uppercase']")
+    public WebElement rechargeAmount;
 
 
 
@@ -288,3 +323,5 @@ public class US_04_05_06_09_15_24_pages {
 
 
 }
+
+
