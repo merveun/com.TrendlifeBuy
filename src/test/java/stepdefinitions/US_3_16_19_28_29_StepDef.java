@@ -106,9 +106,9 @@ public class US_3_16_19_28_29_StepDef {
     @Then("Gecerli bir {string} ve {string} girer")
     public void gecerli_bir_ve_girer(String string, String string2) {
         pages= new US_3_16_19_28_29();
-        pages.emailTextBox.sendKeys(ConfigReader.getProperty("customerEmail"));
+        pages.emailTextBox.sendKeys(ConfigReader.getProperty("customerEmailM"));
         ReusableMethod.bekle(1);
-        pages.passwordTextBox.sendKeys(ConfigReader.getProperty("customerPassword"));
+        pages.passwordTextBox.sendKeys(ConfigReader.getProperty("customerPasswordM"));
         ReusableMethod.bekle(1);
 
     }
@@ -244,4 +244,111 @@ public class US_3_16_19_28_29_StepDef {
         pages.myWalletRechargeWalletRechargeAmountCancel.click();
         assertTrue(pages.myWalletTitle.isDisplayed());
     }
+    @Then("Add Fund butonunun goruntulenebildigi dogrulanir")
+    public void add_fund_butonunun_goruntulenebildigi_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        ReusableMethod.waitForClickablility(pages.myWalletRechargeWalletRechargeAmountAddFund,5);
+        assertTrue(pages.myWalletRechargeWalletRechargeAmountAddFund.isDisplayed());
+    }
+    @Then("TextBoxa {string} deger girilir")
+    public void text_boxa_deger_girilir(String string) {
+        pages= new US_3_16_19_28_29();
+        pages.myWalletRechargeWalletRechargeAmountTextBox.sendKeys(ConfigReader.getProperty("moneyM"));
+
+    }
+    @Then("Add Fund butonuna tiklanir")
+    public void add_fund_butonuna_tiklanir() {
+        pages= new US_3_16_19_28_29();
+        pages.myWalletRechargeWalletRechargeAmountAddFund.click();
+
+    }
+    @Then("İlgili sayfaya yonlendirildigi dogrulanir")
+    public void i̇lgili_sayfaya_yonlendirildigi_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        assertTrue(pages.myWalletRechargeWalletRechargeAmountAddFundMyWalletRecharge.isDisplayed());
+    }
+    @Then("Wallet Recharge History listesinde ilgili sutunlarin oldugu dogrulanir")
+    public void wallet_recharge_history_listesinde_ilgili_sutunlarin_oldugu_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        ReusableMethod.bekle(2);
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethod.bekle(2);
+        assertTrue(pages.myWalletWalletRechargeHistoryDate.isDisplayed());
+        assertTrue(pages.myWalletWalletRechargeHistoryTrxId.isDisplayed());
+        assertTrue(pages.myWalletWalletRechargeHistoryAmount.isDisplayed());
+        assertTrue(pages.myWalletWalletRechargeHistoryType.isDisplayed());
+        assertTrue(pages.myWalletWalletRechargeHistoryPaymentMethod.isDisplayed());
+        assertTrue(pages.myWalletWalletRechargeHistoryStatus.isDisplayed());
+    }
+
+    @Then("Wallet Recharge History listesinde cuzdan hareketlerinin varligi dogrulanir")
+    public void wallet_recharge_history_listesinde_cuzdan_hareketlerinin_varligi_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        ReusableMethod.waitForClickablility(pages.myWalletWalletRechargeHistoryApproved,5);
+        assertTrue(pages.myWalletWalletRechargeHistoryApproved.isDisplayed());
+    }
+
+    @Then("My Wishlist Linki tiklanir")
+    public void my_wishlist_linki_tiklanir() {
+
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+        pages.myWishList.click();
+
+    }
+    @Then("My Wishlist sayfasina yonlendirdigi dogrulanir")
+    public void my_wishlist_sayfasina_yonlendirdigi_dogrulanir() {
+
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("my-wishlist"));
+    }
+
+    @Then("My Wishlist sayfasinda kullanicinin begendigi ürünlerin listelendigi dogrulanir")
+    public void my_wishlist_sayfasinda_kullanicinin_begendigi_ürünlerin_listelendigi_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethod.waitForClickablility(pages.myWishListItems,5);
+        assertTrue(pages.myWishListItems.isDisplayed());
+    }
+    @Then("Urunlerin ilgili seceneklerine göre siralanarak listelendigi dogrulanir")
+    public void urunlerin_ilgili_seceneklerine_göre_siralanarak_listelendigi_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        pages.myWishListItemsNew.click();
+        ReusableMethod.waitForClickablility(pages.myWishListItemsNewNew,5);
+        assertTrue(pages.myWishListItemsNewNew.isDisplayed());
+        assertTrue(pages.myWishListItemsNewOld.isDisplayed());
+        assertTrue(pages.myWishListItemsNewPriceLowtoHigh.isDisplayed());
+        assertTrue(pages.myWishListItemsNewPriceHightoLow.isDisplayed());
+
+    }
+    @Then("Urunlerin listeleme sayisini ilgili seceneklerine göre degistirilebilir oldugu dogrulanir")
+    public void urunlerin_listeleme_sayisini_ilgili_seceneklerine_göre_degistirilebilir_oldugu_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        pages.myWishListItemsShowItems.click();
+        ReusableMethod.waitForClickablility(pages.myWishListItemsShowItems8,5);
+        assertTrue(pages.myWishListItemsShowItems8.isDisplayed());
+        assertTrue(pages.myWishListItemsShowItems12.isDisplayed());
+        assertTrue(pages.myWishListItemsShowItems16.isDisplayed());
+        assertTrue(pages.myWishListItemsShowItems24.isDisplayed());
+        assertTrue(pages.myWishListItemsShowItems32.isDisplayed());
+    }
+
 }

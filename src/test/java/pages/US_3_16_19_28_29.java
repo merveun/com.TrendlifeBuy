@@ -208,17 +208,95 @@ public class US_3_16_19_28_29 {
     @FindBy(xpath = "//h5[text()='Cancel']")
     public WebElement myWalletRechargeWalletRechargeAmountCancel;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet>Recharge Wallet>Recharge Amount>AddFund
+    @FindBy(xpath = "//button[text()='Add Fund']")
+    public WebElement myWalletRechargeWalletRechargeAmountAddFund;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet>Recharge Wallet>Recharge Amount>AddFund>My Wallet Recharge
+    @FindBy(xpath = "//h4[text()='My wallet recharge']")
+    public WebElement myWalletRechargeWalletRechargeAmountAddFundMyWalletRecharge;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Date
+    @FindBy(xpath = "//th[text()='Date']")
+    public WebElement myWalletWalletRechargeHistoryDate;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Trx Id
+    @FindBy(xpath = "//th[text()='Trx Id']")
+    public WebElement myWalletWalletRechargeHistoryTrxId;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Amount
+    @FindBy(xpath = "//th[text()='Amount']")
+    public WebElement myWalletWalletRechargeHistoryAmount;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Type
+    @FindBy(xpath = "//th[text()='Type']")
+    public WebElement myWalletWalletRechargeHistoryType;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Payment Method
+    @FindBy(xpath = "//th[text()='Payment Method']")
+    public WebElement myWalletWalletRechargeHistoryPaymentMethod;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Status
+    @FindBy(xpath = "//th[text()='Status']")
+    public WebElement myWalletWalletRechargeHistoryStatus;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wallet> Wallet Recharge History>Approved
+    @FindBy(xpath = "//a[text()='Approved']")
+    public WebElement myWalletWalletRechargeHistoryApproved;
 
+// US_028 ait locate'ler
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist
+    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[2]")
+    public WebElement myWishList;
 
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items
+    @FindBy(xpath = "//div[@class='dashboard_wishlist_grid mb_40']")
+    public WebElement myWishListItems;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>New
+    @FindBy(xpath = "(//div[@class='nice-select amaz_select4'])[2]")
+    public WebElement myWishListItemsNew;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>New>New
+    @FindBy(xpath = "//li[text()='New']")
+    public WebElement myWishListItemsNewNew;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>New>Old
+    @FindBy(xpath = "//li[text()='Old']")
+    public WebElement myWishListItemsNewOld;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>New>Price (Low to high)
+    @FindBy(xpath = "//li[text()='Price (Low to high)']")
+    public WebElement myWishListItemsNewPriceLowtoHigh;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>New>Price (High to low)
+    @FindBy(xpath = "//li[text()='Price (High to low)']")
+    public WebElement myWishListItemsNewPriceHightoLow;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems
+    @FindBy(xpath = "(//div[@class='nice-select amaz_select4'])[1]")
+    public WebElement myWishListItemsShowItems;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems>Show8Items
+    @FindBy(xpath = "//li[text()='Show 8 Item’s']")
+    public WebElement myWishListItemsShowItems8;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems>Show12Items
+    @FindBy(xpath = "//li[text()='Show 12 Item’s']")
+    public WebElement myWishListItemsShowItems12;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems>Show16Items
+    @FindBy(xpath = "//li[text()='Show 16 Item’s']")
+    public WebElement myWishListItemsShowItems16;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems>Show24Items
+    @FindBy(xpath = "//li[text()='Show 24 Item’s']")
+    public WebElement myWishListItemsShowItems24;
+
+    //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems>Show32Items
+    @FindBy(xpath = "//li[text()='Show 32 Item’s']")
+    public WebElement myWishListItemsShowItems32;
 
 
     }
