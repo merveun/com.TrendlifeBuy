@@ -21,8 +21,6 @@ public class US_17_30_36 {
     @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[3]")
     public WebElement myOrderButonu;
 
-
-
     // url > Subscribe pop-up
     @FindBy(css ="#subscriptionModal > div > div.close_modal > i")
     public WebElement subscribePopupExit;
@@ -48,11 +46,11 @@ public class US_17_30_36 {
     @FindBy(linkText = "https://qa.trendlifebuy.com/login")
     public WebElement linkRegisterPage;
 
-
     @FindBy(xpath= "//input[@class='form-control category_box_input']")
     public WebElement aramabutonu;
 
     //US17-----TC002
+
     @FindBy (xpath = "//button[@id='home-tab']" )
     public WebElement buttonAll;
 
@@ -70,7 +68,8 @@ public class US_17_30_36 {
     @FindBy(xpath = "//div[@id='myTabContent']")
     public WebElement bilgiAlani;
 
-    //------US17----TC04
+    //------US17----TC04-----
+
     @FindBy (xpath = "//option[text()='Last 5 orders']")
     public WebElement last5Orders;
 
@@ -79,7 +78,6 @@ public class US_17_30_36 {
 
     @FindBy (xpath = "//option[text()='Last 40 orders']")
     public WebElement last4Orders;
-
 
     //-------------------------------------US30----------------------------------------------//
     //TC01
@@ -93,19 +91,38 @@ public class US_17_30_36 {
     @FindBy (id="text")
     public WebElement adminBoxMail;
 
-
     @FindBy (id ="password")
     public WebElement adminBoxPassword;
 
     @FindBy (id = "sign_in_btn")
     public WebElement adminBoxSignIn;
 
-
     @FindBy(linkText = "https://trendlifebuy.com/admin/login")
     public WebElement linkAdmin;
 
-    @FindBy (xpath = "//a[@class='notification-content notification_read_btn']")
-    public WebElement ilkbildirim;
+    @FindBy(xpath = "//h4[text()='Notifications']")
+    public WebElement notificationyazisi;
+
+    //personel notification sayfasındaki mesaj tipi
+    @FindBy (xpath = "//span[@class='checkmark']")
+    public WebElement buttonType;
+
+    @FindBy (xpath = "//div[text()='Updated successfully!']")
+    public WebElement messageUptadeSuccsess;
+
+        //div[@class='toast-title']
+
+    @FindBy  (xpath = "//a[text()='Read all']")
+    public WebElement buttonReadAll;
+
+    @FindBy (xpath = "//a[text()='View']")
+    public WebElement buttonView;
+
+    @FindBy (xpath = "//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px']")
+    public WebElement pagesView;
+
+
+
 
 
 
