@@ -11,6 +11,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
@@ -172,29 +174,73 @@ public class US_3_16_19_28_29_StepDef {
     @Then("Siparis faturasinin indirildigi dogrulanir")
     public void siparis_faturasinin_indirildigi_dogrulanir() {
 
-        pages= new US_3_16_19_28_29();
-        //assertTrue(pages.purchaseHistoryActionInvoiceDownload.isEnabled());
+        pages = new US_3_16_19_28_29();
+
+        actions.keyDown(Keys.ALT).perform();
+        ReusableMethod.bekle(2);
         pages.purchaseHistoryActionInvoiceDownload.click();
-
-        Set<String> tumWHDegerleriSeti=Driver.getDriver().getWindowHandles();
-
-        String ikinciSayfaWHD="";
-
-        for (String eachWhd:tumWHDegerleriSeti
-        ) {
-            if (!eachWhd.equals(ilkSayfaHandleDegeri))
-                ikinciSayfaWHD=eachWhd;
-        }
-
-        Driver.getDriver().switchTo().window(ikinciSayfaWHD);
-
-        Driver.getDriver().switchTo().window(ikinciSayfaWHD).close();
-
-        Driver.getDriver().switchTo().window(ilkSayfaHandleDegeri);
-
-
+        ReusableMethod.bekle(8);
+        actions.keyUp(Keys.ALT).perform();
+        String dosyaYolu = System.getProperty("user.home") + "\\Downloads\\84230310103459.pdf";
+        Assert.assertTrue(Files.exists(Paths.get(dosyaYolu)));
 
     }
+    @Then("My Wallet Linki tiklanir")
+    public void my_wallet_linki_tiklanir() {
 
+        pages= new US_3_16_19_28_29();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+        pages.myWallet.click();
+    }
+    @Then("My Wallet sayfasina yonlendirdigi dogrulanir")
+    public void my_wallet_sayfasina_yonlendirdigi_dogrulanir() {
 
+        pages= new US_3_16_19_28_29();
+        assertTrue(pages.myWalletTitle.isDisplayed());
+    }
+    @Then("My Wallet sayfasinda ilgili boardlarinin gorunurlugu dogrulanir")
+    public void my_wallet_sayfasinda_ilgili_boardlarinin_gorunurlugu_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        assertTrue(pages.myWalletTotalBalance.isDisplayed());
+        assertTrue(pages.myWalletRunningBalance.isDisplayed());
+        assertTrue(pages.myWalletPendingBalance.isDisplayed());
+    }
+    @Then("Recharge Wallet butonunun goruntulenebildigi dogrulanir")
+    public void recharge_wallet_butonunun_goruntulenebildigi_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        assertTrue(pages.myWalletRechargeWallet.isDisplayed());
+    }
+    @Then("Recharge Wallet butonu tiklanir")
+    public void recharge_wallet_butonu_tiklanir() {
+        pages= new US_3_16_19_28_29();
+        pages.myWalletRechargeWallet.click();
+    }
+    @Then("Recharge Amount penceresinin acildigi dogrulanir")
+    public void recharge_amount_penceresinin_acildigi_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        ReusableMethod.waitForClickablility(pages.myWalletRechargeWalletRechargeAmount,5);
+        assertTrue(pages.myWalletRechargeWalletRechargeAmount.isDisplayed());
+    }
+    @Then("Recharge Amount sekmesinde tutar girebilebilen bir TextBox'in oldugu dogrulanir")
+    public void recharge_amount_sekmesinde_tutar_girebilebilen_bir_text_box_in_oldugu_dogrulanir() {
+        pages= new US_3_16_19_28_29();
+        ReusableMethod.waitForClickablility(pages.myWalletRechargeWalletRechargeAmount,5);
+        assertTrue(pages.myWalletRechargeWalletRechargeAmountTextBox.isDisplayed());
+    }
+    @Then("Recharge Amount sekmesinde Cancel butonunun oldugu dogrulanir")
+    public void recharge_amount_sekmesinde_cancel_butonunun_oldugu_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        ReusableMethod.waitForClickablility(pages.myWalletRechargeWalletRechargeAmountCancel,5);
+        assertTrue(pages.myWalletRechargeWalletRechargeAmountCancel.isDisplayed());
+    }
+    @Then("Recharge Amount sekmesinde Cancel butonunun iptal islemi yapabildigi dogrulanir")
+    public void recharge_amount_sekmesinde_cancel_butonunun_iptal_islemi_yapabildigi_dogrulanir() {
+
+        pages= new US_3_16_19_28_29();
+        pages.myWalletRechargeWalletRechargeAmountCancel.click();
+        assertTrue(pages.myWalletTitle.isDisplayed());
+    }
 }
