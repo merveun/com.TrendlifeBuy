@@ -52,6 +52,7 @@ public class US_3_16_19_28_29_StepDef {
         assertTrue(pages.autoMobilesAndBikesItem.isDisplayed());
 
 
+
     }
 
     @And("All Categories menusu altindaki tum kategorilerin aktif oldugu dogrulanir")
