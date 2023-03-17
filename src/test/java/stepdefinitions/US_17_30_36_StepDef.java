@@ -504,9 +504,6 @@ public class US_17_30_36_StepDef {
 
 
     //------TC13
-
-
-
     @Then("quick clicks the search button")
     public void quick_clicks_the_search_button() {
 
