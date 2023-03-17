@@ -22,6 +22,17 @@ public class US_3_16_19_28_29 {
     @FindBy(xpath = "//div[@id='subscriptionModal']//div/i")
     public WebElement subscribePopupExit;
 
+    //HomePage>TextBox
+    @FindBy(xpath = "(//input[@id='inlineFormInputGroup'])[1]")
+    public WebElement homePageTextBox;
+
+    //HomePage>TextBox>Samsung
+    @FindBy(xpath = "//h4[@class='m-0 search_product_name']")
+    public WebElement homePageTextBoxSamsung;
+
+    //HomePage>TextBox>Samsung>WishList Button
+    @FindBy(xpath = "//a[@id='wishlist_btn']")
+    public WebElement homePageTextBoxSamsungWishListButton;
 
     //HomePage>All CAtegories Dropdown Menu
     @FindBy(xpath = "//div[@class='dropdown show category_menu']")
@@ -297,6 +308,70 @@ public class US_3_16_19_28_29 {
     //HomePage>Login > Sign In Button> Dashboard> My Wishlist>Items>ShowItems>Show32Items
     @FindBy(xpath = "//li[text()='Show 32 Item’s']")
     public WebElement myWishListItemsShowItems32;
+
+    //HomePage>Login > Sign In Button> WishList
+    @FindBy(xpath = "(//a[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[4]")
+    public WebElement wishList;
+
+    //HomePage>Login > Sign In Button> Compare
+    @FindBy(xpath = "(//a[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[3]")
+    public WebElement compare;
+
+    //HomePage>Login > Sign In Button> WishList>1.ürün
+    @FindBy(xpath = "(//a[@class='thumb'])[1]")
+    public WebElement wishListBirinciUrun;
+
+    //HomePage>Login > Sign In Button> WishList>2.ürün
+    @FindBy(xpath = "(//a[@class='thumb'])[2]")
+    public WebElement wishListikinciUrun;
+
+    //HomePage>Login > Sign In Button> Compare>1.ürün
+    @FindBy(xpath = "//a[@class='thumb']")
+    public WebElement compareBirinciUrun;
+
+    //HomePage>Login > Sign In Button> WishList>1.ürün>Compare ikonu
+    @FindBy(xpath = "(//a[@class='addToCompareFromThumnail'])[1]")
+    public WebElement wishListBirinciUrunCompare;
+
+    //HomePage>Login > Sign In Button> WishList>2.ürün>Compare ikonu
+    @FindBy(xpath = "(//a[@class='addToCompareFromThumnail'])[2]")
+    public WebElement wishListikinciUrunCompare;
+
+    //HomePage>Login > Sign In Button> WishList>1.ürün>Compare ikonu>Add to compare
+    @FindBy(xpath = "//a[@class='single_wish_compare']")
+    public WebElement wishListBirinciUrunCompareAddtoCompare;
+
+    //HomePage>Login > Sign In Button> WishList>1.ürün>Show ikonu
+    @FindBy(xpath = "(//a[@class='quickView'])[1]")
+    public WebElement wishListBirinciUrunShow;
+
+    //HomePage>Login > Sign In Button> WishList>1.ürün>Show ikonu>Show penceresi
+    @FindBy(xpath = "//div[@id='productShow']")
+    public WebElement wishListBirinciUrunShowPenceresi;
+
+    //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu
+    @FindBy(xpath = "(//i[@class='ti-trash'])[3]")
+    public WebElement wishListDorduncuUrunDelete;
+
+    //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu>Delete Butonu
+    @FindBy(xpath = "//button[@id='dataDeleteBtn']")
+    public WebElement wishListDorduncuUrunDeleteButonu;
+
+    //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu>Delete Butonu Kapatma
+    @FindBy(xpath = "    //button[@class='close_modal_icon']")
+    public WebElement wishListDorduncuUrunDeleteButonuKapatma;
+
+    //HomePage>Login > Sign In Button> WishList>4.ürün ekleme
+    @FindBy(xpath = "(//img[@title='HP 15s-gr515AU AMD Athlon 3050U 15.6\" HD Laptop'])[1]")
+    public WebElement wishListDorduncuUrunEkleme;
+
+    //HomePage>Login > Sign In Button> WishList>4.ürün
+    @FindBy(xpath = "(//div[@class='product_thumb_upper'])[3]")
+    public WebElement wishListDorduncuUrun;
+
+    //HomePage>Login > Sign In Button> WishList>4.ürün ekleme wishlist ikonu
+    @FindBy(xpath = "(//a[@id='wishlistbtn_29'])[2]")
+    public WebElement wishListDorduncuUrunEklemeWishListIkonu;
 
 
     }
