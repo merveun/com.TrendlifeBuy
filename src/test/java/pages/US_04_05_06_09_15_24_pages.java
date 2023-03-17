@@ -301,18 +301,86 @@ public class US_04_05_06_09_15_24_pages {
     public WebElement rechargeMyWallet;
 
 
-
-
     //profile/dashboard --> (afterclicking RechargeMyWallet) Recharge Amount
     @FindBy(xpath = "//span[@class='font_14 f_w_700 secondary_text text-uppercase']")
     public WebElement rechargeAmount;
 
 
+    //profile/dashboard --> See all button of Purchase History
+    @FindBy(xpath = "//a[@class='amaz_badge_btn2 text-uppercase text-nowrap']")
+    public WebElement seeAll_PurchaseHistory;
+
+
+    //profile/dashboard --> See all button of My Wishlist
+    @FindBy(xpath = "(//a[@class='amaz_badge_btn2 text-uppercase'])[1]")
+    public WebElement seeAll_MyWishList;
+
+
+    //profile/dashboard --> See all button of Recent Order
+    @FindBy(xpath = "(//a[@class='amaz_badge_btn2 text-uppercase'])[2]")
+    public WebElement seeAll_RecentOrder;
+
+    //profile/dashboard --> See all button of Product in Cart
+    @FindBy(xpath = "(//a[@class='amaz_badge_btn2 text-uppercase'])[3]")
+    public WebElement seeAll_ProductinCart;
+
+    //profile/dashboard --> purchaseHistoryOnSideBar
+
+
+//By.linkText(“linkYazisininTamami”)
+
+    //FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[1]")
+    @FindBy(xpath = "//a[normalize-space()='Purchase History']")
+    public WebElement purchaseHistoryOnSideBar;
+
+    //profile/dashboard --> myWishlistOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='My Wishlist']")
+    public WebElement myWishlistOnSideBar;
 
 
 
 
 
+    //-----*****-
+    //profile/dashboard --> myOrderOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='My Order']")
+    public WebElement myOrderOnSideBar;
+
+    //profile/dashboard --> giftCardOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='Giftcard']")
+    public WebElement giftCardOnSideBar;
+
+   //profile/dashboard --> myWalletOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='My Wallet']")
+    public WebElement myWalletOnSideBarOn;
+
+    //profile/dashboard --> myCouponsOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='My Coupons']")
+    public WebElement myCouponsOnSideBar;
+
+    //profile/dashboard --> refundDisputeOnSideBar  Refund & Dispute
+    @FindBy(xpath = "//a[normalize-space()='Refund & Dispute']")
+    public WebElement refundDisputeOnSideBar;
+
+    //profile/dashboard --> myAccountOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='My Account']")
+    public WebElement myAccountOnSideBar;
+
+    //profile/dashboard --> digitalProductsOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='Digital Products']")
+    public WebElement digitalProductsOnSideBar;
+
+    //profile/dashboard --> referrralOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='Referral']")
+    public WebElement referrralOnSideBar;
+
+    //profile/dashboard --> supportTicketOnSideBar
+    @FindBy(xpath = "//a[normalize-space()='Support Ticket']")
+    public WebElement supportTicketOnSideBar;
+
+    //profile/dashboard --> notificationOnSideBar
+    @FindBy(xpath = "//a[@class='position-relative d-flex align-items-center'][normalize-space()='Notification']")
+    public WebElement notificationOnSideBar;
 
 
 
@@ -323,5 +391,6 @@ public class US_04_05_06_09_15_24_pages {
 
 
 }
+
 
 

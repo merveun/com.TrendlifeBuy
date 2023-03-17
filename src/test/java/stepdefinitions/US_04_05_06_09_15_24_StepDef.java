@@ -6,12 +6,12 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import pages.US_04_05_06_09_15_24_pages;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
-import static java.nio.file.Files.getAttribute;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
 
@@ -44,7 +44,7 @@ public class US_04_05_06_09_15_24_StepDef {
 
     @Then("scroll down for View All")
     public void scrollDownForViewAll() {
-        ReusableMethod.scrolldown_600();
+        ReusableMethod.scrolldown_DownViewAll();
         ReusableMethod.waitToSee(2);
     }
 
@@ -56,17 +56,18 @@ public class US_04_05_06_09_15_24_StepDef {
     }
 
 
-    @Then("scroll down bypixel_5500")
-    public void scrollDownBypixel_5500() {
-
-        //ReusableMethod.waitToSee(2);
-    }
-
     @Then("scroll down for Load More")
     public void scrollDownForLoadMore() {
         ReusableMethod.scrolldown_for_Load_More();
         ReusableMethod.waitToSee(2);
     }
+
+
+    @Then("scroll down to display side bar menu list")
+    public void scrollDownToDisplaySideMenuList() {
+        ReusableMethod.scrolldown_SideBarMenu();
+    }
+
 
     @And("terminate test")
     public void terminateTest() {
@@ -78,6 +79,13 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.navigateback();
         ReusableMethod.waitToSee(3);
     }
+
+    @And("scroll down to see Side Bar")
+    public void scrollDownToSeeSideBar() {
+        ReusableMethod.scrolldown_SideBarMenu();
+        ReusableMethod.waitToSee(2);
+    }
+
 
     Actions actions = new Actions(Driver.getDriver());
 
@@ -573,7 +581,7 @@ public class US_04_05_06_09_15_24_StepDef {
     public void clickProductOne() {
 
         pages.product1.click();
-        ReusableMethod.scrolldown_600();
+        ReusableMethod.scrolldown_DownViewAll();
         ReusableMethod.waitToSee(3);
         pages.compareButtonProductPage.click();
         ReusableMethod.waitToSee(3);
@@ -583,7 +591,7 @@ public class US_04_05_06_09_15_24_StepDef {
     public void clickProductTwo() {
 
         pages.product2.click();
-        ReusableMethod.scrolldown_600();
+        ReusableMethod.scrolldown_DownViewAll();
         ReusableMethod.waitToSee(1);
         pages.compareButtonProductPage.click();
         ReusableMethod.waitToSee(1);
@@ -638,21 +646,24 @@ public class US_04_05_06_09_15_24_StepDef {
     @Then("click dashboard button")
     public void clickDashbordButton() {
         pages.dashboardButton.click();
+        ReusableMethod.waitToSee(3);
     }
 
+    //Scenario: TC_123
     @Then("verify dashboard button is displayed")
     public void verifyDashbordButtonIsDisplayed() {
         Assert.assertTrue(pages.dashboardButton.isDisplayed());
 
     }
+    //Scenario: TC_123
 
-    //Scenario: TC_124
     @Then("verify user name is displayed")
     public void verifyUserNameIsDisplayed() {
         Assert.assertTrue(pages.userName.isDisplayed());
 
     }
 
+    //Scenario: TC_124
     @Then("verify user email is displayed")
     public void verifyUserEmailIsDisplayed() {
         String a = pages.emailofUser.getText();
@@ -666,26 +677,31 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertTrue(pages.allOrder.isDisplayed());
     }
 
+    //Scenario: TC_125
     @Then("verify My Wishlist board is displayed")
     public void verifyMyWishlistBoardIsDisplayed() {
         Assert.assertTrue(pages.myWishlist.isDisplayed());
     }
 
+    //Scenario: TC_125
     @Then("verify Refund Success board is displayed")
     public void verifyRefundSuccessBoardIsDisplayed() {
         Assert.assertTrue(pages.refundSuccess.isDisplayed());
     }
 
+    //Scenario: TC_125
     @Then("verify Product in Cart board is displayed")
     public void verifyProductInCartBoardIsDisplayed() {
         Assert.assertTrue(pages.productInCart.isDisplayed());
     }
 
+    //Scenario: TC_125
     @Then("verify Coupon Used board is displayed")
     public void verifyCouponUsedBoardIsDisplayed() {
         Assert.assertTrue(pages.couponUsed.isDisplayed());
     }
 
+    //Scenario: TC_125
     @Then("verify Completed Order board is displayed")
     public void verifyCompletedOrderBoardIsDisplayed() {
         Assert.assertTrue(pages.completedOrder.isDisplayed());
@@ -711,92 +727,260 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertTrue(pages.rechargeAmount.isDisplayed());
     }
 
+
     //Scenario: TC_128
     @Then("click See All button on Purchase History board")
     public void clickSeeAllButtonOnPurchaseHistoryBoard() {
+        pages.seeAll_PurchaseHistory.click();
     }
 
-    @Then("verify Purchase Histroy page is opened")
-    public void verifyPurchaseHistroyPageIsOpened() {
-
+    //Scenario: TC_128
+    @Then("verify Purchase History page is opened")
+    public void verifyPurchaseHistoryPageIsOpened() {
+        String actual_Url = driver.getCurrentUrl();
+        Assert.assertEquals(actual_Url, ReusableMethod.purchaseHistoryPageUrl("url"));
     }
 
     //Scenario: TC_129
     @Then("click See All button on My Wishlist board")
     public void clickSeeAllButtonOnMyWishlistBoard() {
+        pages.seeAll_MyWishList.click();
     }
 
-
+    //Scenario: TC_129
     @Then("verify My Wishlist page is opened")
     public void verifyMyWishlistPageIsOpened() {
+        String actual_Url = driver.getCurrentUrl();
+        String expected_Url = "#";
+        Assert.assertEquals(actual_Url, expected_Url);
+
     }
 
     //Scenario: TC_130
-    @Then("click Recent Order button on Recent board")
-    public void clickRecentOrderButtonOnRecentBoard() {
+    @Then("scroll down to display See All button of Recent Order")
+    public void scrollDownToDisplaySeeAllButtonOfRecentOrder() {
+        ReusableMethod.scrolldown_DownViewAll();
+        ReusableMethod.waitToSee(3);
+    }
+
+    //Scenario: TC_130
+    @Then("click See All button on Recent Order board")
+    public void clickSeeAllButtonOnRecentOrderBoard() {
+        pages.seeAll_RecentOrder.click();
+    }
+
+    //Scenario: TC_130
+    @Then("verify Recent Order page is opened")
+    public void verifyRecentOrderPageIsOpened() {
+
+        String actual_Url = driver.getCurrentUrl();
+        String expected_Url = "https://qa.trendlifebuy.com/my-purchase-orders";
+        Assert.assertEquals(actual_Url, ReusableMethod.myOrderPageUrl("url"));
+
     }
 
     //Scenario: TC_131
-    @Then("click Recent Order button on Purchase History board")
-    public void clickRecentOrderButtonPurchaseHistoryBoard() {
+    @Then("scroll down to display See All button of Product in Cart")
+    public void scrollDownToDisplaySeeAllButtonOfProductInCart() {
+        ReusableMethod.scrolldown_DownViewAll();
+        ReusableMethod.waitToSee(3);
     }
 
-
-    @Then("verify Purchase History page is opened")
-    public void verifyPurchaseHistoryPageIsOpened() {
+    //Scenario: TC_131
+    @Then("click See All button on Product in Cart board")
+    public void clickSeeAllButtonOnProductInCartBoard() {
+        pages.seeAll_ProductinCart.click();
     }
 
-    //Scenario: TC_132
-    @Then("click Purchase History button on the side bar and verify the relevant page is opened")
-    public void clickPurchaseHistoryButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    //Scenario: TC_131
+    @Then("verify Product in Cart page is opened")
+    public void verifyProductInCartPageIsOpened() {
+
+        String actual_Url = driver.getCurrentUrl();
+        String expected_Url = "https://qa.trendlifebuy.com/cart";
+        Assert.assertEquals(actual_Url, expected_Url);
+
+    }
+    //Scenario: TC_132----------------------
+    @Then("click Purchase History button on the side bar")
+    public void clickPurchaseHistoryButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.purchaseHistoryOnSideBar.click();
+    }
+    @Then("verify that it is navigated to Purchase History page")
+    public void verifyThatItIsNavigatedToPurchaseHistoryPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.purchaseHistoryPageUrl("url"));
+        softAssert.assertAll();
     }
 
-    @Then("click My Wishlist button on the side bar and verify the relevant page is opened")
-    public void clickMyWishlistButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("click My Wishlist button on the side bar")
+    public void clickMyWishlistButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.myWishlistOnSideBar.click();
+
     }
 
-    @Then("click My Order button on the side bar and verify the relevant page is opened")
-    public void clickMyOrderButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("verify that it is navigated to Wishlist page")
+    public void verifyThatItIsNavigatedToWishlistPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.myWishlistPageUrl("url"));
     }
 
-    @Then("click Giftcard button on the side bar and verify the relevant page is opened")
-    public void clickGiftcardButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("click My Order button on the side bar")
+    public void clickMyOrderButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.myOrderOnSideBar.click();
     }
 
-    @Then("click My Wallet button on the side bar and verify the relevant page is opened")
-    public void clickMyWalletButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("verify that it is navigated to My Order page")
+    public void verifyThatItIsNavigatedToMyOrderPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.myOrderPageUrl("url"));
     }
 
-    @Then("click My Coupons button on the side bar and verify the relevant page is opened")
-    public void clickMyCouponsButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("click Giftcard button on the side bar")
+    public void clickGiftcardButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.giftCardOnSideBar.click();
     }
 
-    @Then("click Refund & Dispute button on the side bar and verify the relevant page is opened")
-    public void clickRefundDisputeButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("verify that it is navigated to Giftcard page")
+    public void verifyThatItIsNavigatedToGiftcardPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.giftPageUrl("url"));
     }
 
-    @Then("click My Account button on the side bar and verify the relevant page is opened")
-    public void clickMyAccountButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("click My Wallet button on the side bar")
+    public void clickMyWalletButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.myWalletOnSideBarOn.click();
     }
 
-    @Then("click Digital Products button on the side bar and verify the relevant page is opened")
-    public void clickDigitalProductsButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("verify that it is navigated to My Wallet page")
+    public void verifyThatItIsNavigatedToMyWalletPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.myWalletPageUrl("url"));
     }
 
-    @Then("click Referral button on the side bar and verify the relevant page is opened")
-    public void clickReferralButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("click My Coupons button on the side bar")
+    public void clickMyCouponsButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.myCouponsOnSideBar.click();
     }
 
-    @Then("click Support Ticket button on the side bar and verify the relevant page is opened")
-    public void clickSupportTicketButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("verify that it is navigated to My Coupons page")
+    public void verifyThatItIsNavigatedToMyCouponsPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.myCouponsPageUrl("url"));
     }
 
-    @Then("click Notification Ticket button on the side bar and verify the relevant page is opened")
-    public void clickNotificationTicketButtonOnTheSideBarAndVerifyTheRelevantPageIsOpened() {
+    @Then("click Refund & Dispute button on the side bar")
+    public void clickRefundDisputeButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.refundDisputeOnSideBar.click();
     }
+
+    @Then("verify that it is navigated to Refund & Dispute page")
+    public void verifyThatItIsNavigatedToRefundDisputePage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.refundDisputePageUrl("url"));
+    }
+
+    @Then("click My Account button on the side bar")
+    public void clickMyAccountButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.myAccountOnSideBar.click();
+    }
+
+    @Then("verify that it is navigated to My Account page")
+    public void verifyThatItIsNavigatedToMyAccountPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.myAccountPageUrl("url"));
+    }
+
+    @Then("click Digital Products button on the side bar")
+    public void clickDigitalProductsButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.digitalProductsOnSideBar.click();
+    }
+
+    @Then("verify that it is navigated to Digital Products page")
+    public void verifyThatItIsNavigatedToDigitalProductsPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.digitalProductsPageUrl("url"));
+    }
+
+    @Then("click Referral button on the side bar")
+    public void clickReferralButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.referrralOnSideBar.click();
+    }
+
+    @Then("verify that it is navigated to Referral page")
+    public void verifyThatItIsNavigatedToReferralPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.referralPageUrl("url"));
+    }
+
+    @Then("click Support Ticket button on the side bar")
+    public void clickSupportTicketButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.supportTicketOnSideBar.click();
+    }
+
+    @Then("verify that it is navigated to Support Ticket page")
+    public void verifyThatItIsNavigatedToSupportTicketPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.supportTicketPageUrl("url"));
+    }
+
+    @Then("click Notification button on the side bar")
+    public void clickNotificationButtonOnTheSideBar() {
+
+        ReusableMethod.waitToSee(2);
+        pages.notificationOnSideBar.click();
+    }
+
+    @Then("verify that it is navigated to Notification page")
+    public void verifyThatItIsNavigatedToNotificationPage() {
+
+        SoftAssert softAssert = new SoftAssert();
+        String actual_Url = driver.getCurrentUrl();
+        softAssert.assertEquals(actual_Url, ReusableMethod.notificationPageUrl("url"));
+    }
+
 }
-
-
-
-
-

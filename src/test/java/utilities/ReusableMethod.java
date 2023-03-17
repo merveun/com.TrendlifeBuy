@@ -1,11 +1,9 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-import org.testng.asserts.SoftAssert;
 import pages.US_1_11_12_18_25_31_38;
 
 import java.io.File;
@@ -163,21 +161,32 @@ public class ReusableMethod {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-
     }
 
-    public static void scrolldown_600() {
+    public static void scrolldown_DownViewAll() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,400)");
-
+        js.executeScript("window.scrollBy(0,600)");
     }
+
+
+    public static void scrolldown_SideBarMenu() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,600)");
+    }
+
+
+
+
+
+
+
+
     public static void scrolldown_bypixel_2000() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,2000)");
-
     }
-
 
     public static void logIn(String userEmailAddress, String userPassword) {
         WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
@@ -191,8 +200,7 @@ public class ReusableMethod {
 
 
     // Sayfa üzerinde istenilen elemente gider
-    public static void focusToElement(WebElement element)
-    {
+    public static void focusToElement(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
         actions.scrollToElement(element);
     }
@@ -203,69 +211,96 @@ public class ReusableMethod {
 
     }
 
-       public static void waitToSee(int second) {
-               try {
-                   Thread.sleep(second * 1000L);
-               } catch (InterruptedException e) {
-                   e.printStackTrace();
-               }
-           }
+    //Murat
+    public static void waitToSee(int second) {
+        try {
+            Thread.sleep(second * 1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-          public static void signIn(String userEmailAddress, String userPassword){
-               WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
-               WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
-               WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
-               userEmailTextBox.sendKeys(userEmailAddress);
-               useremailTesxtBox.sendKeys(userPassword);
-               ReusableMethod.waitToSee(1);
-               signInbutton.click();
-           }
+    public static void signIn(String userEmailAddress, String userPassword) {
+        WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
+        WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
+        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+        userEmailTextBox.sendKeys(userEmailAddress);
+        useremailTesxtBox.sendKeys(userPassword);
+        ReusableMethod.waitToSee(1);
+        signInbutton.click();
+    }
 
-
+    //Murat
     public static void navigateback() {
         driver.navigate().back();
     }
 
+    //--- EXPECTED URL OF LINKSS
+    public static String purchaseHistoryPageUrl(String expectedUrl) {
+        String purchaseHistoryPageUrl = "https://qa.trendlifebuy.com/my-purchase-histories";
+        return purchaseHistoryPageUrl;
+    }
+
+    public static String myWishlistPageUrl(String expectedUrl) {
+        String myWishlistPageUrl = "https://qa.trendlifebuy.com/my-wishlist";
+        return myWishlistPageUrl;
+    }
+
+    public static String myOrderPageUrl(String expectedUrl) {
+        String myOrderPageUrl = "https://qa.trendlifebuy.com/my-purchase-orders";
+        return myOrderPageUrl;
+    }
+
+    public static String giftPageUrl(String expectedUrl) {
+        String giftPageUrl = "https://qa.trendlifebuy.com/purchased-gift-cards";
+        return giftPageUrl;
+    }
+
+    public static String myWalletPageUrl(String expectedUrl) {
+        String myWalletPageUrl = "https://qa.trendlifebuy.com/wallet/customer/my-wallet-index";
+        return myWalletPageUrl;
+    }
+
+    public static String myCouponsPageUrl(String expectedUrl) {
+        String myCouponsPageUrl = "https://qa.trendlifebuy.com/profile/coupons";
+        return myCouponsPageUrl;
+    }
+
+    public static String refundDisputePageUrl(String expectedUrl) {
+        String refundDisputePageUrl = "https://qa.trendlifebuy.com/refund/my-refund-list";
+        return refundDisputePageUrl;
+    }
+
+    public static String myAccountPageUrl(String expectedUrl) {
+        String myAccountPageUrl = "https://qa.trendlifebuy.com/profile";
+        return myAccountPageUrl;
+    }
+
+    public static String digitalProductsPageUrl(String expectedUrl) {
+        String digitalProductsPageUrl = "https://qa.trendlifebuy.com/digital-products";
+        return digitalProductsPageUrl;
+    }
+
+    public static String referralPageUrl(String expectedUrl) {
+        String referralPageUrl = "https://qa.trendlifebuy.com/profile/referral";
+        return referralPageUrl;
+    }
+
+    public static String supportTicketPageUrl(String expectedUrl) {
+        String supportTicketPageUrl = "https://qa.trendlifebuy.com/support-ticket";
+        return supportTicketPageUrl;
+    }
+
+    public static String notificationPageUrl(String expectedUrl) {
+        String notificationPageUrl = "https://qa.trendlifebuy.com/profile/notifications";
+        return notificationPageUrl;
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//265
 // ABDURRAHMAN LOGİN
 
-    public static void loginTrendlife(String username,String password){
+    public static void loginTrendlife(String username, String password) {
 
         // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
 
@@ -279,13 +314,6 @@ public class ReusableMethod {
         WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
         signInbutton.click();
     }
-
-
-
-
-
-
-
 
 
 }

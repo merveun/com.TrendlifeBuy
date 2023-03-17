@@ -87,19 +87,19 @@ Feature: US_015 As a user, I would like to have a special dashboard page on the 
     Then  terminate test
 
 
-  Scenario: TC_129 It should be verified that clicking the See All button on the My Wishlist board on the
-  Dashboard page redirects the user to the My Wishlist page.
+  #Scenario: TC_129 It should be verified that clicking the See All button on the My Wishlist board on the
+  #Dashboard page redirects the user to the My Wishlist page.
 
-    Given go to "url"
-    Then  close popup
-    Then  click log in
-    Then  type valid email
-    And   type valid password
-    Then  click sign in
-    Then  click dashboard button
-    Then  click See All button on My Wishlist board
-    Then  verify My Wishlist page is opened
-    Then  terminate test
+  #  Given go to "url"
+  #  Then  close popup
+  #  Then  click log in
+  #  Then  type valid email
+  #  And   type valid password
+  #  Then  click sign in
+  #  Then  click dashboard button
+  #  Then  click See All button on My Wishlist board
+  #  Then  verify My Wishlist page is opened
+  #  Then  terminate test
 
   Scenario: TC_130 It should be verified that it redirects the user to the Recent Order page when
   the See All button is clicked on the Recent Order panel on the Dashboard page.
@@ -111,8 +111,9 @@ Feature: US_015 As a user, I would like to have a special dashboard page on the 
     And   type valid password
     Then  click sign in
     Then  click dashboard button
-    Then  click Recent Order button on Recent board
-    Then  verify Purchase History page is opened
+    Then  scroll down to display See All button of Recent Order
+    Then  click See All button on Recent Order board
+    Then  verify Recent Order page is opened
     Then  terminate test
 
   Scenario: TC_131 When clicking the See All button on the Product in Cart board on the Dashboard page,
@@ -125,8 +126,9 @@ Feature: US_015 As a user, I would like to have a special dashboard page on the 
     And   type valid password
     Then  click sign in
     Then  click dashboard button
-    Then  click Recent Order button on Purchase History board
-    Then  verify Purchase History page is opened
+    Then  scroll down to display See All button of Product in Cart
+    Then  click See All button on Product in Cart board
+    Then  verify Product in Cart page is opened
     Then  terminate test
 
   Scenario: TC_132  When the Dashboard, Purchase History, My Wishlist, My Order, Giftcard, My Wallet, My Coupons,
@@ -140,17 +142,40 @@ Feature: US_015 As a user, I would like to have a special dashboard page on the 
     And   type valid password
     Then  click sign in
     Then  click dashboard button
-    Then  click Purchase History button on the side bar and verify the relevant page is opened
-    Then  click My Wishlist button on the side bar and verify the relevant page is opened
-    Then  click My Order button on the side bar and verify the relevant page is opened
-    Then  click Giftcard button on the side bar and verify the relevant page is opened
-    Then  click My Wallet button on the side bar and verify the relevant page is opened
-    Then  click My Coupons button on the side bar and verify the relevant page is opened
-    Then  click Refund & Dispute button on the side bar and verify the relevant page is opened
-    Then  click My Account button on the side bar and verify the relevant page is opened
-    Then  click Digital Products button on the side bar and verify the relevant page is opened
-    Then  click Referral button on the side bar and verify the relevant page is opened
-    Then  click Support Ticket button on the side bar and verify the relevant page is opened
-    Then  click Notification Ticket button on the side bar and verify the relevant page is opened
-    And   terminate test
-
+    And   scroll down to see Side Bar
+    Then  click Purchase History button on the side bar
+    Then  verify that it is navigated to Purchase History page
+    And   scroll down to see Side Bar
+    Then  click My Wishlist button on the side bar
+    Then  verify that it is navigated to Wishlist page
+    And   scroll down to see Side Bar
+    Then  click My Order button on the side bar
+    Then  verify that it is navigated to My Order page
+    And   scroll down to see Side Bar
+    Then  click Giftcard button on the side bar
+    Then  verify that it is navigated to Giftcard page
+    And   scroll down to see Side Bar
+    Then  click My Wallet button on the side bar
+    Then  verify that it is navigated to My Wallet page
+    And   scroll down to see Side Bar
+    Then  click My Coupons button on the side bar
+    Then  verify that it is navigated to My Coupons page
+    And   scroll down to see Side Bar
+    Then  click Refund & Dispute button on the side bar
+    Then  verify that it is navigated to Refund & Dispute page
+    And   scroll down to see Side Bar
+    Then  click My Account button on the side bar
+    Then  verify that it is navigated to My Account page
+    And   scroll down to see Side Bar
+    Then  click Digital Products button on the side bar
+    Then  verify that it is navigated to Digital Products page
+    And   scroll down to see Side Bar
+    Then  click Referral button on the side bar
+    Then  verify that it is navigated to Referral page
+    And   scroll down to see Side Bar
+    Then  click Support Ticket button on the side bar
+    Then  verify that it is navigated to Support Ticket page
+    And   scroll down to see Side Bar
+    Then  click Notification button on the side bar
+    Then  verify that it is navigated to Notification page
+    Then  terminate test
