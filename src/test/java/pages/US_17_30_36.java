@@ -121,6 +121,93 @@ public class US_17_30_36 {
     @FindBy (xpath = "//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px']")
     public WebElement pagesView;
 
+    //-----------------------------------------------US36-----------
+    //--------TC01------
+    @FindBy (xpath = "//span[text()='Gift Card']")
+    public WebElement buttonGiftCArd;
+
+    @FindBy (xpath = "//a[text()='Gift Card List']")
+    public WebElement buttonGiftCardList;
+    //------TC02--------
+
+    @FindBy(xpath = "//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px']")
+    public WebElement giftCardAlani;
+    //-----TC03------
+
+    @FindBy(xpath = "//div[@class='slider round']")
+    public WebElement typeStatus;
+
+   @FindBy(xpath = " //div[@class='toast toast-success']")
+    public WebElement mmessageToast;
+   //-----TC05-------
+
+    @FindBy(xpath = "//td[@class='sorting_1']")
+    public WebElement buttonAction;
+
+    @FindBy(xpath = "(//div[@class='dropdown CRM_dropdown'])[2]")
+    public WebElement buttonSelect;
+      //  (//button[@class='btn btn-secondary dropdown-toggle'])[1]
+    @FindBy(xpath = "(//a[text()='View'])[3]")
+    public WebElement buttonViewAdmin;
+
+    @FindBy(xpath = "(//a[@href='https://trendlifebuy.com/admin/giftcard/edit/21'])[2]")
+    public WebElement buttonEdit;
+          // (//a[text()='Edit'])[2]  (//a[@class='dropdown-item edit_brand'])[4]
+    @FindBy(xpath = "(//a[text()='Delete'])[2]")
+    public WebElement buttonDelete;
+   //-------TC06------
+
+    @FindBy(xpath = "//td[text()='friends']")
+    public WebElement friendsCard;
+
+    @FindBy (xpath = "//div[@class='main-title d-md-flex']")
+    public WebElement nameFriends;
+    //----TC07-------
+
+    @FindBy(xpath = "//span[text()='Inactive']")
+    public WebElement textInactive;
+    //------TC08------
+
+    @FindBy (xpath = "//button[@class='dt-button buttons-print']")
+    public WebElement buttonPrint;
+    //------TC09------
+
+    @FindBy(xpath = "//div[@class='main-title']")
+    public WebElement textEditGifCard;
+    //-------TC11----
+
+    @FindBy (xpath = "//input[@class='primary_input_field']")
+    public WebElement editName;
+
+    @FindBy(xpath = "//input[@id='selling_price']")
+    public WebElement editSelling;
+
+    @FindBy (xpath = "//button[@id='submit_btn']")
+    public WebElement buttonEditUpdate;
+
+
+    //----TC12-------
+    @FindBy(id = "dataDeleteBtn")
+    public WebElement buttonDeleteSon;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
