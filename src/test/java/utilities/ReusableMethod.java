@@ -281,6 +281,21 @@ public class ReusableMethod {
     }
 
 
+    //ABDURRAHMAN ADMIN LOGIN
+
+    public static void adminLoginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        pages.adminEmailAddress.sendKeys(username);
+        pages.adminPassword.sendKeys(password);
+        ReusableMethod.bekle(2);
+        pages.adminSignIn.click();
+
+    }
+
 
 
 
