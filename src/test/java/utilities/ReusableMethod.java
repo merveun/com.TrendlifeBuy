@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.asserts.SoftAssert;
+import pages.US_1_11_12_18_25_31_38;
 
 import java.io.File;
 import java.io.IOException;
@@ -157,46 +158,7 @@ public class ReusableMethod {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   // ScrollDown_End_Of_Page --> Murat
+    // ScrollDown_End_Of_Page --> Murat
     public static void scrolldown() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -263,5 +225,83 @@ public class ReusableMethod {
     public static void navigateback() {
         driver.navigate().back();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ABDURRAHMAN LOGİN
+
+    public static void loginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        pages.PopupExitButon.click();
+        pages.loginButon.click();
+        pages.emailAddres.sendKeys(username);
+        pages.password.sendKeys(password);
+        ReusableMethod.bekle(2);
+        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+        signInbutton.click();
+    }
+
+
+    //ABDURRAHMAN ADMIN LOGIN
+
+    public static void adminLoginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        pages.adminEmailAddress.sendKeys(username);
+        pages.adminPassword.sendKeys(password);
+        ReusableMethod.bekle(2);
+        pages.adminSignIn.click();
+
+    }
+
+
+
+
+
+
+
+
 }
 
