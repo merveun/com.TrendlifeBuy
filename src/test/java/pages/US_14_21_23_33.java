@@ -21,13 +21,13 @@ public class US_14_21_23_33 {
     @FindBy (xpath = "(//a[normalize-space()='About Us'])[1]")
     public WebElement aboutUsMenu;
 
-    @FindBy (xpath = "//span[normalize-space()='Quality and Reasonable Prices']")
+    @FindBy (xpath = "//div[@class='section__title2']")
     public WebElement qualityReasonblePrices;
 
-    @FindBy (xpath = "//div[@class='about_counter_area section_spacing6']")
+    @FindBy (xpath = "//div[@class='about_counter_area section_spacing6']//div[@class='container']")
     public WebElement visibleNumbersAndBoards;
 
-    @FindBy (xpath = "//span[normalize-space()='online shopping easy and cost-efficient']")
+    @FindBy (xpath = "//div[@class='about_value_textBox']")
     public WebElement onlineShoppingEasyWrite;
 
     @FindBy (xpath = "//div[@class='col-12']//div[@class='section__title2 mb_35']")
@@ -44,6 +44,9 @@ public class US_14_21_23_33 {
 
     @FindBy (xpath = "(//div[@class='col-lg-3 col-md-6'])[4]")
     public WebElement viesibleHarryCooper;
+
+    // US_21 features
+
 
 
 
