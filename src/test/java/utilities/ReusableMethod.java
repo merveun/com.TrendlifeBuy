@@ -1,14 +1,15 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.asserts.SoftAssert;
+import pages.US_1_11_12_18_25_31_38;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
-import static org.openqa.selenium.By.xpath;
 import static utilities.Driver.driver;
 
 public class ReusableMethod {
@@ -156,6 +156,8 @@ public class ReusableMethod {
     public static int onlyTakeNumberandParseInteger(String number) {
         return Integer.parseInt(number.replaceAll("\\D", ""));
     }
+
+
     // ScrollDown_End_Of_Page --> Murat
     public static void scrolldown() {
 
@@ -164,12 +166,16 @@ public class ReusableMethod {
 
     }
 
-    public static void waitToSee(int saniye) {
-        try {
-            Thread.sleep(saniye * 1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public static void scrolldown_600() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)");
+
+    }
+    public static void scrolldown_bypixel_2000() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+
     }
 
 
@@ -182,4 +188,120 @@ public class ReusableMethod {
         ReusableMethod.waitToSee(1);
         signInbutton.click();
     }
+
+
+    // Sayfa üzerinde istenilen elemente gider
+    public static void focusToElement(WebElement element)
+    {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.scrollToElement(element);
+    }
+
+    public static void scrolldown_for_Load_More() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,5500)");
+
+    }
+
+       public static void waitToSee(int second) {
+               try {
+                   Thread.sleep(second * 1000L);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+
+          public static void signIn(String userEmailAddress, String userPassword){
+               WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
+               WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
+               WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+               userEmailTextBox.sendKeys(userEmailAddress);
+               useremailTesxtBox.sendKeys(userPassword);
+               ReusableMethod.waitToSee(1);
+               signInbutton.click();
+           }
+
+
+    public static void navigateback() {
+        driver.navigate().back();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ABDURRAHMAN LOGİN
+
+    public static void loginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        pages.PopupExitButon.click();
+        pages.loginButon.click();
+        pages.emailAddres.sendKeys(username);
+        pages.password.sendKeys(password);
+        ReusableMethod.bekle(2);
+        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+        signInbutton.click();
+    }
+
+
+    //ABDURRAHMAN ADMIN LOGIN
+
+    public static void adminLoginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        pages.adminEmailAddress.sendKeys(username);
+        pages.adminPassword.sendKeys(password);
+        ReusableMethod.bekle(2);
+        pages.adminSignIn.click();
+
+    }
+
+
+
+
+
+
+
+
 }
+

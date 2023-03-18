@@ -1,6 +1,7 @@
+
 Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünleri atacagim
   ve devaminda alisveris islemlerimi gerceklestirebilecegim bir sepet sayfasi olmasini istiyorum.
-
+@tnr
   Scenario: US_010 --> TC_001 - Shipping charge free from,
             Order Summary,Subtotal,Shipping Charge,
             Discount,VAT/TAX/GST ve Total yazılarınin görünür oldugu dogrulanmali.
@@ -14,7 +15,13 @@ Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünl
     Then ilk urunun uzerinde bekler
     Then add to cart butonuna tiklar
     Then view cart butonuna tiklar
-    * gerekli yazilarin gorunur oldugunu dogrular
+    And shipping charge free yazisinin gorunur oldugunu dogrula
+    And order summary yazisinin gorunur oldugunu dogrula
+    And subtotal yazisinin gorunur oldugunu dogrula
+    And shipping charge yazisinin gorunur oldugunu dogrula
+    And discount yazisinin gorunur oldugunu dogrula
+    And vatTaxGst yazisinin gorunur oldugunu dogrula
+    And total yazisinin gorunur oldugunu dogrula
     And sayfayi kapat
 
   Scenario:US_010 --> TC_002 - Quantity bölümünden alınacak ürünün adedinin degistirilebildigi dogrulanmali.
@@ -83,7 +90,7 @@ Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünl
     Then continue shopping butonuna tiklar
     And anasayfaya gidildigini dogrular
     And sayfayi kapat
-  @brkr
+
   Scenario: US_010 --> TC_007 - Remove bölümündeki delete ikonuna tiklandiginda sepetteki ürünün silindigi ve total fiyatin degistigi dogrulanmali.
     Given kullanici "url" sayfasina git
     Then subscribe popup kapatilir
