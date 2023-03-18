@@ -61,6 +61,7 @@ Feature: Verify that the functions in the top menu of the home page are active
     Given go to the "url"
     Then  close the popup
     Then  enter in the search box
+    And verify that visibility of search query text
 
 
   Scenario: TC_008--->(US_002) login button should redirect to relevant page

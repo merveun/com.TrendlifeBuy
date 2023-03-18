@@ -78,7 +78,19 @@ public class US_2_35 {
     public WebElement searchBox2;
 
    //Homepage/Search Query Area
-    @FindBy(xpath = "//html/body/div[3]/div/div/div/h3[@class='branding_text']")
+    @FindBy(xpath = "//h3[@class='branding_text']")
     public WebElement searchQuery;
+
+    //Admin Panel> Left Menu > Products Button
+    @FindBy(xpath = "//span[text()='Products']")
+    public WebElement productButton;
+
+    //Admin Panel> Left Menu > Products Button > Product List
+    @FindBy(xpath = "//a[text()='Product List']")
+    public WebElement productListButton;
+
+    //Admin Panel> Left Menu > Products Button > Product List > Product List Text
+    @FindBy(xpath = " //h3[text()='Product List']")
+    public WebElement productListText;
 
 }

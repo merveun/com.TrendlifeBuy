@@ -143,15 +143,18 @@ public class US_2_35_StepDef {
     @Then("enter in the search box")
     public void enterInTheSearchBox() {
         pages = new US_2_35();
+        pages.searchBox2.click();
         Actions actions = new Actions(Driver.getDriver());
-        actions.click(pages.searchBox2).sendKeys(ConfigReader.getProperty("searchkey")).sendKeys(Keys.ENTER).perform();
+        actions.sendKeys("laptop").sendKeys(Keys.ENTER).perform();
+        //actions.click(pages.searchBox2).sendKeys(ConfigReader.getProperty("searchkey")).sendKeys(Keys.ENTER).perform();
     }
 
     @And("verify that visibility of search query text")
     public void verifyThatVisibilityOfProductAmount() {
         pages = new US_2_35();
         String expectedkeys= ConfigReader.getProperty("searchkey");
-        String actualkeys= pages.searchQuery.getText();
+        String actualkeys= pages.searchQuery.getText().toLowerCase();
+        System.out.println(actualkeys);
         Assert.assertTrue(actualkeys.contains(expectedkeys));
 
     }
@@ -273,4 +276,35 @@ public class US_2_35_StepDef {
     }
 
 
+    @Then("login as a admin")
+    public void loginAsAAdmin() {
+        pages = new US_2_35();
+        ReusableMethod.logIn("admin010@trendlifebuy.com","Trendlife123");
+    }
+
+    @Given("go to admin panel {string}")
+    public void goToAdminPanel(String urlAdmin) {
+        getDriver().get(ConfigReader.getProperty("urlAdmin"));
+    }
+
+    @Then("click on product button")
+    public void clickOnProductButton() {
+        pages = new US_2_35();
+        pages.productButton.click();
+
+
+    }
+
+    @Then("click on product list button")
+    public void clickOnProductListButton() {
+        pages = new US_2_35();
+        pages.productListButton.click();
+    }
+
+    @And("verify that the visibility of product list")
+    public void verifyThatTheVisibilityOfProductList() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.productListText,2);
+        Assert.assertTrue(pages.productListText.isDisplayed());
+    }
 }
