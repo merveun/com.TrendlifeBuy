@@ -2,7 +2,9 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
@@ -11,13 +13,19 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
+import java.util.List;
+
 public class US_10_37_41_StepDef {
 
     US_10_37_41 pages;
-
+    String dashboardHandleDegeri="";
+    String orderIDfromDashboard;
+    String customerNameFromDashboard;
+    String customersProfileHandleDegeri="";
+    String orderManagerHandleDegeri="";
     @Given("kullanici {string} sayfasina git")
-    public void kullanici_sayfasina_git(String string) {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+    public void kullanici_sayfasina_git(String url) {
+        Driver.getDriver().get(ConfigReader.getProperty(url));
     }
     @Then("subscribe popup kapatilir")
     public void subscribe_popup_kapatilir() {
@@ -97,18 +105,7 @@ public class US_10_37_41_StepDef {
         pages = new US_10_37_41();
         pages.viewCartButton.click();
     }
-    @Then("gerekli yazilarin gorunur oldugunu dogrular")
-    public void gerekli_yazilarin_gorunur_oldugunu_dogrular() {
 
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(pages.shippinChargeFreeFromText.isDisplayed());
-        softAssert.assertTrue(pages.orderSummartText.isDisplayed());
-        softAssert.assertTrue(pages.subtotalText.isDisplayed());
-        softAssert.assertTrue(pages.shippingChargeText.isDisplayed());
-        softAssert.assertTrue(pages.discountText.isDisplayed());
-        softAssert.assertTrue(pages.vatTaxGstText.isDisplayed());
-        softAssert.assertAll();
-    }
 
     @Then("adet degisiminin yapilabildigini dogrula")
     public void adet_degisiminin_yapilabildigini_dogrula() {
@@ -205,6 +202,125 @@ public class US_10_37_41_StepDef {
         ReusableMethod.bekle(1);
         Assert.assertEquals(actualTotal,expectedTotal);
     }
+    @Then("shipping charge free yazisinin gorunur oldugunu dogrula")
+    public void shipping_charge_free_yazisinin_gorunur_oldugunu_dogrula() {
+        Assert.assertTrue(pages.shippinChargeFreeFromText.isDisplayed());
+    }
+    @Then("order summary yazisinin gorunur oldugunu dogrula")
+    public void order_summary_yazisinin_gorunur_oldugunu_dogrula() {
+
+        Assert.assertTrue(pages.orderSummartText.isDisplayed());
+    }
+    @Then("subtotal yazisinin gorunur oldugunu dogrula")
+    public void subtotal_yazisinin_gorunur_oldugunu_dogrula() {
+        Assert.assertTrue(pages.subtotalText.isDisplayed());
+    }
+    @Then("shipping charge yazisinin gorunur oldugunu dogrula")
+    public void shipping_charge_yazisinin_gorunur_oldugunu_dogrula() {
+        Assert.assertTrue(pages.shippingChargeText.isDisplayed());
+    }
+    @Then("discount yazisinin gorunur oldugunu dogrula")
+    public void discount_yazisinin_gorunur_oldugunu_dogrula() {
+        Assert.assertTrue(pages.discountText.isDisplayed());
+    }
+    @Then("vatTaxGst yazisinin gorunur oldugunu dogrula")
+    public void vat_tax_gst_yazisinin_gorunur_oldugunu_dogrula() {
+        Assert.assertTrue(pages.vatTaxGstText.isDisplayed());
+    }
+    @Then("total yazisinin gorunur oldugunu dogrula")
+    public void total_yazisinin_gorunur_oldugunu_dogrula() {
+        Assert.assertTrue(pages.totalText.isDisplayed());
+    }
+
+    // US_037 methods
+
+    @Given("kullanici bilgilerini gir")
+    public void kullanici_bilgilerini_gir() {
+        pages = new US_10_37_41();
+        pages.adminEmailTextBox.sendKeys(ConfigReader.getProperty("adminEmail"));
+        pages.adminPasswordTextBox.sendKeys(ConfigReader.getProperty("adminPassword"));
+    }
+    @Given("sign in butonuna tiklar")
+    public void sign_in_butonuna_tiklar() {
+        pages.adminSignInButton.click();
+    }
+    @Given("gerekli grafiklerin gorunur oldugunu dogrular")
+    public void gerekli_grafiklerin_gorunur_oldugunu_dogrular() {
+       ReusableMethod.bekle(1);
+       Actions actions = new Actions(Driver.getDriver());
+       actions.scrollToElement(Driver.getDriver().findElement(By.xpath("//canvas"))).perform();
+        ReusableMethod.bekle(1);
+        SoftAssert softAssert = new SoftAssert();
+        /*for (WebElement graphic : pages.adminDashboardGraphics)
+        {
+            softAssert.assertTrue(graphic.isDisplayed());
+        }
+        softAssert.assertAll();*/
+
+    }
+
+    @Given("gerekli listelerin gorunur oldugunu dogrular")
+    public void gerekli_listelerin_gorunur_oldugunu_dogrular() {
+        pages=new US_10_37_41();
+
+        SoftAssert softAssert = new SoftAssert();
+        for (WebElement each : pages.ListHeaders)
+        {
+            Actions action = new Actions(Driver.getDriver());
+            action.scrollToElement(each).perform();
+            softAssert.assertTrue(each.isDisplayed());
+        }
+        softAssert.assertAll();
+
+    }
+
+    @Then("new customerstaki details butonuna tiklar")
+    public void new_customerstaki_details_butonuna_tiklar() {
+        pages = new US_10_37_41();
+
+        dashboardHandleDegeri=Driver.getDriver().getWindowHandle();
+        customerNameFromDashboard=pages.nameCustomer.getText(); // Testte kullanılacak data
+
+        pages.detailsNewCustomersButton.click();
+
+        for (String handle : Driver.getDriver().getWindowHandles()) {
+            if(!dashboardHandleDegeri.equals(handle))
+            {
+                customersProfileHandleDegeri=handle;
+            }
+        }
+        Driver.getDriver().switchTo().window(customersProfileHandleDegeri);
+
+
+
+
+    }
+    @Then("ilgili customer sayfasina yonlendirildigini dogrulanir")
+    public void ilgili_customer_sayfasina_yonlendirildigini_dogrulanir() {
+        Assert.assertTrue(pages.customersNameFromProfile.getText().contains(customerNameFromDashboard));
+        Driver.getDriver().switchTo().window(dashboardHandleDegeri);
+    }
+    @Then("latest orderdaki details butonuna tiklar")
+    public void latest_orderdaki_details_butonuna_tiklar() {
+        pages = new US_10_37_41();
+        ReusableMethod.focusToElement(pages.orderId);
+        orderIDfromDashboard=pages.orderId.getText();// Testte kullanılacak data
+        pages.latestOrderDetailsButton.click();
+
+        for (String handle : Driver.getDriver().getWindowHandles()) {
+            if(!dashboardHandleDegeri.equals(handle) && !customersProfileHandleDegeri.equals(handle))
+            {
+                orderManagerHandleDegeri=handle;
+            }
+        }
+        Driver.getDriver().switchTo().window(orderManagerHandleDegeri);
+
+    }
+    @Then("ilgili siparis sayfasina yonlendirildigini dogrular")
+    public void ilgili_siparis_sayfasina_yonlendirildigini_dogrular() {
+        Assert.assertTrue(pages.orderIDFromOrderManage.getText().contains(orderIDfromDashboard));
+    }
+
     @Then("sayfayi kapat")
     public void sayfayi_kapat() {
         Driver.quitDriver();
