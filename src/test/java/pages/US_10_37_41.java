@@ -10,7 +10,6 @@ import java.util.List;
 public class US_10_37_41 {
     public US_10_37_41() {
         PageFactory.initElements(Driver.getDriver(),this);
-
     }
 
     // US_037 ait locate'ler

@@ -1,17 +1,17 @@
 package stepdefinitions;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 import pages.US_04_05_06_09_15_24_pages;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
+import static java.nio.file.Files.getAttribute;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
 
@@ -19,6 +19,7 @@ public class US_04_05_06_09_15_24_StepDef {
 
     US_04_05_06_09_15_24_pages pages = new US_04_05_06_09_15_24_pages();
 
+    //--> Reusable Step Definitions
     //Url page
     @Given("go to {string}")
     public void go_to(String string) {
@@ -31,7 +32,6 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitForClickablility(pages.PopupExit, 15);
         pages.PopupExit.click();
 
-
     }
 
     // Scroll down
@@ -42,17 +42,19 @@ public class US_04_05_06_09_15_24_StepDef {
 
     }
 
-    @Then("scroll down bypixel_600")
-    public void scroll_down_by_pixel_600() {
+    @Then("scroll down for View All")
+    public void scrollDownForViewAll() {
         ReusableMethod.scrolldown_600();
         ReusableMethod.waitToSee(2);
     }
 
-    @Then("scroll down bypixel_2000")
-    public void scrollDownBypixel_2000() {
+
+    @Then("scroll down for More Deal button")
+    public void scrollDownForMoreDealButton() {
         ReusableMethod.scrolldown_bypixel_2000();
         ReusableMethod.waitToSee(2);
     }
+
 
     @Then("scroll down bypixel_5500")
     public void scrollDownBypixel_5500() {
@@ -66,77 +68,130 @@ public class US_04_05_06_09_15_24_StepDef {
         ReusableMethod.waitToSee(2);
     }
 
-
-    @And("quit driver")
-    public void quitDriver() {
+    @And("terminate test")
+    public void terminateTest() {
         Driver.quitDriver();
     }
 
+    @Then("navigate page back")
+    public void navigatePageBack() {
+        ReusableMethod.navigateback();
+        ReusableMethod.waitToSee(3);
+    }
+
+    Actions actions = new Actions(Driver.getDriver());
+
+    //-------------------------
     //Scenario: TC_101
-    @Then("verify required links in TC_101 are visible")
-    public void verify_required_texts_in_TC_101_are_visible() {
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(pages.myAccount.isDisplayed());
-        softAssert.assertTrue(pages.orderStatus.isDisplayed());
-        softAssert.assertTrue(pages.referral.isDisplayed());
-        softAssert.assertTrue(pages.coupons.isDisplayed());
+    @Then("verify My Account link is visible")
+    public void verifyMyAccountLinkIsVisible() {
+        Assert.assertTrue(pages.myAccount.isDisplayed());
         ReusableMethod.waitToSee(2);
-        softAssert.assertAll();
+    }
+
+    @Then("verify Order Status link is visible")
+    public void verifyOrderStatusLinkIsVisible() {
+        Assert.assertTrue(pages.orderStatus.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify Referral link is visible")
+    public void verifyReferralLinkIsVisible() {
+        Assert.assertTrue(pages.referral.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+    }
+
+    @Then("verify Coupons link is visible")
+    public void verifyCouponsLinkIsVisible() {
+        Assert.assertTrue(pages.coupons.isDisplayed());
+        ReusableMethod.waitToSee(2);
     }
 
 
     //Scenario: TC_102
-    @Then("verify the clicked links in TC_102 navigates to relevant pages")
-    public void verifytheclickedlinksinTC_102navigatestorelevantpages() {
-        SoftAssert softAssert = new SoftAssert();
 
-        ReusableMethod.waitToSee(1);
+
+    @Then("verify My Account link navigates to the the relevant page after clicking")
+    public void verifyMyAccountLinkNavigatesToTheTheRelevantPageAfterClicking() {
         pages.myAccount.click();
-        ReusableMethod.logIn(ConfigReader.getProperty("validEmail_Murat"), ConfigReader.getProperty("validPassword_Murat"));
+        ReusableMethod.signIn(ConfigReader.getProperty("validEmail_Murat"), ConfigReader.getProperty("validPassword_Murat"));
         String myAccount_actualPageUrl = driver.getCurrentUrl();
         String myAccount_expectedUrl = "https://qa.trendlifebuy.com/profile";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(myAccount_expectedUrl, myAccount_actualPageUrl);
+        Assert.assertEquals(myAccount_expectedUrl, myAccount_actualPageUrl);
+    }
 
-        ReusableMethod.scrolldown();
-        ReusableMethod.waitToSee(3);
+    @Then("verify Order Status link navigates to the the relevant page after clicking")
+    public void verifyOrderStatusLinkNavigatesToTheTheRelevantPageAfterClicking() {
+        ReusableMethod.waitToSee(5);
         pages.orderStatus.click();
         String orderStatus_actualPageUrl = driver.getCurrentUrl();
         String orderStatus_expectedUrl = "https://qa.trendlifebuy.com/my-purchase-orders";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(orderStatus_expectedUrl, orderStatus_actualPageUrl);
+        Assert.assertEquals(orderStatus_expectedUrl, orderStatus_actualPageUrl);
+    }
 
-        ReusableMethod.scrolldown();
-        ReusableMethod.waitToSee(3);
+    @Then("verify Referral link navigates to the the relevant page after clicking")
+    public void verifyReferralLinkNavigatesToTheTheRelevantPageAfterClicking() {
+        ReusableMethod.waitToSee(2);
         pages.referral.click();
         String referral_actualPageUrl = driver.getCurrentUrl();
         String referral_expectedUrl = "https://qa.trendlifebuy.com/profile/referral";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(referral_expectedUrl, referral_actualPageUrl);
+        Assert.assertEquals(referral_expectedUrl, referral_actualPageUrl);
+    }
 
-        ReusableMethod.scrolldown();
-        ReusableMethod.waitToSee(3);
+    @Then("verify Coupons link navigates to the the relevant page after clicking")
+    public void verifyCouponsLinkNavigatesToTheTheRelevantPageAfterClicking() {
+        ReusableMethod.waitToSee(2);
         pages.coupons.click();
         String coupons_actualPageUrl = driver.getCurrentUrl();
         String coupons_expectedUrl = "https://qa.trendlifebuy.com/profile/coupons";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(coupons_expectedUrl, coupons_actualPageUrl);
-        softAssert.assertAll();
-
+        Assert.assertEquals(coupons_expectedUrl, coupons_actualPageUrl);
     }
+
 
     //Scenario: TC_103
     @Then("verify required links in TC_103 are visible")
     public void verifyRequiredLinksInTC_103AreVisible() {
-        SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertTrue(pages.aboutUs.isDisplayed());
-        softAssert.assertTrue(pages.contactUs.isDisplayed());
-        softAssert.assertTrue(pages.career.isDisplayed());
-        softAssert.assertTrue(pages.refundPolicy.isDisplayed());
-        softAssert.assertTrue(pages.termsCondition.isDisplayed());
 
-        softAssert.assertAll();
+    }
+
+    @Then("verify About Us link is visible")
+    public void verifyAboutUsLinkIsVisible() {
+        Assert.assertTrue(pages.aboutUs.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify Contact Us link is visible")
+    public void verifyContactUsLinkIsVisible() {
+        Assert.assertTrue(pages.contactUs.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+
+    }
+
+    @Then("verify Career link is visible")
+    public void verifyCareerLinkIsVisible() {
+        Assert.assertTrue(pages.career.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+    }
+
+    @Then("verify Refund Policy Us link is visible")
+    public void verifyRefundPolicyUsLinkIsVisible() {
+        Assert.assertTrue(pages.refundPolicy.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+    }
+
+    @Then("verify Terms & Condition link is visible")
+    public void verifyTermsConditionLinkIsVisible() {
+        Assert.assertTrue(pages.termsCondition.isDisplayed());
+        ReusableMethod.waitToSee(2);
     }
 
 
@@ -144,21 +199,33 @@ public class US_04_05_06_09_15_24_StepDef {
     @Then("verify the clicked links in TC_104 navigates to relevant pages")
     public void verifyTheClickedLinksInTC_104NavigatesToRelevantPages() {
 
-        SoftAssert softAssert = new SoftAssert();
+
+    }
+
+
+    @Then("verify About Us link navigates to the the relevant page after clicking")
+    public void verifyAboutUsLinkNavigatesToTheTheRelevantPageAfterClicking() {
+
         pages.aboutUs.click();
         String aboutUs_actualPageUrl = driver.getCurrentUrl();
         String aboutUs_expectedUrl = "https://qa.trendlifebuy.com/about-us";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(aboutUs_expectedUrl, aboutUs_actualPageUrl);
+        Assert.assertEquals(aboutUs_expectedUrl, aboutUs_actualPageUrl);
+    }
 
-        ReusableMethod.scrolldown();
+    @Then("verify Contact Us link navigates to the the relevant page after clicking")
+    public void verifyContactUsLinkNavigatesToTheTheRelevantPageAfterClicking() {
+
         ReusableMethod.waitToSee(2);
         pages.contactUs.click();
         String contactUs_actualPageUrl = driver.getCurrentUrl();
         String contactUs_expectedUrl = "https://qa.trendlifebuy.com/contact-us";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(contactUs_expectedUrl, contactUs_actualPageUrl);
+        Assert.assertEquals(contactUs_expectedUrl, contactUs_actualPageUrl);
+    }
 
+    @Then("verify Career link navigates to the the relevant page after clicking")
+    public void verifyCareerLinkNavigatesToTheTheRelevantPageAfterClicking() {
         ReusableMethod.waitToSee(3);
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(2);
@@ -166,174 +233,232 @@ public class US_04_05_06_09_15_24_StepDef {
         String career_actualPageUrl = driver.getCurrentUrl();
         String career_expectedUrl = "https://qa.trendlifebuy.com/career";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(career_expectedUrl, career_actualPageUrl);
+        Assert.assertEquals(career_expectedUrl, career_actualPageUrl);
+    }
 
-        ReusableMethod.scrolldown();
+    @Then("verify Refund Policy Us link navigates to the the relevant page after clicking")
+    public void verifyRefundPolicyUsLinkNavigatesToTheTheRelevantPageAfterClicking() {
+
         ReusableMethod.waitToSee(2);
         pages.refundPolicy.click();
         String refundPolicy_actualPageUrl = driver.getCurrentUrl();
         String refundPolicy_expectedUrl = "https://qa.trendlifebuy.com/return-exchange";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(refundPolicy_expectedUrl, refundPolicy_actualPageUrl);
+        Assert.assertEquals(refundPolicy_expectedUrl, refundPolicy_actualPageUrl);
+    }
 
-        ReusableMethod.scrolldown();
+    @Then("verify Terms & Condition link navigates to the the relevant page after clicking")
+    public void verifyTermsConditionLinkNavigatesToTheTheRelevantPageAfterClicking() {
+
         ReusableMethod.waitToSee(2);
         pages.termsCondition.click();
         String termsCondition_actualPageUrl = driver.getCurrentUrl();
         String termsCondition_expectedUrl = "https://qa.trendlifebuy.com/terms-condition";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(termsCondition_expectedUrl, termsCondition_actualPageUrl);
-
-        softAssert.assertAll();
+        Assert.assertEquals(termsCondition_expectedUrl, termsCondition_actualPageUrl);
     }
 
     //Scenario: TC_105
-    @Then("verify Google Play  and Apple Store buttons are visible")
-    public void verifyGooglePlayAndAppleStoreButtonsAreVisible() {
-        SoftAssert softAssert = new SoftAssert();
-
-        ReusableMethod.scrolldown();
+    @Then("verify Google Play button is visible")
+    public void verifyGooglePlayButtonIsVisible() {
+        Assert.assertTrue(pages.googlePlayButton.isDisplayed());
         ReusableMethod.waitToSee(2);
-        softAssert.assertTrue(pages.googlePlayButton.isDisplayed());
-        ReusableMethod.waitToSee(2);
-        softAssert.assertTrue(pages.appleStoreButton.isDisplayed());
-
-        softAssert.assertAll();
     }
+
+    @Then("verify Apple Store button is visible")
+    public void verifyAppleStoreButtonIsVisible() {
+        Assert.assertTrue(pages.appleStoreButton.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
 
     //Scenario: TC_106
     @Then("verify Google Play and Apple Store buttons navigate to relevant pages after clicking")
     public void verifyGooglePlayAndAppleStoreButtonsNavigateToRelevantPagesAfterClicking() {
-        SoftAssert softAssert = new SoftAssert();
+
 
         ReusableMethod.scrolldown();
         ReusableMethod.waitToSee(2);
+
+        driver.navigate().back();
+
+
+        ReusableMethod.waitToSee(2);
+
+
+    }
+
+
+    @Then("verify Google Play button navigates to relevant page after clicking")
+    public void verifyGooglePlayButtonNavigatesToRelevantPageAfterClicking() {
         pages.googlePlayButton.click();
         String googlePlayButton_actualPageUrl = driver.getCurrentUrl();
         String googlePlayButton_expectedUrl = "https://play.google.com/store/games";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(googlePlayButton_expectedUrl, googlePlayButton_actualPageUrl);
+        Assert.assertEquals(googlePlayButton_expectedUrl, googlePlayButton_actualPageUrl);
         ReusableMethod.waitToSee(2);
-        driver.navigate().back();
+    }
 
-        ReusableMethod.waitToSee(2);
+    @Then("verify Apple Store button navigates to relevant page after clicking")
+    public void verifyAppleStoreButtonNavigatesToRelevantPageAfterClicking() {
         pages.appleStoreButton.click();
         String appleStoreButton_actualPageUrl = driver.getCurrentUrl();
         String appleStoreButton_expectedUrl = "https://www.apple.com/app-store/";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(appleStoreButton_expectedUrl, appleStoreButton_actualPageUrl);
-
-        softAssert.assertAll();
+        Assert.assertEquals(appleStoreButton_expectedUrl, appleStoreButton_actualPageUrl);
     }
+
 
     //Scenario: TC_107
 
     @Then("verify clicking Go To Top button goes top of the home page")
     public void verifyclickingGoToTopButtonGoesTopOfTheHomePage() {
-        SoftAssert softAssert = new SoftAssert();
+
 
         pages.goToTop.click();
         ReusableMethod.waitToSee(3);
         Assert.assertTrue(pages.searchBox.isDisplayed());
 
-        softAssert.assertAll();
+
     }
 
     //Scenario: TC_108
-    @Then("verify required icons are visible")
-    public void verify_required_icons_are_visible() {
-        SoftAssert softAssert = new SoftAssert();
-
-        softAssert.assertTrue(pages.facebookIcon.isDisplayed());
-        softAssert.assertTrue(pages.twitterIcon.isDisplayed());
-        softAssert.assertTrue(pages.linkedinIcon.isDisplayed());
-        softAssert.assertTrue(pages.instagramIcon.isDisplayed());
-
-        softAssert.assertAll();
-
+    @Then("verify facebook icon is visible")
+    public void verifyFacebookIconIsVisible() {
+        Assert.assertTrue(pages.facebookIcon.isDisplayed());
+        ReusableMethod.waitToSee(2);
 
     }
+
+    @Then("verify twitter icon is visible")
+    public void verifyTwitterIconIsVisible() {
+        Assert.assertTrue(pages.twitterIcon.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+    }
+
+    @Then("verify linkedin icon is visible")
+    public void verifyLinkedinIconIsVisible() {
+        Assert.assertTrue(pages.linkedinIcon.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+    }
+
+    @Then("verify instagram icon is visible")
+    public void verifyInstagramIconIsVisible() {
+        Assert.assertTrue(pages.instagramIcon.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
 
     //Scenario: TC_109
     @Then("verify clicked icons navigate to relevant pages")
     public void verifyClickedIconsNavigateToRelevantPages() {
-        SoftAssert softAssert = new SoftAssert();
 
+
+    }
+
+    @Then("verify facebook icon navigates to relevant page after clicking")
+    public void verifyFacebookIconNavigatesToRelevantPageAfterClicking() {
         pages.facebookIcon.click();
         String fb_actualPageUrl = driver.getCurrentUrl();
         String fb_expectedUrl = "https://www.facebook.com/";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(fb_expectedUrl, fb_actualPageUrl);
+        Assert.assertEquals(fb_actualPageUrl, fb_expectedUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
+    }
+
+    @Then("verify twitter icon navigates to relevant page after clicking")
+    public void verifyTwitterIconNavigatesToRelevantPageAfterClicking() {
 
         pages.twitterIcon.click();
         String tw_actualPageUrl = driver.getCurrentUrl();
         String tw_expectedUrl = "https://twitter.com/";
         ReusableMethod.waitToSee(3);
-        softAssert.assertEquals(tw_expectedUrl, tw_actualPageUrl);
+        Assert.assertEquals(tw_expectedUrl, tw_actualPageUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
+    }
 
+    @Then("verify linkedin icon navigates to relevant page after clicking")
+    public void verifyLinkedinIconNavigatesToRelevantPageAfterClicking() {
 
         pages.linkedinIcon.click();
         String lnkd_actualPageUrl = driver.getCurrentUrl();
         String lnkd_expectedUrl = "https://www.linkedin.com/";
         ReusableMethod.waitToSee(3);
-        softAssert.assertEquals(lnkd_expectedUrl, lnkd_actualPageUrl);
+        Assert.assertEquals(lnkd_expectedUrl, lnkd_actualPageUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
+    }
+
+    @Then("verify instagram icon navigates to relevant page after clicking")
+    public void verifyInstagramIconNavigatesToRelevantPageAfterClicking() {
 
         pages.instagramIcon.click();
         String ins_actualPageUrl = driver.getCurrentUrl();
         String ins_expectedUrl = "https://www.instagram.com/";
         ReusableMethod.waitToSee(3);
-        softAssert.assertEquals(ins_expectedUrl, ins_actualPageUrl);
+        Assert.assertEquals(ins_expectedUrl, ins_actualPageUrl);
         driver.navigate().back();
         ReusableMethod.waitToSee(3);
-        softAssert.assertAll();
     }
 
     //Scenario: TC_110
-    @Then("verify required links in TC_110 are visible")
-    public void verifyRequiredLinksInTC_AreVisible() {
-        SoftAssert softAssert = new SoftAssert();
-
-        softAssert.assertTrue(pages.trendingProducts.isDisplayed());
-        softAssert.assertTrue(pages.hotCategories.isDisplayed());
-        softAssert.assertTrue(pages.houseAppliances.isDisplayed());
-        softAssert.assertTrue(pages.recommendtaionForYou.isDisplayed());
-        softAssert.assertTrue(pages.topBrand.isDisplayed());
-        softAssert.assertTrue(pages.popularSearches.isDisplayed());
-        softAssert.assertTrue(pages.trenbuylifeOnlineShopping.isDisplayed());
-
-        softAssert.assertAll();
+    @Then("verify Trending Products link is visible")
+    public void verifyTrendingProductsLinkIsVisible() {
+        Assert.assertTrue(pages.trendingProducts.isDisplayed());
+        ReusableMethod.waitToSee(2);
     }
+
+    @Then("verify Hot Categories link is visible")
+    public void verifyHotCategoriesLinkIsVisible() {
+        Assert.assertTrue(pages.hotCategories.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify House Appliances link is visible")
+    public void verifyHouseAppliancesLinkIsVisible() {
+        Assert.assertTrue(pages.houseAppliances.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify Recommendation For You link is visible")
+    public void verifyRecommendationForYouLinkIsVisible() {
+        Assert.assertTrue(pages.recommendtaionForYou.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify Top Brand link is visible")
+    public void verifyTopBrandLinkIsVisible() {
+        Assert.assertTrue(pages.topBrand.isDisplayed());
+        ReusableMethod.waitToSee(2);
+
+    }
+
+    @Then("verify Popular Searches link is visible")
+    public void verifyPopularSearchesLinkIsVisible() {
+        Assert.assertTrue(pages.popularSearches.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify Trendlifebuy|ONLINE SHOPPING link is visible")
+    public void verifyTrendlifebuyONLINESHOPPINGLinkIsVisible() {
+        Assert.assertTrue(pages.trenbuylifeOnlineShopping.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
 
     //Scenario: TC_111
     @Then("Verify that the View All button redirects to the relevant page")
     public void verifyThatTheViewAllButtonRedirectsToTheRelevantPage() {
-        SoftAssert softAssert = new SoftAssert();
-
 
         pages.viewAll_trendingProducts.click();
         String viewAll_trendingProducts_actualPageUrl = driver.getCurrentUrl();
         String expected_trend_url = "https://qa.trendlifebuy.com/category/best_deals?item=product";
-        softAssert.assertTrue(viewAll_trendingProducts_actualPageUrl.contains(expected_trend_url));
         ReusableMethod.waitToSee(2);
-        driver.navigate().back();
-        ReusableMethod.waitToSee(3);
-
-        pages.viewAll_hotcategories.click();
-        String viewAll_hotcategories_actualPageUrl = driver.getCurrentUrl();
-        String expected_hot_url = "https://qa.trendlifebuy.com/category";
-        softAssert.assertTrue(viewAll_hotcategories_actualPageUrl.contains(expected_hot_url));
-        ReusableMethod.waitToSee(2);
-        driver.navigate().back();
-        ReusableMethod.waitToSee(3);
-
-        softAssert.assertAll();
-
+        Assert.assertTrue(viewAll_trendingProducts_actualPageUrl.contains(expected_trend_url));
 
     }
 
@@ -347,27 +472,167 @@ public class US_04_05_06_09_15_24_StepDef {
         Assert.assertTrue(moreDeals_expectedUrl.contains(moreDeals_actualUrl));
 
     }
-    //Scenario: TC_113
 
+    //Scenario: TC_113
     @Then("verify that more products are seen as the Load More button is clicked")
     public void verifyThatMoreProductsAreSeenAsTheLoadMoreButtonIsClicked() {
 
         //System.out.println(pages.loadMoreButton.getLocation());
-        int loc1= ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
+        int loc1 = ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
         //System.out.println(loc1);
         ReusableMethod.waitToSee(2);
         pages.loadMoreButton.click();
         ReusableMethod.waitToSee(3);
         //System.out.println(pages.loadMoreButton.getLocation());
-        int loc2= ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
+        int loc2 = ReusableMethod.onlyTakeNumberandParseInteger(String.valueOf(pages.loadMoreButton.getLocation()));
         //System.out.println(loc2);
-        Assert.assertTrue(loc2>loc1);
+        Assert.assertTrue(loc2 > loc1);
+
+    }
+
+    //Scenario: TC_114
+
+    @Then("click log in")
+    public void clickLogIn() {
+        pages.logInButton.click();
+    }
+
+    @Then("verify that after clicking Here link next to Password navigates to relevant page")
+    public void verifyThatAfterClickingHereLinkNextToPasswordNavigatesToRelevantPage() {
+        pages.clickHereToReset.click();
+        Assert.assertTrue(pages.resetPasswordSendButton.isDisplayed());
+    }
+
+    //Scenario: TC_115
+    @Then("verify that after clicking Sign Up next to next to Don't have an Account? navigates to relevant page")
+    public void verifyThatAfterClickingSignUpNextToNextToDonTHaveAnAccountNavigatesToRelevantPage() {
+        pages.signUp.click();
+        Assert.assertTrue(pages.signUpText.isDisplayed());
+    }
+
+    //Scenario: TC_116 to TC_119
+    @Then("type valid email")
+    public void typeValidEmail() {
+        pages.emailBox.sendKeys(ConfigReader.getProperty("validEmail_Murat"));
+    }
+
+    @And("type valid password")
+    public void typeValidPassword() {
+        pages.passwordBox.sendKeys(ConfigReader.getProperty("validPassword_Murat"));
+    }
+
+    @Then("click sign in")
+    public void clickSignIn() {
+        pages.signInButton.click();
+        ReusableMethod.waitToSee(3);
+    }
+
+    @Then("verify that navigates to Home Page")
+    public void verifyThatNavigatesToHomePage() {
+        Assert.assertTrue(pages.dashboardLink.isDisplayed());
+
+    }
+
+    @Then("verify that Welcome message is displayed")
+    public void verifyThatWelcomeMessageIsDisplayed() {
+        Assert.assertTrue(pages.succesMessage.isDisplayed());
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("type incorrect email")
+    public void typeIncorrectEmail() {
+        pages.emailBox.sendKeys(ConfigReader.getProperty("incorrectEmail_Murat"));
+    }
+
+    @And("type incorrect password")
+    public void typeIncorrectPassword() {
+        pages.passwordBox.sendKeys(ConfigReader.getProperty("incorrectPassword_Murat"));
+    }
+
+    @Then("verify that These credentials do not match our records text is displayed")
+    public void verifyThatTheseCredentialsDoNotMatchOurRecordsTextIsDisplayed() {
+        Assert.assertTrue(pages.wrongDataText.isDisplayed());
+    }
+
+    //Scenario: TC_120
+    @Then("Verify that the Remember me checkbox is clickable")
+    public void verifyThatTheRememberMeCheckboxIsClickable() {
+        pages.rememberMeCheckBox.click();
+        // ReusableMethod.waitToSee(2);
+        Assert.assertTrue(pages.rememberMeCheckBox1.isSelected());
+
+    }
+
+    @Then("move to product one")
+    public void movetoProductOne() {
+        actions.moveToElement(pages.product1).perform();
+        ReusableMethod.waitToSee(5);
+    }
+
+    @Then("click product one")
+    public void clickProductOne() {
+
+        pages.product1.click();
+        ReusableMethod.scrolldown_600();
+        ReusableMethod.waitToSee(3);
+        pages.compareButtonProductPage.click();
+        ReusableMethod.waitToSee(3);
+    }
+
+    @Then("click product two")
+    public void clickProductTwo() {
+
+        pages.product2.click();
+        ReusableMethod.scrolldown_600();
+        ReusableMethod.waitToSee(1);
+        pages.compareButtonProductPage.click();
+        ReusableMethod.waitToSee(1);
+    }
+
+    @Then("click compare button")
+    public void clickCompareButton() {
+        pages.compareButtonHomePage.click();
+    }
+
+    //--verifies two selected products pictures
+    @Then("verify pictures of products are displayed")
+    public void verifyPicturesOfProductAreDisplayed() {
+
+        Assert.assertTrue(pages.comparedProduct1.isDisplayed());
+        Assert.assertTrue(pages.comparedProduct2.isDisplayed());
+    }
+
+    @Then("verify content information of products are displayed")
+    public void verifyContentInformationOfProductsAreDisplayed() {
+        WebElement contentInfo_product1 = pages.comparisonList1;
+        WebElement contentInfo_product2 = pages.comparisonList2;
+        String a = contentInfo_product1.getText();
+        String b = contentInfo_product2.getText();
+        Assert.assertFalse(a.isEmpty() & b.isEmpty());
 
     }
 
 
+    @Then("all-in-one logIn")
+    public void allInOneLogIn() {
+    clickLogIn();
+    typeValidEmail();
+    typeValidPassword();
+    clickSignIn();
+    }
+
+    @Then("click reset compare button")
+    public void clickResetCompareButton() {
+        pages.compareReset.click();
+        ReusableMethod.waitToSee(2);
+    }
+
+    @Then("verify product compare page is empty")
+    public void verifyProductComparePageIsEmpty() {
+        Assert.assertTrue(pages.compareListEmptyText.isDisplayed());
 
 
+    }
 }
 
 
