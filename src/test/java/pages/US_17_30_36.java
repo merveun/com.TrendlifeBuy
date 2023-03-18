@@ -49,6 +49,10 @@ public class US_17_30_36 {
     @FindBy(xpath= "//input[@class='form-control category_box_input']")
     public WebElement aramabutonu;
 
+    @FindBy(xpath = "//span[text()='Prev']")
+    public WebElement buttonPrev;
+
+
     //US17-----TC002
 
     @FindBy (xpath = "//button[@id='home-tab']" )
@@ -189,6 +193,8 @@ public class US_17_30_36 {
     //----TC12-------
     @FindBy(id = "dataDeleteBtn")
     public WebElement buttonDeleteSon;
+
+
 
 
 

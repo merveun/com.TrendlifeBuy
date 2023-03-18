@@ -52,15 +52,17 @@ public class US_17_30_36_StepDef {
         String actualUrl = getDriver().getCurrentUrl();
         String expectedUrl = "https://qa.trendlifebuy.com/my-purchase-orders";
         ReusableMethod.waitToSee(2);
-        softAssert.assertEquals(expectedUrl, actualUrl);
-        softAssert.assertAll();
+        Assert.assertEquals(expectedUrl, actualUrl);
+
     }
     // US17--TC002
     @Given("All-To butonuna tiklar ve urunlerin gorundugunu test eder")
     public void all_to_butonuna_tiklar_ve_urunlerin_gorundugunu_test_eder() {
         dashboardPages.buttonAll.click();
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.END).perform();
         ReusableMethod.bekle(2000);
+
         softAssert.assertTrue(dashboardPages.buttonAll.isDisplayed());
         softAssert.assertAll();
     }

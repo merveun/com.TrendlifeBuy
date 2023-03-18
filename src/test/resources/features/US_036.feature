@@ -1,4 +1,3 @@
-
 Feature:Bir yönetici olarak site kullanicilari icin gift cardlar hazirlamak,
   editlemek veya silmek icin bu fonksiyonlari gerceklestirebilecek bir sayfanin olmasini istiyorum.
   Background:
