@@ -14,8 +14,6 @@ import org.junit.runner.RunWith;
         glue = "stepdefinitions" ,
         tags = "",
         dryRun = false
-
 )
-
 public class Runner {
 }

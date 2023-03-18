@@ -183,6 +183,103 @@ public class US_1_11_12_18_25_31_38 {
     @FindBy(xpath = "//a[text()=\"Cancel Order\"]")
     public WebElement cancelOrder;
 
+    @FindBy(xpath = "//div//h3[text()=\"Select cancel reason\"]")
+    public WebElement selectCancelReason;
+
+    @FindBy(xpath = "//a[text()=\"/ Logout\"]")
+    public WebElement logOutbutonu;
+
+    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/my-wishlist\"][1])")
+    public WebElement logOutSidebar;
+
+
+    // ADMIN LOCATELERI
+
+    @FindBy(xpath = "//input[@placeholder=\"Email address\"]")
+    public WebElement adminEmailAddress;
+
+    @FindBy(xpath = "//input[@id=\"password\"]")
+    public WebElement adminPassword;
+
+
+    @FindBy(xpath = "//button[text()=\"Sign In\"]")
+    public WebElement adminSignIn;
+
+    //span[text()="Dashboard"]
+
+    @FindBy(xpath = "//span[text()=\"Dashboard\"]")
+    public WebElement adminDashboardlinki;
+
+    @FindBy(id = "profile_pic")
+    public WebElement adminProfilgorsel;
+
+    @FindBy(xpath = "//h5[text()=\"Admin120\"]")
+    public WebElement profilNameBilgisi;
+
+    @FindBy(xpath = "//a[text()=\"My Profile\"]")
+    public WebElement myprofillinki;
+
+    @FindBy(xpath = "//a[text()=\"Log out\"]")
+    public WebElement logoutlinki;
+
+    @FindBy(xpath = "//input[@id=\"first_name\"]")
+    public WebElement firstname;
+
+    @FindBy(xpath = "//input[@id=\"date_of_birth\"]")
+    public WebElement dateofbirth;
+
+    @FindBy(xpath = "//input[@id=\"last_name\"]")
+    public WebElement lastname;
+
+    @FindBy(xpath = "//input[@id=\"phone\"]")
+    public WebElement phonenumber;
+
+    @FindBy(xpath = "//input[@id=\"email\"]")
+    public WebElement email;
+
+
+    @FindBy(xpath = "//button[@id=\"update_info\"]")
+    public  WebElement updatenowbutton;
+
+
+    @FindBy(xpath = "//div[@id=\"toast-container\"]")
+    public WebElement updatesuccess;
+
+
+    @FindBy(xpath = "//a[@id=\"address_list_tab\"]")
+    public  WebElement addresslinki;
+
+    @FindBy(xpath = "//h3[text()=\"Address\"]")
+    public WebElement addressayfasionay;
+
+    @FindBy(xpath = "//a[@class=\"primary-btn radius_30px mr-10 fix-gr-bg add_new_address\"]")
+    public WebElement addnewaddressbutonu;
+
+    @FindBy(xpath = "//span[text()=\"Admin Reports\"]")
+    public WebElement adminreports;
+
+    @FindBy(xpath = "//a[text()=\"Keywords search\"]")
+    public WebElement keywordsearch;
+
+
+    @FindBy(xpath = "//input[@placeholder=\"Quick Search\"]")
+    public WebElement quicksearch;
+
+
+    @FindBy(xpath = "//td[text()=\"No matching records found\"]")
+    public WebElement quicksearchverigeldimi;
+
+
+    @FindBy(xpath = "//section[@class=\"admin-visitor-area up_st_admin_visitor\"]")
+    public WebElement keyboardlistesi;
+
+    @FindBy(xpath = "//th[text()=\"Keywords\"]")
+    public WebElement keywordbasligi;
+
+    @FindBy(xpath = "//th[text()=\"Number of time\"]")
+    public WebElement numberofTime;
+
+
     @FindBy(xpath = "//h3[text()=\"Select cancel reason\"]")
     public WebElement selectCancelReason;
 

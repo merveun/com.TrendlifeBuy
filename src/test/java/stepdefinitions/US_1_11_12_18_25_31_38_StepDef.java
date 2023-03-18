@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import com.github.javafaker.Faker;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -253,12 +254,22 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
     }
 
-
     @Then("Send Message butonuna tiklanir")
     public void sendMessageButonunaTiklanir() {
 
         pages.sendbutton.click();
 
+    @Then("Send Message butonuna tiklanir")
+    public void sendMessageButonunaTiklanir() {
+
+
+        pages.sendbutton.click();
+
+    }
+
+
+    @Then("Emailin başarili bir şekilde gönderildigi dogrulanir")
+    public void emailinBaşariliBirŞekildeGönderildigiDogrulanir() {
 
     }
 
@@ -266,6 +277,18 @@ public class US_1_11_12_18_25_31_38_StepDef {
     public void emailinBaşariliBirŞekildeGönderildigiDogrulanir() {
 
     }
+
+
+
+    @Then("Contact sayfasindaki sosyal medya \\(Facebook,Twitter,Linkedln,Instagram) ikonlarinin gorunur oldugunu dogrula")
+    public void contactSayfasindakiSosyalMedyaFacebookTwitterLinkedlnInstagramIkonlarininGorunurOldugunuDogrula() {
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).
+                perform();
 
 
     @Then("Contact sayfasindaki sosyal medya \\(Facebook,Twitter,Linkedln,Instagram) ikonlarinin gorunur oldugunu dogrula")
@@ -327,6 +350,7 @@ public class US_1_11_12_18_25_31_38_StepDef {
         ReusableMethod.bekle(3);
 
 
+
     }
 
     // US_18 ###########################
@@ -347,6 +371,74 @@ public class US_1_11_12_18_25_31_38_StepDef {
         ReusableMethod.bekle(2);
 
     }
+
+    @Then("MyOrder linkine tiklanir")
+    public void my_order_linkine_tiklanir() {
+
+        pages.myorderlinki.click();
+    }
+
+    @Then("My Order sayfasindaki urun boardindan Order Details butonuna tiklanir")
+    public void my_order_sayfasindaki_urun_boardindan_order_details_butonuna_tiklanir() {
+
+        pages.orderDetails.click();
+
+
+    }
+
+    @Then("My Order sayfasindaki urun boardindan Order Details butonuna tiklayinca ilgili siparisin detay sayfasina gidildigi dogrulanmali.")
+    public void my_order_sayfasindaki_urun_boardindan_order_details_butonuna_tiklayinca_ilgili_siparisin_detay_sayfasina_gidildigi_dogrulanmali() {
+
+        String actualOrderDetails = pages.orderDetailsgirildi.getText();
+        String expectedOrderDetails = "Package";
+        Assert.assertTrue(actualOrderDetails.contains(expectedOrderDetails));
+
+
+    }
+
+    // US_18 ###########################
+    @Then("Login butonuna tiklar")
+    public void loginButonunaTiklar() {
+
+        ReusableMethod.loginTrendlife(ConfigReader.getProperty("customerEmailAlas"), ConfigReader.getProperty("customerPasswordAlas"));
+    }
+
+    @Then("Order Details sayfasinda ilgili siparisin Order ID, Status, Order date, Order Amount, Package, Price, Shipping Info,Billing Info, Payment Info bilgilerinin goruntulendigi dogrulanmali")
+    public void orderDetailsSayfasindaIlgiliSiparisinOrderIDStatusOrderDateOrderAmountPackagePriceShippingInfoBillingInfoPaymentInfoBilgilerininGoruntulendigiDogrulanmali() {
+
+        SoftAssert  softAssert=new SoftAssert();
+        softAssert.assertTrue(pages.orderID.isDisplayed());
+        softAssert.assertTrue(pages.orderDate.isDisplayed());
+        softAssert.assertTrue(pages.orderAmount.isDisplayed());
+        softAssert.assertTrue(pages.price.isDisplayed());
+        softAssert.assertTrue(pages.shippingInfo.isDisplayed());
+        softAssert.assertTrue(pages.billingInfo.isDisplayed());
+        softAssert.assertTrue(pages.paymentInfo.isDisplayed());
+        softAssert.assertAll();
+
+
+    }
+
+    @Then("Order Details sayfasinda ilgili siparis süreci ile ilgili Pending, Processing, Shipped, Recieved, Delivered asamalari görünür oldugu dogrulanmali.")
+    public void orderDetailsSayfasindaIlgiliSiparisSüreciIleIlgiliPendingProcessingShippedRecievedDeliveredAsamalariGörünürOlduguDogrulanmali() {
+
+        actions=new Actions(Driver.getDriver());
+
+    @Then("Dashboard linkine tiklanir sayfaya yönlendirilir")
+    public void dashboard_linkine_tiklanir_sayfaya_yönlendirilir() {
+
+        pages.dashboardLinki.click();
+        actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethod.bekle(2);
+
+    }
+
+
+        SoftAssert  softAssert=new SoftAssert();
+        softAssert.assertTrue(pages.processing.isDisplayed());
+
 
     @Then("MyOrder linkine tiklanir")
     public void my_order_linkine_tiklanir() {
@@ -439,9 +531,274 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
         pages=new US_1_11_12_18_25_31_38();
         pages.cancelOrder.click();
+        ReusableMethod.bekle(2);
         Assert.assertTrue(pages.selectCancelReason.isDisplayed());
 
 
 
     }
+
+
+    @Then("cancel order butonuna tiklanir")
+    public void cancelOrderButonunaTiklanir() {
+
+        pages.cancelOrder.click();
+
+    }
+
+    @Then("Açılan pencerede Reason dropbox{string}in iptal edildigi dogrulanir")
+    public void açılanPenceredeReasonDropboxIndanSeçimYapılıpSendButonunaTiklanirVeGirilenOrderInIptalEdildigiDogrulanir() {
+
+
+    }
+
+
+    @Then("Logout linkinin gorunurlugu test edilmeli")
+    public void logoutLinkininGorunurluguTestEdilmeli() {
+
+        Assert.assertTrue(pages.logOutbutonu.isDisplayed());
+    }
+
+    @Then("LogOut butonuna tiklaninca sayfadan cikis yapmali")
+    public void logoutButonunaTiklanincaSayfadanCikisYapmali() {
+
+        pages=new US_1_11_12_18_25_31_38();
+
+        pages.logOutbutonu.click();
+    }
+
+    @Then("cikis yaptigi dogrulanmali")
+    public void cikisYaptigiDogrulanmali() {
+
+        Assert.assertTrue(pages.loginButon.isDisplayed());
+
+    }
+
+    @Then("Dashboard Side Bar'da Logout linki kontrol edilir ve linkin oldugu dogrulanir")
+    public void dashboardSideBarDaLogoutLinkiKontrolEdilirVeLinkinOlduguDogrulanir() {
+
+
+        actions=new Actions(Driver.getDriver());
+
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+
+        Assert.assertTrue(pages.logOutSidebar.isDisplayed());
+
+
+
+    }
+
+    @Then("Dashboardda logOut butonuna tiklanir hesaptan cikis yaptigi dogrulanir")
+    public void dashboarddaLogOutButonunaTiklanirHesaptanCikisYaptigiDogrulanir() {
+
+        ReusableMethod.bekle(3);
+        pages.logOutSidebar.click();
+        ReusableMethod.bekle(1);
+        Assert.assertFalse(pages.dashboardLinki.isDisplayed());
+
+
+    }
+
+
+    @Then("AdminLogin butonuna tiklar")
+    public void adminloginButonunaTiklar() {
+
+        ReusableMethod.adminLoginTrendlife(ConfigReader.getProperty("adminEmailAlas"),ConfigReader.getProperty("adminPasswordAlas"));
+
+
+    }
+
+    @Then("AdmindeDashboard linkine tiklanir")
+    public void admindedashboardLinkineTiklanir() {
+
+
+        pages=new US_1_11_12_18_25_31_38();
+        ReusableMethod.bekle(3);
+        pages.adminDashboardlinki.click();
+
+
+    }
+
+
+    @And("Dashboard ana sayfasinin ust barinda profil ikonunun gorunmeli")
+    public void dashboardAnaSayfasininUstBarindaProfilIkonununGorunmeli() {
+
+
+        Assert.assertTrue(pages.adminProfilgorsel.isDisplayed());
+
+    }
+
+
+
+    @Then("Profil ikonuna tiklaninca acilan pencerede login olunan hesabin Name bilgisinin gorundugu dogrulanmali")
+    public void profilIkonunaTiklanincaAcilanPenceredeLoginOlunanHesabinNameBilgisininGorunduguDogrulanmali() {
+
+
+        String expectedName="Admin120";
+        String actualName=pages.profilNameBilgisi.getText();
+
+        Assert.assertTrue(actualName.contains(expectedName));
+
+    }
+
+    @Then("Dashboardda profil ikonuna tiklanir")
+    public void dashboarddaProfilIkonunaTiklanir() {
+        ReusableMethod.bekle(4);
+        pages.adminProfilgorsel.click();
+
+    }
+
+
+
+    @And("Profil ikonuna tiklaninca acilan pencerede My profil ve Log out linklerinin gorunur oldugu dogrulanmali.")
+    public void profilIkonunaTiklanincaAcilanPenceredeMyProfilVeLogOutLinklerininGorunurOlduguDogrulanmali() {
+
+        ReusableMethod.bekle(3);
+        Assert.assertTrue(pages.myprofillinki.isDisplayed());
+        Assert.assertTrue(pages.logoutlinki.isDisplayed());
+
+
+
+    }
+
+    @And("My Profil linkine tiklaninca profile sayfasina gidillmeli")
+    public void myProfilLinkineTiklanincaProfileSayfasinaGidillmeli() {
+
+        pages=new US_1_11_12_18_25_31_38();
+        pages.myprofillinki.click();
+
+        String expectedUrl="https://trendlifebuy.com/profile";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl);
+
+
+    }
+
+
+
+
+
+    @Then("Profil sayfasindaki Basic Info bolumunde First Name, Last Name, E-mail Adress, Phone Number, Date of Bird bilgilerinin gorunmeli")
+    public void profilSayfasindakiBasicInfoBolumundeFirstNameLastNameEMailAdressPhoneNumberDateOfBirdBilgilerininGorunmeli() {
+
+        ReusableMethod.bekle(3);
+        Assert.assertTrue(pages.firstname.isDisplayed());
+        Assert.assertTrue(pages.lastname.isDisplayed());
+        Assert.assertTrue(pages.email.isDisplayed());
+        Assert.assertTrue(pages.phonenumber.isDisplayed());
+        Assert.assertTrue(pages.dateofbirth.isDisplayed());
+
+
+    }
+
+
+
+    @Then("Profil sayfasindaki Basic Info bolumunde First Name, Last Name, E-mail Adress, Phone Number, Date of Bird bilgileri update edilmesi icin bilgiler girilmeli ve update now butonuna tiklanmali")
+    public void profilSayfasindakiBasicInfoBolumundeFirstNameLastNameEMailAdressPhoneNumberDateOfBirdBilgileriUpdateEdilmesiIcinBilgilerGirilmeliVeUpdateNowButonunaTiklanmali() {
+        pages.firstname.clear();
+        pages.firstname.sendKeys("Admin120");
+        pages.lastname.clear();
+        pages.lastname.sendKeys("Alas");
+        pages.email.clear();
+        pages.email.sendKeys("admin120@trendlifebuy.com");
+        pages.phonenumber.clear();
+        pages.phonenumber.sendKeys("054540814442");
+        ReusableMethod.bekle(1);
+        pages.updatenowbutton.click();
+        ReusableMethod.bekle(1);
+        Assert.assertTrue(pages.updatesuccess.isDisplayed());
+
+
+
+    }
+
+    @Then("MyProfil sayfasina gidilir Adress butonuna tiklaninca acilan sayfada adres bilgisine tiklanmali ve sayfa gelmeli")
+    public void myprofilSayfasinaGidilirAdressButonunaTiklanincaAcilanSayfadaAdresBilgisineTiklanmaliVeSayfaGelmeli() {
+
+        pages.addresslinki.click();
+
+        ReusableMethod.bekle(2);
+        String expectedKelime="Address";
+        String actualKelime=pages.addressayfasionay.getText();
+
+        Assert.assertTrue(actualKelime.contains(expectedKelime));
+
+
+    }
+
+    @Then("Add New Adress butonuna tiklanir")
+    public void addNewAdressButonunaTiklanir() {
+
+
+        pages.addnewaddressbutonu.click();
+
+    }
+
+    @Then("Add New Adress butonuna tiklandiginda acilan sayfadan login olan hesaba yeni adres eklenebildigi ve eklenen adreslerin adress sayfasinda görünür oldugu dogrulanmali.")
+    public void addNewAdressButonunaTiklandigindaAcilanSayfadanLoginOlanHesabaYeniAdresEklenebildigiVeEklenenAdreslerinAdressSayfasindaGörünürOlduguDogrulanmali() {
+
+
+
+    }
+
+
+
+    @Then("Quick Search textbox kismina arama yapililr")
+    public void quickSearchTextboxKisminaAramaYapililr() {
+
+        pages.adminreports.click();
+        pages.keywordsearch.click();
+        pages.quicksearch.sendKeys("computer");
+        pages.quicksearch.click();
+
+
+    }
+
+    @Then("Quick Searchta aranan verinin geldigi dogrulanir")
+    public void quickSearchtaArananVerininGeldigiDogrulanir() {
+
+        ReusableMethod.bekle(2);
+        String expectedaranan="computer";
+        String actualaranan=pages.quicksearchverigeldimi.getText();
+        Assert.assertTrue(actualaranan.contains(expectedaranan));
+
+
+
+
+
+    }
+
+
+
+    @Then("Admin Reports Keywords Search butonuna tiklanir ve  sayfasinda Keyword search report Listesinin oldugu dogrulanmali")
+    public void adminReportsKeywordsSearchButonunaTiklanirVeSayfasindaKeywordSearchReportListesininOlduguDogrulanmali() {
+
+
+        pages.adminreports.click();
+        pages.keywordsearch.click();
+        ReusableMethod.bekle(2);
+        Assert.assertTrue(pages.keyboardlistesi.isDisplayed());
+
+
+    }
+
+
+
+
+    @Then("Keyword search report Listesinde Keyword ve Number of Time basliklarinin bulundugu dogrulanmali")
+    public void keywordSearchReportListesindeKeywordVeNumberOfTimeBasliklarininBulunduguDogrulanmali() {
+        Assert.assertTrue(pages.keywordbasligi.isDisplayed());
+        Assert.assertTrue(pages.numberofTime.isDisplayed());
+    }
+
+    @Then("Then Admin Reports Keywords Search butonuna tiklanir ve  sayfasinda Keyword search report Listesinin oldugu dogrulanmali")
+    public void thenAdminReportsKeywordsSearchButonunaTiklanirVeSayfasindaKeywordSearchReportListesininOlduguDogrulanmali() {
+        
+    }
+
+    @Then("Keyword search report Listesindeki her bir sayfada maximum {int} keyword bilgisi oldugu dogrulanmali")
+    public void keywordSearchReportListesindekiHerBirSayfadaMaximumKeywordBilgisiOlduguDogrulanmali(int arg0) {
+    }
+
 }
