@@ -39,6 +39,7 @@ Feature: Bir kullanici olarak verdigim siparislerimin son durumunu takip edebilm
     Then Dashboard linkine tiklanir sayfaya yönlendirilir
     Then MyOrder linkine tiklanir
     Then  My Order sayfasindaki urun boardindan Order Details butonuna tiklanir
+    Then cancel order butonuna tiklanir
     Then (Eger tamamlanmamis bir siparis ise) My Order sayfasindaki Cancel Order butonunun görünür oldugu ve Select cancel reason penceresine yönlendirme yaptigi dogrulanmali.
 
 
@@ -54,5 +55,5 @@ Feature: Bir kullanici olarak verdigim siparislerimin son durumunu takip edebilm
     Then Login butonuna tiklar
     Then Dashboard linkine tiklanir sayfaya yönlendirilir
     Then MyOrder linkine tiklanir
-    Then cancel order butonuna tiklanir
+    Then My Order sayfasindaki urun boardindan Order Details butonuna tiklanir
     Then  Order Details sayfasinda ürünle ilgili Shipping Info, Billing Info, Payment Info bilgilerine erisilebilir oldugu dogrulanmali

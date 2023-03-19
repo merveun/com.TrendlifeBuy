@@ -277,9 +277,12 @@ public class ReusableMethod {
         pages.loginButon.click();
         pages.emailAddres.sendKeys(username);
         pages.password.sendKeys(password);
-        ReusableMethod.bekle(2);
-        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
-        signInbutton.click();
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(3);
+
+        pages.userSignin.click();
+
     }
 
 
@@ -293,6 +296,9 @@ public class ReusableMethod {
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         pages.adminEmailAddress.sendKeys(username);
         pages.adminPassword.sendKeys(password);
+        ReusableMethod.bekle(2);
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethod.bekle(2);
         pages.adminSignIn.click();
 
