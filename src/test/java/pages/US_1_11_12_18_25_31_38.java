@@ -393,6 +393,16 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement userSignin;
 
 
+
+
+    @FindBy(css = "#days")
+    public WebElement day;
+
+    @FindBy(css = "#months")
+    public WebElement month;
+
+    @FindBy(css = "#years")
+    public WebElement year;
 }
 
 
