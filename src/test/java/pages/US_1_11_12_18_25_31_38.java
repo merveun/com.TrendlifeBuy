@@ -1,9 +1,13 @@
 package pages;
 
+import org.apache.commons.compress.archivers.zip.X000A_NTFS;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import javax.security.auth.x500.X500Principal;
+import java.util.List;
 
 public class US_1_11_12_18_25_31_38 {
 
@@ -21,7 +25,7 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement headerBlogLinki;
 
     //readmore > blog > home
-    @FindBy(xpath = "//a[@class=\"amazy_readMore_link\"]")
+    @FindBy(xpath = "/html/body/div[3]/div/div/div[1]/div/div[2]/div/div/a[2]")
     public WebElement readmorelinki;
 
     @FindBy(xpath = "//input[@placeholder=\"Search posts\"]")
@@ -31,10 +35,10 @@ public class US_1_11_12_18_25_31_38 {
     @FindBy(xpath = "//a[text()=\"Nature \"]")
     public WebElement categoryBloglari;
 
-    @FindBy(xpath = "/html/body/div[3]/div/div/div[2]/div/div[1]/ul/li[2]")
+    @FindBy(xpath = "//a[text()=\"programming\"]")
     public WebElement keywordBloglari;
 
-    @FindBy(xpath = "/html/body/div[3]/div/div/div[2]/div/div[2]/div[2]/div[1]/a")
+    @FindBy(xpath = "/html/body/div[3]/div/div/div[2]/div/div[2]/div[2]/div[1]")
     public WebElement popularPostBloglari;
 
 
@@ -112,7 +116,7 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement dashboardLinki;
 
 
-    @FindBy(xpath = "/html/body/div[3]/div/div/div[1]/div/div[3]/ul/li[4]")
+    @FindBy(xpath = "/html/body/div[3]/div/div/div[1]/div/div[3]/ul/li[4]/a")
     public WebElement myorderlinki;
 
     @FindBy(xpath = "//a[text()=\"Order Details\"]")
@@ -125,10 +129,10 @@ public class US_1_11_12_18_25_31_38 {
     @FindBy(xpath = "//h4[text()=\"Order ID:  \"]")
     public WebElement orderID;
 
-    @FindBy(xpath = "//p[text()=\" 2023-03-09 23:36:31\"]")
+    @FindBy(xpath = "//h4[text()=\"Order date :  \"]")
     public WebElement orderDate;
 
-    @FindBy(xpath = "//h4[text()=\"Order amount: \"]")
+    @FindBy(xpath = "//h4[text()=\"Status: \"]")
     public WebElement orderAmount;
 
     @FindBy(xpath = "//h4[text()=\"Package : 23030911313658\"]")
@@ -202,7 +206,7 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement adminPassword;
 
 
-    @FindBy(xpath = "//button[text()=\"Sign In\"]")
+    @FindBy(xpath = "//button[@id=\"sign_in_btn\"]")
     public WebElement adminSignIn;
 
     //span[text()="Dashboard"]
@@ -217,13 +221,11 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement profilNameBilgisi;
 
 
-
     @FindBy(xpath = "//a[text()=\"My Profile\"]")
     public WebElement myprofillinki;
 
     @FindBy(xpath = "//a[text()=\"Log out\"]")
     public WebElement logoutlinki;
-
 
 
     @FindBy(xpath = "//input[@id=\"first_name\"]")
@@ -243,7 +245,7 @@ public class US_1_11_12_18_25_31_38 {
 
 
     @FindBy(xpath = "//button[@id=\"update_info\"]")
-    public  WebElement updatenowbutton;
+    public WebElement updatenowbutton;
 
 
     @FindBy(xpath = "//div[@id=\"toast-container\"]")
@@ -251,7 +253,7 @@ public class US_1_11_12_18_25_31_38 {
 
 
     @FindBy(xpath = "//a[@id=\"address_list_tab\"]")
-    public  WebElement addresslinki;
+    public WebElement addresslinki;
 
     @FindBy(xpath = "//h3[text()=\"Address\"]")
     public WebElement addressayfasionay;
@@ -284,7 +286,111 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement numberofTime;
 
 
+    @FindBy(xpath = "//*[@id=\"home\"]/div[1]/div[2]/div[2]/a")
+    public WebElement orderdetails;
 
+    @FindBy(xpath = "//h5[text()=\"Ordered\"]")
+    public WebElement orderdetailseegidildimi;
+
+
+    @FindBy(xpath = "//div[@class=\"nice-select primary_input3 radius_3px style6 open\"]")
+    public WebElement country;
+
+
+    @FindBy(xpath = "//*[@id=\"order_cancel_form\"]/div/div[1]/div/div")
+    public WebElement reasonOneClick;
+
+    @FindBy(xpath = "//*[@id=\"order_cancel_form\"]/div/div[1]/div/div/div/input")
+    public WebElement reasonSearch;
+
+    @FindBy(xpath = "(//button[text()=\"Send\"])")
+    public WebElement reasonSend;
+
+    @FindBy(xpath = "//a[text()=\"Order Cancelled\"]")
+    public WebElement orderCancelled;
+
+    @FindBy(xpath = "//li[text()=\"ra.deneme\"]")
+    public WebElement raDeneme;
+
+
+    @FindBy(xpath = "//a[@data-dt-idx=\"2\"]")
+    public WebElement sayfalararasigecis;
+
+    @FindBy(xpath = "//a[@class=\"paginate_button current\"]")
+    public WebElement sayfadagecisonay;
+
+    @FindBy(xpath = "//div[text()=\"Showing 11 to 20 of 129 entries\"]")
+    public WebElement sayfalararasigecisonay;
+
+    @FindBy(xpath = "//*[@id=\"userSearchTable\"]/tbody/tr")
+    public List<WebElement> satirSayisi;
+
+
+    @FindBy(xpath = "//input[@id=\"address_name\"]")
+    public WebElement nameAddnewAddress;
+
+    @FindBy(xpath = "//input[@id=\"customer_phn\"]")
+    public WebElement phoneNumberAddnewAddress;
+    @FindBy(xpath = "//input[@id=\"Email_Address1\"]")
+    public WebElement emailAddnewAddress;
+
+    @FindBy(xpath = "//input[@id=\"Address\"]")
+    public WebElement addressAddnewAddress;
+
+    @FindBy(xpath = "//*[@id=\"address_form\"]/div/div[5]/div/div")
+    public WebElement dropcountry;
+
+    @FindBy(xpath = "//*[@id=\"address_form\"]/div/div[5]/div/div/div/input")
+    public WebElement selectcountry;
+
+    @FindBy(xpath = "//li[text()=\"Turkey\"]")
+    public WebElement countrysecilen;
+
+    @FindBy(xpath = "//*[@id=\"address_form\"]/div/div[6]/div/div/span")
+    public WebElement selectcıty;
+
+    @FindBy(xpath = "//*[@id=\"address_form\"]/div/div[6]/div/div/div/input")
+    public WebElement cityyaz;
+
+    @FindBy(xpath = "//*[@id=\"address_form\"]/div/div[7]/div/div")
+    public WebElement selectIlce;
+
+    @FindBy(xpath = "//*[@id=\"address_form\"]/div/div[7]/div/div/div/input")
+    public WebElement ilceyaz;
+
+    @FindBy(xpath = "//input[@id=\"postal_code\"]")
+    public WebElement postacode;
+
+    @FindBy(xpath = "//button[@class=\"primary-btn semi_large2 fix-gr-bg float-none\"]")
+    public WebElement save;
+
+    @FindBy(xpath = "//li[text()=\"Kayseri\"]")
+    public WebElement citysecilen;
+
+    @FindBy(xpath = "//li[text()=\"Develi\"]")
+    public WebElement ilcesecilen;
+
+
+    @FindBy(xpath = "//div[@class=\"table-responsive\"]")
+    public WebElement addressgöründümü;
+
+
+    @FindBy(xpath = "//input[@class=\"nice-select-search\"]")
+    public WebElement searchboxgiris;
+
+    @FindBy(xpath = "//li[text()=\"Customer\"]")
+    public WebElement customersarch;
+
+    @FindBy(xpath = "//textarea[@id=\"message\"]")
+    public  WebElement messageyaz;
+
+    @FindBy(xpath = "//*[@id=\"contactForm\"]/div/div[3]/div")
+    public WebElement installation;
+
+
+
+    @FindBy(xpath = "//button[@id=\"sign_in_btn\"]")
+    public WebElement userSignin;
 
 
 }
