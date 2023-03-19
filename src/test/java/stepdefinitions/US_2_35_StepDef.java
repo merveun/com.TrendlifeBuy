@@ -3,6 +3,9 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.US_2_35;
 import utilities.ConfigReader;
@@ -11,6 +14,7 @@ import utilities.ReusableMethod;
 import static org.junit.Assert.assertTrue;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
+import static utilities.ReusableMethod.logIn;
 
 public class US_2_35_StepDef {
 
@@ -130,28 +134,36 @@ public class US_2_35_StepDef {
     @And("verify that the homepage link opens")
     public void verifyThatTheHomepageLinkOpens() {
         pages = new US_2_35();
-        String expectedUrl="https://qa.trendlifebuy.com";
+        String expectedUrl="https://qa.trendlifebuy.com/";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 
     }
 
-    @Then("enter {string} in the search box")
-    public void enterInTheSearchBox(String arg0) {
+    @Then("enter in the search box")
+    public void enterInTheSearchBox() {
         pages = new US_2_35();
-
+        pages.searchBox2.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys("laptop").sendKeys(Keys.ENTER).perform();
+        //actions.click(pages.searchBox2).sendKeys(ConfigReader.getProperty("searchkey")).sendKeys(Keys.ENTER).perform();
     }
 
-    @And("verify that visibility of product amount")
+    @And("verify that visibility of search query text")
     public void verifyThatVisibilityOfProductAmount() {
         pages = new US_2_35();
+        String expectedkeys= ConfigReader.getProperty("searchkey");
+        String actualkeys= pages.searchQuery.getText().toLowerCase();
+        System.out.println(actualkeys);
+        Assert.assertTrue(actualkeys.contains(expectedkeys));
 
     }
 
     @Then("click on login button")
     public void clickOnLoginButton() {
         pages = new US_2_35();
-        pages.loginButton.click();
+        ReusableMethod.waitForClickablility(pages.userloginButton,1);
+        pages.userloginButton.click();
 
     }
 
@@ -190,7 +202,7 @@ public class US_2_35_StepDef {
     @And("verify that the home link opens")
     public void verifyThatTheHomeLinkOpens() {
         pages = new US_2_35();
-        String expectedUrl="https://qa.trendlifebuy.com";
+        String expectedUrl="https://qa.trendlifebuy.com/";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 
@@ -237,7 +249,7 @@ public class US_2_35_StepDef {
     @And("verify that the contact link opens")
     public void verifyThatTheContactLinkOpens() {
         pages = new US_2_35();
-        String expectedUrl="https://qa.trendlifebuy.com/contact";
+        String expectedUrl="https://qa.trendlifebuy.com/contact-us";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 
@@ -256,5 +268,43 @@ public class US_2_35_StepDef {
         String expectedUrl="https://qa.trendlifebuy.com/new-user-zone/new-user-svnmy";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
+    }
+
+    @Then("login as a user")
+    public void loginAsUser() {
+        ReusableMethod.logIn("merveunal9444@gmail.com","2TnTELupi2J7bqQ");
+    }
+
+
+    @Then("login as a admin")
+    public void loginAsAAdmin() {
+        pages = new US_2_35();
+        ReusableMethod.logIn("admin010@trendlifebuy.com","Trendlife123");
+    }
+
+    @Given("go to admin panel {string}")
+    public void goToAdminPanel(String urlAdmin) {
+        getDriver().get(ConfigReader.getProperty("urlAdmin"));
+    }
+
+    @Then("click on product button")
+    public void clickOnProductButton() {
+        pages = new US_2_35();
+        pages.productButton.click();
+
+
+    }
+
+    @Then("click on product list button")
+    public void clickOnProductListButton() {
+        pages = new US_2_35();
+        pages.productListButton.click();
+    }
+
+    @And("verify that the visibility of product list")
+    public void verifyThatTheVisibilityOfProductList() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.productListText,2);
+        Assert.assertTrue(pages.productListText.isDisplayed());
     }
 }
