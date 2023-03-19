@@ -1,11 +1,13 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.asserts.SoftAssert;
+import pages.US_1_11_12_18_25_31_38;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +16,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 import static utilities.Driver.driver;
@@ -157,46 +160,7 @@ public class ReusableMethod {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   // ScrollDown_End_Of_Page --> Murat
+    // ScrollDown_End_Of_Page --> Murat
     public static void scrolldown() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -207,7 +171,7 @@ public class ReusableMethod {
     public static void scrolldown_600() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,600)");
+        js.executeScript("window.scrollBy(0,400)");
 
     }
     public static void scrolldown_bypixel_2000() {
@@ -249,9 +213,7 @@ public class ReusableMethod {
                }
            }
 
-
-
-           public static void signIn(String userEmailAddress, String userPassword){
+          public static void signIn(String userEmailAddress, String userPassword){
                WebElement userEmailTextBox = driver.findElement(By.xpath("//input[@name='login']"));
                WebElement useremailTesxtBox = driver.findElement(By.xpath("//input[@name='password']"));
                WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
@@ -260,6 +222,130 @@ public class ReusableMethod {
                ReusableMethod.waitToSee(1);
                signInbutton.click();
            }
+
+
+    public static void navigateback() {
+        driver.navigate().back();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ABDURRAHMAN LOGİN
+
+    public static void loginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        pages.PopupExitButon.click();
+        pages.loginButon.click();
+        pages.emailAddres.sendKeys(username);
+        pages.password.sendKeys(password);
+        ReusableMethod.bekle(2);
+        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
+        signInbutton.click();
+    }
+
+
+    //ABDURRAHMAN ADMIN LOGIN
+
+    public static void adminLoginTrendlife(String username,String password){
+
+        // username ve password'ü kendiniz verebilir ya da ConfigReader class'ı verebilirsiniz.
+
+        US_1_11_12_18_25_31_38 pages = new US_1_11_12_18_25_31_38();
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        pages.adminEmailAddress.sendKeys(username);
+        pages.adminPassword.sendKeys(password);
+        ReusableMethod.bekle(2);
+        pages.adminSignIn.click();
+
+    }
+
+
+
+
+
+
+    public static Select select(WebElement ddm) {
+
+        Select select;
+        return select = new Select(ddm);
+    }
+
+    public static Random random() { //
+
+        Random random;
+        return random = new Random();
+    }
+
+    //Auto gun ay yil secim
+    public static void selectDropDown(WebElement element){
+
+        List<WebElement> list = ReusableMethod.select(element).getOptions();
+        int index = ReusableMethod.random().nextInt(list.size());
+        while (index == 0){
+            index = ReusableMethod.random().nextInt(list.size());
+        }
+        ReusableMethod.select(element).selectByIndex(index);
+    }
+
+
+    public static Faker getFaker() {
+
+        Faker faker;
+        return faker = new Faker();
+    }
+
+    public static Actions getActions() {
+
+        Actions actions;
+        return actions = new Actions(Driver.getDriver());
+    }
+
+
+
+
+
+
+
+
 
 
 

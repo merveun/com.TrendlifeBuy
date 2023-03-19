@@ -4,7 +4,19 @@ Feature: US_005 Verify that the functions in the body of the home page are activ
 
     Given   go to "Url"
     Then    close popup
-    Then    verify required links in TC_110 are visible
+    Then    verify Trending Products link is visible
+    And     scroll down
+    Then    verify Hot Categories link is visible
+    And     scroll down
+    Then    verify House Appliances link is visible
+    And     scroll down
+    Then    verify Recommendation For You link is visible
+    And     scroll down
+    Then    verify Top Brand link is visible
+    And     scroll down
+    Then    verify Popular Searches link is visible
+    And     scroll down
+    Then    verify Trendlifebuy|ONLINE SHOPPING link is visible
     And     terminate test
 
   Scenario: TC 111 Verify that the View All button redirects to the relevant page

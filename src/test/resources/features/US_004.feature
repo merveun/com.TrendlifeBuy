@@ -5,7 +5,10 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     Then  scroll down
-    *     verify required links in TC_101 are visible
+    Then  verify My Account link is visible
+    Then  verify Order Status link is visible
+    Then  verify Referral link is visible
+    Then  verify Coupons link is visible
     And   terminate test
 
 
@@ -14,16 +17,27 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     Then  scroll down
-    * verify the clicked links in TC_102 navigates to relevant pages
+    Then  verify My Account link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Order Status link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Referral link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Coupons link navigates to the the relevant page after clicking
     And   terminate test
 
 
-  Scenario: TC_103 Verify that the About Us, Contact Us, Career, Refund Policy, Terms & ConditGIT ion links are visible
+  Scenario: TC_103 Verify that the About Us, Contact Us, Career, Refund Policy, Terms & Condition links are visible
 
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify required links in TC_103 are visible
+    Then  verify About Us link is visible
+    Then  verify Contact Us link is visible
+    Then  verify Career link is visible
+    Then  verify Refund Policy Us link is visible
+    Then  verify About Us link is visible
+    Then  verify Terms & Condition link is visible
     And   terminate test
 
 
@@ -32,7 +46,17 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify the clicked links in TC_104 navigates to relevant pages
+    Then  verify About Us link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Contact Us link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Career link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Refund Policy Us link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify About Us link navigates to the the relevant page after clicking
+    And   scroll down
+    Then  verify Terms & Condition link navigates to the the relevant page after clicking
     And   terminate test
 
 
@@ -41,7 +65,8 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify Google Play  and Apple Store buttons are visible
+    Then  verify Google Play button is visible
+    Then  verify Apple Store button is visible
     And   terminate test
 
 
@@ -50,7 +75,9 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify Google Play and Apple Store buttons navigate to relevant pages after clicking
+    Then  verify Google Play button navigates to relevant page after clicking
+    Then  navigate page back
+    #Then  verify Apple Store button navigates to relevant page after clicking
     And   terminate test
 
 
@@ -68,16 +95,22 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Given go to "Url"
     Then  close popup
     And   scroll down
-    *     verify required icons are visible
+    Then  verify facebook icon is visible
+    Then  verify twitter icon is visible
+    Then  verify linkedin icon is visible
+    Then  verify instagram icon is visible
     And   terminate test
 
 
-  Scenario: TC_109 Verify that clicking on facebook, twitter, linkedin and instagram icons
+  Scenario: TC_109 Verify that clicking on facebook, twitter, linkedin and instagram icons redirect to their relevant pages
 
     Given go to "Url"
     Then  close popup
     And   scroll down
-    Then  verify clicked icons navigate to relevant pages
+    #Then  verify facebook icon navigates to relevant page after clicking
+    Then  verify twitter icon navigates to relevant page after clicking
+    Then  verify linkedin icon navigates to relevant page after clicking
+    Then  verify instagram icon navigates to relevant page after clicking
     And   terminate test
 
 

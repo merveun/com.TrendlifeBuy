@@ -21,3 +21,12 @@ Feature: Bir kullanici olarak alisveris yaptigim site yöneticileri ile iletisim
       Then Send Message butonuna tiklanir
       Then Emailin başarili bir şekilde gönderildigi dogrulanir
 
+
+
+      Scenario: Contact sayfasindaki sosyal medya (Facebook, Twitter, Linkedin ve Instagram) ikonlarınin görünür oldugu ve tiklaninca ilgili sayfaya yönlendirme yaptigi dogrulanmali.
+        Given kullanici "url" sayfasina git
+        Then  subscribe popupu kapatilir
+        Then Anasayfada Header kisminda Contact "contact_link"   linkine tiklanir.
+        Then  Contact sayfasindaki sosyal medya (Facebook,Twitter,Linkedln,Instagram) ikonlarinin gorunur oldugunu dogrula
+        Then  Contact sayfasindaki sosyal medya (Facebook,Twitter,Linkedln,Instagram) ikonlarina tiklaninca ilgili sayfaya yonlendirilir ve dogrulanir
+
