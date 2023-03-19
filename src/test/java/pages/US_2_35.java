@@ -50,33 +50,47 @@ public class US_2_35 {
     public WebElement homeButton;
 
     //Homepage/Header/Menu > blog button
-    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
+    @FindBy(xpath = "(//a[text()='Blog'])[1]")
     public WebElement blogButton;
 
     //Homepage/Header/Menu > aboutus button
-    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
+    @FindBy(xpath = "(//a[text()='About Us'])[1]")
     public WebElement aboutusButton;
 
     //Homepage/Header/Menu > contact button
-    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
+    @FindBy(xpath = "(//a[text()='Contact'])[1]")
     public WebElement contactButton;
 
     //Homepage/Header_right > login button
-    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
-    public WebElement loginButton;
+    @FindBy(xpath = "(//a[text()=\"Login\"])[1]")
+    public WebElement userloginButton;
 
     //Homepage/Header_right > register button
-    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
+    @FindBy(xpath = "//a[text()='/ Register']")
     public WebElement registerButton;
 
     //Homepage/Header_right > new user zone button
-    @FindBy(xpath = "(//a[@href=\"https://qa.trendlifebuy.com/\"])[1]")
+    @FindBy(xpath = "//span[text()='New User Zone']")
     public WebElement newuserzoneButton;
 
     //Homepage/Header > searchbox
-    @FindBy(xpath = "(//input[@class=\"form-control category_box_input\"]")
-    public WebElement searchBox;
+    @FindBy(xpath = "(//input[@id='inlineFormInputGroup'])[1]")
+    public WebElement searchBox2;
 
+   //Homepage/Search Query Area
+    @FindBy(xpath = "//h3[@class='branding_text']")
+    public WebElement searchQuery;
 
+    //Admin Panel> Left Menu > Products Button
+    @FindBy(xpath = "//span[text()='Products']")
+    public WebElement productButton;
+
+    //Admin Panel> Left Menu > Products Button > Product List
+    @FindBy(xpath = "//a[text()='Product List']")
+    public WebElement productListButton;
+
+    //Admin Panel> Left Menu > Products Button > Product List > Product List Text
+    @FindBy(xpath = " //h3[text()='Product List']")
+    public WebElement productListText;
 
 }
