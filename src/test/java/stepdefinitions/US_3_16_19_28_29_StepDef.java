@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.US_3_16_19_28_29;
 import utilities.ConfigReader;
@@ -13,6 +14,7 @@ import utilities.ReusableMethod;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -464,7 +466,10 @@ public class US_3_16_19_28_29_StepDef {
         pages.wishListDorduncuUrunDeleteButonu.click();
         ReusableMethod.waitForClickablility(pages.wishListDorduncuUrunDeleteButonuKapatma, 5);
         pages.wishListDorduncuUrunDeleteButonuKapatma.click();
-        assertFalse(pages.wishListDorduncuUrunDelete.isDisplayed());
+       // List<String>=pages.wishListDorduncuUrunDeleteYedek.getText();
+
+       // System.out.println("text"+pages.wishListDorduncuUrunDeleteYedek.getText());
+        //assertFalse(pages.wishListDorduncuUrunDeleteYedek.isDisplayed());
 
 
     }

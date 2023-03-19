@@ -353,12 +353,16 @@ public class US_3_16_19_28_29 {
     @FindBy(xpath = "(//i[@class='ti-trash'])[3]")
     public WebElement wishListDorduncuUrunDelete;
 
+    //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu
+    @FindBy(xpath = "//h5[text()='Showing  1 - 3  Of 3 Results']")
+    public WebElement wishListDorduncuUrunDeleteYedek;
+
     //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu>Delete Butonu
     @FindBy(xpath = "//button[@id='dataDeleteBtn']")
     public WebElement wishListDorduncuUrunDeleteButonu;
 
     //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu>Delete Butonu Kapatma
-    @FindBy(xpath = "    //button[@class='close_modal_icon']")
+    @FindBy(xpath = "(//button[@class='close_modal_icon'])[1]")
     public WebElement wishListDorduncuUrunDeleteButonuKapatma;
 
     //HomePage>Login > Sign In Button> WishList>4.ürün ekleme

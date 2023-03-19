@@ -97,4 +97,4 @@ Feature: Bir kullanici olarak begendigim ürünleri daha sonra degerlendirmek ve
       Then  Wishlist Linki tiklanir
       Then  Buradaki urunlerin uzerine gelindiginde Delete ikonunun gorundugu dogrulanir
       And   Delete ikonuna tiklandiginda ilgili ürünün Wishlist'ten silindigi dogrulanir
-      And   Sayfayi kapatir
+      #And   Sayfayi kapatir
