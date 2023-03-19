@@ -149,6 +149,45 @@ public class US_2_35 {
     @FindBy(xpath = "//h3[text()='Product By SKU']")
     public WebElement skuListHead;
 
+    @FindBy(xpath = "//input[@id='search']")
+    public WebElement productsearchbox;
+
+    @FindBy(xpath = "//input[@placeholder='Quick Search']")
+    public WebElement quickSearch;
+
+    @FindBy(xpath = "//div[@id='mainProductTable_info']")
+    public WebElement totalentries;
+
+    //Switch tusu
+    @FindBy(xpath = "//div[@class='slider round']")
+    public WebElement togglecheckbox;
+
+    //SUCCESS ALERT ON PRODUCT LİST
+    @FindBy(xpath = "//div[text()='Updated successfully!']")
+    public WebElement successAlert;
+
+    @FindBy(xpath = "//td[@class='sorting_1']")
+    public WebElement plus;
+
+    @FindBy(xpath = "(//button[@id='dropdownMenu2'])[2]")
+    public WebElement selectplus;
+
+    @FindBy(xpath = "(//a[@class='dropdown-item product_detail'])[2]")
+    public WebElement viewplus;
+
+    @FindBy(xpath = "//h4[text()='Exclusive Bag 1 Details']")
+    public WebElement viewdetails;
+
+    @FindBy(xpath = "(//a[@class='dropdown-item edit_brand'])[3]")
+    public WebElement editbutton;
+
+    @FindBy(xpath = "(//a[@href='https://trendlifebuy.com/products/1/clone '])[1]")
+    public WebElement clonebutton;
+
+    @FindBy(xpath = "(//a[@class='dropdown-item delete_product'])[2]")
+    public WebElement deletebutton;
+
+
 
 
 

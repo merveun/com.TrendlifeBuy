@@ -3,7 +3,11 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import java.util.ArrayList;
+import java.util.List;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -373,5 +377,125 @@ public class US_2_35_StepDef {
         String actualpage4 = pages.skuListHead.getText();
         Assert.assertEquals(actualpage4,expectedpage4);
 
+    }
+
+    @Then("wait for searchbox is visible")
+    public void waitForSearchboxIsVisible() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.quickSearch,1);
+    }
+
+    @Then("write on seearchbox keyword")
+    public void writeOnSeearchboxKeyword() {
+        pages = new US_2_35();
+        pages.quickSearch.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys("laptop").sendKeys(Keys.ENTER).perform();
+        ReusableMethod.bekle(2);
+    }
+
+    @And("tests that search from the search bar")
+    public void testsThatSearchFromTheSearchBar() {
+        pages = new US_2_35();
+
+        By totalentries2 = By.xpath("//div[@id='mainProductTable_info']");
+        List<WebElement> myElements = driver.findElements(totalentries2);
+        for(WebElement e : myElements) {
+            System.out.println(e.getText());
+        }
+        Assert.assertTrue(totalentries2.toString().contains("entries"));
+    }
+
+    @Then("switch toggle and verify status chanching")
+    public void switchToggle() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.togglecheckbox,1);
+        pages.togglecheckbox.click();
+        ReusableMethod.bekle(2);
+        String actualAlert = driver.switchTo().alert().getText();
+        String expectedAlert = "Updated successfully!";
+        Assert.assertEquals(actualAlert,expectedAlert);
+
+        //Assert.assertTrue(pages.successAlert.isDisplayed());
+    }
+
+
+    @Then("click on plus button")
+    public void clickOnPlusButton() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.plus,2);
+        pages.plus.click();
+
+    }
+
+    @Then("click on select button")
+    public void clickOnSelectButton() {
+        pages = new US_2_35();
+        pages.selectplus.click();
+        ReusableMethod.bekle(2);
+    }
+
+    @And("verify that view button is displayed")
+    public void verifyThatViewButtonIsDisplayed() {
+        pages = new US_2_35();
+        Assert.assertTrue(pages.viewplus.isDisplayed());
+    }
+
+    @Then("click on view button")
+    public void clickOnViewButton() {
+        pages = new US_2_35();
+        ReusableMethod.bekle(1);
+        pages.viewplus.click();
+    }
+
+    @And("verify that product details is displayed")
+    public void verifyThatProductDetailsIsDisplayed() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.viewdetails,2);
+        Assert.assertTrue(pages.viewdetails.getText().contains("Details"));
+    }
+
+
+    @And("verify that edit button is displayed")
+    public void verifyThatEditButtonIsDisplayed() {
+        pages = new US_2_35();
+        ReusableMethod.bekle(1);
+        Assert.assertTrue(pages.editbutton.isDisplayed());
+    }
+
+    @Then("click on edit button")
+    public void clickOnEditButton() {
+        pages = new US_2_35();
+        pages.editbutton.click();
+    }
+
+    @And("verify that edit button go to relevant page")
+    public void verifyThatEditButtonGoToRelevantPage() {
+        pages = new US_2_35();
+        String expectedUrl = "https://trendlifebuy.com/products/1/edit";
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl);
+    }
+
+    @And("verify that clone button is displayed")
+    public void verifyThatCloneButtonIsDisplayed() {
+        pages = new US_2_35();
+        Assert.assertTrue(pages.clonebutton.isDisplayed());
+    }
+
+    @Then("click on clone button")
+    public void clickOnCloneButton() {
+        pages = new US_2_35();
+        pages.clonebutton.click();
+        ReusableMethod.bekle(2);
+    }
+
+    @And("verify that clone button go to relevant page")
+    public void verifyThatCloneButtonGoToRelevantPage() {
+        pages = new US_2_35();
+        String expecteddata = "https://trendlifebuy.com/products/1/clone";
+        String actualdata = driver.getCurrentUrl();
+        ReusableMethod.bekle(2);
+        Assert.assertEquals(actualdata,expecteddata);
     }
 }
