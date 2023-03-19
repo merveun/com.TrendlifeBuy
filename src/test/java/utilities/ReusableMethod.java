@@ -322,15 +322,16 @@ public class ReusableMethod {
     }
 
     //Auto gun ay yil secim
-    public static void selectDropDown(WebElement element){
 
-        List<WebElement> list = ReusableMethod.select(element).getOptions();
-        int index = ReusableMethod.random().nextInt(list.size());
-        while (index == 0){
-            index = ReusableMethod.random().nextInt(list.size());
-        }
-        ReusableMethod.select(element).selectByIndex(index);
-    }
+
+
+
+
+
+
+
+
+
 
 
     public static Faker getFaker() {
@@ -345,8 +346,19 @@ public class ReusableMethod {
         return actions = new Actions(Driver.getDriver());
     }
 
+        // Uyarı veren alertlerde ekran goruntusu alma
+    public static String getScreenshotWebElement(String name, WebElement element) throws IOException {
 
+        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        File source = element.getScreenshotAs(OutputType.FILE);
+        // EKRAN GORUNTUSU NUN TAM YOLU
+        String wElementSS = System.getProperty("user.dir") + "/target/WElementScreenshots/" + name + date + ".png";
+        File finalDestination = new File(wElementSS);
 
+        //EKRAN GORUNTUSU VERILEN YOLA KAYDEDER
+        FileUtils.copyFile(source, finalDestination);
+        return wElementSS;
+    }
 
 
 

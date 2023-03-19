@@ -19,6 +19,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
+import java.io.IOException;
 import java.io.StringReader;
 import java.security.Key;
 import java.util.List;
@@ -706,7 +707,7 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
 
     @Then("Profil sayfasindaki Basic Info bolumunde First Name, Last Name, E-mail Adress, Phone Number, Date of Bird bilgileri update edilmesi icin bilgiler girilmeli ve update now butonuna tiklanmali")
-    public void profilSayfasindakiBasicInfoBolumundeFirstNameLastNameEMailAdressPhoneNumberDateOfBirdBilgileriUpdateEdilmesiIcinBilgilerGirilmeliVeUpdateNowButonunaTiklanmali() {
+    public void profilSayfasindakiBasicInfoBolumundeFirstNameLastNameEMailAdressPhoneNumberDateOfBirdBilgileriUpdateEdilmesiIcinBilgilerGirilmeliVeUpdateNowButonunaTiklanmali() throws IOException {
         pages.firstname.clear();
         pages.firstname.sendKeys("Admin120");
         pages.lastname.clear();
@@ -715,10 +716,20 @@ public class US_1_11_12_18_25_31_38_StepDef {
         pages.email.sendKeys("admin120@trendlifebuy.com");
         pages.phonenumber.clear();
         pages.phonenumber.sendKeys("054540814442");
+
+        pages.dateofbirth.click();
+        pages.dateofbirth.click();
+
+
         ReusableMethod.bekle(1);
         pages.updatenowbutton.click();
         ReusableMethod.bekle(1);
-        Assert.assertTrue(pages.updatesuccess.isDisplayed());
+
+
+        ReusableMethod.waitForClickablility(pages.updatesuccess,3);
+        assertTrue(pages.updatesuccess.isDisplayed());
+        ReusableMethod.getScreenshotWebElement("SuccessMessageAlert", pages.updatesuccess);
+
 
 
     }
