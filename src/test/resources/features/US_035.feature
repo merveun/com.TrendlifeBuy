@@ -85,11 +85,39 @@ Feature: As an administrator, I want the product lists page to be able to access
   Scenario: TC_008--->(US_035) It should be verified that the current information of the product is available
   on the Edit Product page.
 
+    Given go to admin panel "urlAdmin"
+    Then login as a admin
+    Then click on product button
+    Then click on product list button
+    Then click on plus button
+    Then click on select button
+    Then click on edit button
+    And verify that single price value is visible
+    And verify that stock amount is visible
+    And close browser
+
+
   Scenario: TC_009--->(US_035) Verify that the Type option cannot be changed in the Product Information section
   and that the related message is visible.
 
+    Given go to admin panel "urlAdmin"
+    Then login as a admin
+    Then click on product button
+    Then click on product list button
+    Then click on plus button
+    Then click on select button
+    Then click on edit button
+    And tests that product type is not changed
+    And close browser
+
+
   Scenario: TC_010--->(US_035) After editing the information on the General Information, Related Product, Up Sale,
   Cross Sale pages, verify that the edited information is saved by clicking the Update button.
+
+    Given go to admin panel "urlAdmin"
+    Then login as a admin
+    Then click on product button
+    Then click on product list button
 
   Scenario: TC_011--->(US_035) It should be verified that the Clone link is visible on the select tab in the Action
   column in the Product List and when it is clicked, it redirects to the Clone Product page.
