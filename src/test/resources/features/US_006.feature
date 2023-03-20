@@ -19,7 +19,7 @@ Feature: As a user, I want to be able to login with my registered email and pass
     And     terminate test
 
 
-Scenario: TC 116 verify that when logged in correctly, it redirects to Home and a welcome message appears in the corner
+  Scenario: TC 116 verify that when logged in correctly, it redirects to Home and a welcome message appears in the corner
 
     Given   go to "Url"
     Then    close popup
@@ -32,7 +32,7 @@ Scenario: TC 116 verify that when logged in correctly, it redirects to Home and 
     And     terminate test
 
 
-Scenario: TC 117 "These credentials do not match our records." Verify that the message is seen when trying to log in with wrong data
+  Scenario: TC 117 "These credentials do not match our records." Verify that the message is seen when trying to log in with wrong data
 
     Given   go to "Url"
     Then    close popup
@@ -44,7 +44,7 @@ Scenario: TC 117 "These credentials do not match our records." Verify that the m
     And     terminate test
 
 
-Scenario: TC 118 Verify that it cannot be logged in with a wrong password and a valid email
+  Scenario: TC 118 Verify that it cannot be logged in with a wrong password and a valid email
 
     Given   go to "Url"
     Then    close popup
@@ -56,8 +56,7 @@ Scenario: TC 118 Verify that it cannot be logged in with a wrong password and a 
     And     terminate test
 
 
-
-Scenario: TC 119 Verify that it cannot be logged in with a valid password and a wrong email
+  Scenario: TC 119 Verify that it cannot be logged in with a valid password and a wrong email
 
     Given   go to "Url"
     Then    close popup
@@ -69,13 +68,11 @@ Scenario: TC 119 Verify that it cannot be logged in with a valid password and a 
     And     terminate test
 
 
-
-Scenario: TC 120 Verify that the Remember me checkbox is clickable
+  Scenario: TC 120 Verify that the Remember me checkbox is clickable
 
     Given   go to "Url"
     Then    close popup
     Then    click log in
     Then    Verify that the Remember me checkbox is clickable
     And     terminate test
-
 

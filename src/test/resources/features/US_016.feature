@@ -7,7 +7,7 @@ Feature: Bir kullanici olarak satin alma gecmisimi görüntüleyebilmek icin
     Given Kullanici Anasayfa "url" 'ine gider.
     Then  Subscribe popup kapatilir
     Then  Login butonuna basar
-    Then  Gecerli bir "customerEmail" ve "customerPassword" girer
+    Then  Gecerli bir "customerEmailM" ve "customerPasswordM" girer
     And   Signed in butonuna basar
     Then  DashBoard butonuna tiklar
     Then  Purchase History Linki tiklanir
@@ -22,7 +22,7 @@ Feature: Bir kullanici olarak satin alma gecmisimi görüntüleyebilmek icin
     Given Kullanici Anasayfa "url" 'ine gider.
     Then  Subscribe popup kapatilir
     Then  Login butonuna basar
-    Then  Gecerli bir "customerEmail" ve "customerPassword" girer
+    Then  Gecerli bir "customerEmailM" ve "customerPasswordM" girer
     And   Signed in butonuna basar
     Then  DashBoard butonuna tiklar
     Then  Purchase History Linki tiklanir
@@ -38,7 +38,7 @@ Feature: Bir kullanici olarak satin alma gecmisimi görüntüleyebilmek icin
       Given Kullanici Anasayfa "url" 'ine gider.
       Then  Subscribe popup kapatilir
       Then  Login butonuna basar
-      Then  Gecerli bir "customerEmail" ve "customerPassword" girer
+      Then  Gecerli bir "customerEmailM" ve "customerPasswordM" girer
       And   Signed in butonuna basar
       Then  DashBoard butonuna tiklar
       Then  Purchase History Linki tiklanir
