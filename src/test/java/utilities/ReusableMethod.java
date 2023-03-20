@@ -1,5 +1,6 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -15,6 +16,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 import static utilities.Driver.driver;
@@ -275,9 +277,12 @@ public class ReusableMethod {
         pages.loginButon.click();
         pages.emailAddres.sendKeys(username);
         pages.password.sendKeys(password);
-        ReusableMethod.bekle(2);
-        WebElement signInbutton = driver.findElement(By.xpath("//button[text()='Sign In']"));
-        signInbutton.click();
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(3);
+
+        pages.userSignin.click();
+
     }
 
 
@@ -292,9 +297,71 @@ public class ReusableMethod {
         pages.adminEmailAddress.sendKeys(username);
         pages.adminPassword.sendKeys(password);
         ReusableMethod.bekle(2);
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
         pages.adminSignIn.click();
 
     }
+
+
+
+
+
+
+    public static Select select(WebElement ddm) {
+
+        Select select;
+        return select = new Select(ddm);
+    }
+
+    public static Random random() { //
+
+        Random random;
+        return random = new Random();
+    }
+
+    //Auto gun ay yil secim
+
+
+
+
+
+
+
+
+
+
+
+
+    public static Faker getFaker() {
+
+        Faker faker;
+        return faker = new Faker();
+    }
+
+    public static Actions getActions() {
+
+        Actions actions;
+        return actions = new Actions(Driver.getDriver());
+    }
+
+        // Uyarı veren alertlerde ekran goruntusu alma
+    public static String getScreenshotWebElement(String name, WebElement element) throws IOException {
+
+        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        File source = element.getScreenshotAs(OutputType.FILE);
+        // EKRAN GORUNTUSU NUN TAM YOLU
+        String wElementSS = System.getProperty("user.dir") + "/target/WElementScreenshots/" + name + date + ".png";
+        File finalDestination = new File(wElementSS);
+
+        //EKRAN GORUNTUSU VERILEN YOLA KAYDEDER
+        FileUtils.copyFile(source, finalDestination);
+        return wElementSS;
+    }
+
+
+
 
 
 

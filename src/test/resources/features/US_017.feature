@@ -8,7 +8,7 @@ Feature: Bir kullanici olarak siparislerimle ilgili islemleri gerceklestirebilme
     Then Dashboard butonuna tiklar
     Then My order butonuna tiklar
     Then My order linkine gittiği test edilir
-    And sayfayi kapat
+    #And sayfayi kapat
 
 
   Scenario: US_017--> TC002 - My Order sayfasinda siparislerimi gormek ister
@@ -36,7 +36,7 @@ Feature: Bir kullanici olarak siparislerimle ilgili islemleri gerceklestirebilme
     And  Paid by butonuna tiklar gorundugunu test eder
 
 
-  @run
+
   Scenario: US_017--> TC004 - Order sayfasinda gösterilecek ürünlerin adedini (last 5 orders, last 10 orders,
   last 20 orders, last 40 orders) belirlenebildigi dogrulanmali.
 
