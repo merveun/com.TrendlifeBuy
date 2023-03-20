@@ -208,7 +208,10 @@ public class US_2_35 {
     @FindBy(xpath = "//input[@id='variant_prod']")
     public WebElement productTypeRadioButton2;
 
+    //update button
 
+    @FindBy(xpath = "//button[@class='primary_btn_2 mt-5 text-center saveBtn']")
+    public WebElement updatebutton;
 
 
 

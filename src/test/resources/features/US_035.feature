@@ -118,6 +118,16 @@ Feature: As an administrator, I want the product lists page to be able to access
     Then login as a admin
     Then click on product button
     Then click on product list button
+    Then click on plus button
+    Then click on select button
+    Then click on edit button
+    Then enter stock amount
+    Then click on plus button
+    Then click on select button
+    Then click on edit button
+    And verify that stock amount is updated
+    And close browser
+
 
   Scenario: TC_011--->(US_035) It should be verified that the Clone link is visible on the select tab in the Action
   column in the Product List and when it is clicked, it redirects to the Clone Product page.
