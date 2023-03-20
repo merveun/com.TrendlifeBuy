@@ -83,7 +83,7 @@ Feature: Bir kullanici olarak begendigim ürünleri daha sonra degerlendirmek ve
       And   Show ikonuna tiklandiginda ilgili ürünün show penceresi acildigi dogrulanir
       And   Sayfayi kapatir
 
-  @must
+
     Scenario: TC_007-Wishlist'te ürünlerin üzerine gelindiginde Delete ikonunun göründügü ve
               Delete ikonuna tiklandiginda acilan Delete penceresinden ilgili ürünün
               Wishlist'ten silindigi dogrulanmali.
@@ -97,4 +97,32 @@ Feature: Bir kullanici olarak begendigim ürünleri daha sonra degerlendirmek ve
       Then  Wishlist Linki tiklanir
       Then  Buradaki urunlerin uzerine gelindiginde Delete ikonunun gorundugu dogrulanir
       And   Delete ikonuna tiklandiginda ilgili ürünün Wishlist'ten silindigi dogrulanir
-      #And   Sayfayi kapatir
+      And   Sayfayi kapatir
+
+
+    Scenario: TC_008-Wishlist'te listelenen ürünlerin üzerine gelindiginde
+              Add to Cart linkinin görünür oldugu dogrulanmali.
+
+      Given Kullanici Anasayfa "url" 'ine gider.
+      Then  Subscribe popup kapatilir
+      Then  Login butonuna basar
+      Then  Gecerli bir "customerEmailM" ve "customerPasswordM" girer
+      And   Signed in butonuna basar
+      Then  Wishlist Linki tiklanir
+      Then  Buradaki urunlerin uzerine gelindiginde Add to Cart ikonunun gorundugu dogrulanir
+      And   Sayfayi kapatir
+
+
+    Scenario: TC_008- Add to Cart linkine tiklaninca
+              Wishlist'te ki ürünü Cart sayfasina ekledigi dogrulanmali
+
+      Given Kullanici Anasayfa "url" 'ine gider.
+      Then  Subscribe popup kapatilir
+      Then  Login butonuna basar
+      Then  Gecerli bir "customerEmailM" ve "customerPasswordM" girer
+      And   Signed in butonuna basar
+      Then  Wishlist Linki tiklanir
+      Then  Buradaki urunlerin uzerine gelindiginde Add to Cart ikonunu tiklanir.
+      And   Wishlist'te ki urunu Cart sayfasina ekledigi dogrulanir
+      And   Sayfayi kapatir
+
