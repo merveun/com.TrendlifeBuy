@@ -38,7 +38,7 @@ public class US_1_11_12_18_25_31_38 {
     @FindBy(xpath = "//a[text()=\"programming\"]")
     public WebElement keywordBloglari;
 
-    @FindBy(xpath = "/html/body/div[3]/div/div/div[2]/div/div[2]/div[2]/div[1]")
+    @FindBy(xpath = "/html/body/div[3]/div/div/div[2]/div/div[2]/div[2]/div[1]/a/h4")
     public WebElement popularPostBloglari;
 
 
@@ -276,7 +276,7 @@ public class US_1_11_12_18_25_31_38 {
     public WebElement quicksearchverigeldimi;
 
 
-    @FindBy(xpath = "//section[@class=\"admin-visitor-area up_st_admin_visitor\"]")
+    @FindBy(xpath = "//div[@id=\"userSearchTable_wrapper\"]")
     public WebElement keyboardlistesi;
 
     @FindBy(xpath = "//th[text()=\"Keywords\"]")
@@ -378,8 +378,12 @@ public class US_1_11_12_18_25_31_38 {
     @FindBy(xpath = "//input[@class=\"nice-select-search\"]")
     public WebElement searchboxgiris;
 
-    @FindBy(xpath = "//li[text()=\"Customer\"]")
+    @FindBy(xpath = "//li[@data-value=2]")
     public WebElement customersarch;
+
+
+    @FindBy(xpath = "//div[text()=\"Message Sent successfully! Thankyou.\"]")
+    public WebElement messagegittimi;
 
     @FindBy(xpath = "//textarea[@id=\"message\"]")
     public  WebElement messageyaz;
