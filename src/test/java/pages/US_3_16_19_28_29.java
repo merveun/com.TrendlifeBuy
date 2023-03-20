@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class US_3_16_19_28_29 {
 
         public US_3_16_19_28_29() {
@@ -353,12 +355,16 @@ public class US_3_16_19_28_29 {
     @FindBy(xpath = "(//i[@class='ti-trash'])[3]")
     public WebElement wishListDorduncuUrunDelete;
 
+    //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu
+    @FindBy(xpath = "//h5[text()='Showing  1 - 3  Of 3 Results']")
+    public WebElement wishListDorduncuUrunDeleteYedek;
+
     //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu>Delete Butonu
     @FindBy(xpath = "//button[@id='dataDeleteBtn']")
     public WebElement wishListDorduncuUrunDeleteButonu;
 
     //HomePage>Login > Sign In Button> WishList>4.ürün>Delete ikonu>Delete Butonu Kapatma
-    @FindBy(xpath = "    //button[@class='close_modal_icon']")
+    @FindBy(xpath = "(//button[@class='close_modal_icon'])[1]")
     public WebElement wishListDorduncuUrunDeleteButonuKapatma;
 
     //HomePage>Login > Sign In Button> WishList>4.ürün ekleme
@@ -372,6 +378,103 @@ public class US_3_16_19_28_29 {
     //HomePage>Login > Sign In Button> WishList>4.ürün ekleme wishlist ikonu
     @FindBy(xpath = "(//a[@id='wishlistbtn_29'])[2]")
     public WebElement wishListDorduncuUrunEklemeWishListIkonu;
+
+    //HomePage>Login > Sign In Button> WishList>ListSize
+    @FindBy (xpath = "//div[@class='product_widget5 style3 bg-white']")
+    public List<WebElement>  productsInWishList;
+
+    //HomePage>Login > Sign In Button> WishList>Showing Result
+    @FindBy(xpath = "//div[@id='productShow']//h5")
+    public List<WebElement>  productsInWishListshowingResult;
+
+    //HomePage>Login > Sign In Button> WishList>2.ürün Add to Cart
+    @FindBy(xpath = "(//div[@class='stars justify-content-center'])[2]")
+    public WebElement  wishListAddttoCart;
+
+    //HomePage>Login > Sign In Button> WishList>2.ürün Add to Cart
+    @FindBy(xpath = "(//a[@class='add_cart add_to_cart addToCartFromThumnail'])[2]")
+    public WebElement  wishListAddttoCartClick;
+
+
+    //HomePage>Login > Sign In Button> WishList>2.ürün Add to Cart>View cart
+    @FindBy(xpath = "(//div[@class='d-flex flex-column gap_10']/a)[1]")
+    public WebElement  wishListAddttoCartViewCart;
+
+    //HomePage>Login > Sign In Button> WishList>2.ürün Add to Cart>View cart>Cart
+    @FindBy(xpath = "(//li[@class='list-group-item px-0 px-lg-3 mb_10'])[2]")
+    public WebElement  wishListAddttoCartViewCartCart;
+
+
+
+    // US_029 ait locate'ler
+
+    //AdminHomePage>Login > Email
+    @FindBy(xpath = " //input[@id='text']")
+    public WebElement AdemailTextBox;
+
+    //AdminHomePage>Login > Password
+    @FindBy(xpath = "//input[@id='password']")
+    public WebElement AdpasswordTextBox;
+
+    //AdminHomePage>Login > Sign In Button
+    @FindBy(xpath = "//*[@id=\"sign_in_btn\"]")
+    public WebElement AdsignInButton;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard
+    @FindBy(xpath = "//div[@class='nav_icon_small']")
+    public WebElement AdDashboard;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Search
+    @FindBy(xpath = "//input[@id='search']")
+    public WebElement AdSearch;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Menu ikonu
+    @FindBy(xpath = "//div[@class='collaspe_icon open_miniSide']/i")
+    public WebElement AdMenuikonu;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Mini_Sidebar
+    @FindBy(xpath = "//nav[@class='sidebar mini_sidebar']")
+    public WebElement AdMiniSidebar;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Sidebar
+    @FindBy(xpath = "//nav[@class='sidebar']")
+    public WebElement AdSidebar;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Website
+    @FindBy(xpath = "//a[text()='Website']")
+    public WebElement AdWEbsite;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Today
+    @FindBy(xpath = "(//ul[@class='nav']/li)[1]")
+    public WebElement AdToday;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>This Week
+    @FindBy(xpath = "(//ul[@class='nav']/li)[2]")
+    public WebElement AdThisWeek;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>This Month
+    @FindBy(xpath = "(//ul[@class='nav']/li)[3]")
+    public WebElement AdThisMonth;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>This Year
+    @FindBy(xpath = "(//ul[@class='nav']/li)[4]")
+    public WebElement AdThisYear;
+
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//h1[@class='gradient-color2 total_visitors']")
+    public WebElement AdVisitor;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
