@@ -19,22 +19,12 @@ import static utilities.Driver.getDriver;
 public class US_08_20_27_32_40_StepDef {
 
     US_08_20_27_32_40 ypages;
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+    Actions actions = new Actions(Driver.getDriver());
 
 
 
 
-    @Given("Admin login sayfasina {string} gidilir.")
-    public void adminLoginSayfasinaGidilir(String istenenUrl) {
-        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
-    }
-
-
-    @Then("Email adresi textboxina {string} girilir.")
-    public void emailAdresiTextboxinaGirilir(String mail) {
-        ypages = new US_08_20_27_32_40();
-        ypages.emailTextBox.sendKeys(ConfigReader.getProperty("yadminmail"));
-
-    }
 }
 
 
