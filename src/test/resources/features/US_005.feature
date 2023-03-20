@@ -42,4 +42,3 @@ Feature: US_005 Verify that the functions in the body of the home page are activ
     Then    scroll down for Load More
     Then    verify that more products are seen as the Load More button is clicked
     And     terminate test
-
