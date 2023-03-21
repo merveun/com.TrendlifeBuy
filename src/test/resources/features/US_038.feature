@@ -1,6 +1,7 @@
 
 Feature: US_038 Bir yönetici olarak sitede kullanilan keywordler hakkindaki raporlari görebilecegim bir sayfanin olmasini istiyorum
 
+  #FAILED
   Scenario: US_038--->TC_03801 Quick Search TextBOx'i ile Keyword search report listesinde arama yapilabildigi dogrulanmali
 
     Given AdminLogin butonuna tiklar
