@@ -3,10 +3,10 @@ Feature: Bir yönetici olarak Dashboard panelindeki sayfalara kolay erisim sagla
 
 
   Background:
-    Given Kullanici "urlAdmin" sayfasina giris yapar.
-    Then  Email adresi textboxina "yasinAdminMail" girer
-    Then  Password textboxina "yasinPassword" girer
-    Then  Sign in butonu tiklanir.
+    Given Kullanici "urlAdmin" sayfasina giris yaparak login sayfasini acar.
+    Then  Gecerli email adresini mail textboxina girer
+    Then  Gecerli Passwordu password textboxina  girer
+    Then  Sign in butonu tiklaniry.
 
 
   Scenario: US_032 ---> TC_001 Dashboard Side Bar'da Dashboard menü basliginin görünür oldugu dogrulanmali.

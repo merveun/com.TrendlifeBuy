@@ -112,16 +112,3 @@ Feature: US_004 Verify that the functions in the submenu of the Home page are vi
     Then  verify linkedin icon navigates to relevant page after clicking
     Then  verify instagram icon navigates to relevant page after clicking
     And   terminate test
-
-
-
-
-
-
-
-
-
-
-
-
-

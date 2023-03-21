@@ -8,19 +8,17 @@ Feature:Bir kullanici olarak alisveris yaptigim siteden, siparislerimin son duru
   Scenario: US_008 ---> TC_001 Kullanicilarin siparislerini Order Tracking Number TextBox'ına
             Order Tracking Number'i yazarak sorgulama yapabildikleri dogrulanmali.
 
-      Given kullanici "url" sayfasina git
-      Then subscribe popup kapatilir
-      Then  Login butonu tiklanir.
-      Then  Email adresini girer.
-      And   Password unu girer.
-      Then  Sign in butonu tıklanir.
-      Then  Uygulamaya giris yaptigini dogrular.
-      And   Track your order butonu tıklanir.
-      Then  Order Tracking Number textboxa girilir.
-      And   Track Now butonu tiklanir.
-      Then  Siparis takip sayfasinin açildigi dogrulanir.
-      And  sayfayi kapat
-
+    Given kullanici trendlifeUrl anasayfaya gider
+    Then subscribe popup kapatilir
+    Then click on login button
+    Then Gecerli email adresi giriliry.
+    Then Gecerli Passwordu password textboxina  girer
+    Then Sign in butonu tiklaniry.
+    Then  Uygulamaya giris yaptigini dogrular.
+    And   Track your order butonu tıklanir.
+    Then  Order Tracking Number textboxa girilir.
+    And   Track Now butonu tiklanir.
+    Then  Siparis takip sayfasinin açildigi dogrulanir.
 
 
 
