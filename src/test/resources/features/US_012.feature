@@ -8,6 +8,7 @@ Feature: Bir kullanici olarak alisveris yaptigim site yöneticileri ile iletisim
     Then Anasayfada Header kisminda Contact "contact_link"   linkine tiklanir.
     Then Contact sayfasinda Call or WhatsApp gorunur oldugunu dogrula
     Then Get in touch,Social Media, Head office yazilarinin gorunur oldugunu dogrula
+    Then sayfayi kapat
 
 
     Scenario: Get in Touch bölümündeki Text Box'lara Name, E-mail,
@@ -20,6 +21,7 @@ Feature: Bir kullanici olarak alisveris yaptigim site yöneticileri ile iletisim
       And Get in Touch bolumundeki Text Box'lara Name, E-mail, Messages ve Customer,Installation,Product Returns kısımları kriterlere uygun  doldurulur
       Then Send Message butonuna tiklanir
       Then Emailin başarili bir şekilde gönderildigi dogrulanir
+      Then sayfayi kapat
 
 
 
@@ -29,4 +31,4 @@ Feature: Bir kullanici olarak alisveris yaptigim site yöneticileri ile iletisim
         Then Anasayfada Header kisminda Contact "contact_link"   linkine tiklanir.
         Then  Contact sayfasindaki sosyal medya (Facebook,Twitter,Linkedln,Instagram) ikonlarinin gorunur oldugunu dogrula
         Then  Contact sayfasindaki sosyal medya (Facebook,Twitter,Linkedln,Instagram) ikonlarina tiklaninca ilgili sayfaya yonlendirilir ve dogrulanir
-
+        Then sayfayi kapat

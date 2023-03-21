@@ -35,10 +35,10 @@ Feature: US_014 As a user, I would like to have an About Us page on the site so 
     Then  close popup windows
     Then  verify AboutUsPage link is visible
     Then  verify TEAM MEMBER is visible
-    Then  verify Robert Pattinson image by clicking
-    And   verify Johnny Depp image by clicking
-    And   verify Jason Statham image by clicking
-    And   verify Harry Cooper image by clicking
+    Then  verify Robert Pattinson image visible
+    And   verify Johnny Depp image visible
+    And   verify Jason Statham image visible
+    And   verify Harry Cooper image visible
     And   terminate the test
 
 

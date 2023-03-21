@@ -3,14 +3,24 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import java.util.ArrayList;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.US_2_35;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
+import static utilities.ReusableMethod.logIn;
 
 public class US_2_35_StepDef {
 
@@ -130,28 +140,36 @@ public class US_2_35_StepDef {
     @And("verify that the homepage link opens")
     public void verifyThatTheHomepageLinkOpens() {
         pages = new US_2_35();
-        String expectedUrl="https://qa.trendlifebuy.com";
+        String expectedUrl="https://qa.trendlifebuy.com/";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 
     }
 
-    @Then("enter {string} in the search box")
-    public void enterInTheSearchBox(String arg0) {
+    @Then("enter in the search box")
+    public void enterInTheSearchBox() {
         pages = new US_2_35();
-
+        pages.searchBox2.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys("laptop").sendKeys(Keys.ENTER).perform();
+        //actions.click(pages.searchBox2).sendKeys(ConfigReader.getProperty("searchkey")).sendKeys(Keys.ENTER).perform();
     }
 
-    @And("verify that visibility of product amount")
+    @And("verify that visibility of search query text")
     public void verifyThatVisibilityOfProductAmount() {
         pages = new US_2_35();
+        String expectedkeys= ConfigReader.getProperty("searchkey");
+        String actualkeys= pages.searchQuery.getText().toLowerCase();
+        System.out.println(actualkeys);
+        Assert.assertTrue(actualkeys.contains(expectedkeys));
 
     }
 
     @Then("click on login button")
     public void clickOnLoginButton() {
         pages = new US_2_35();
-        pages.loginButton.click();
+        ReusableMethod.waitForClickablility(pages.userloginButton,1);
+        pages.userloginButton.click();
 
     }
 
@@ -190,7 +208,7 @@ public class US_2_35_StepDef {
     @And("verify that the home link opens")
     public void verifyThatTheHomeLinkOpens() {
         pages = new US_2_35();
-        String expectedUrl="https://qa.trendlifebuy.com";
+        String expectedUrl="https://qa.trendlifebuy.com/";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 
@@ -237,7 +255,7 @@ public class US_2_35_StepDef {
     @And("verify that the contact link opens")
     public void verifyThatTheContactLinkOpens() {
         pages = new US_2_35();
-        String expectedUrl="https://qa.trendlifebuy.com/contact";
+        String expectedUrl="https://qa.trendlifebuy.com/contact-us";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
 
@@ -256,5 +274,228 @@ public class US_2_35_StepDef {
         String expectedUrl="https://qa.trendlifebuy.com/new-user-zone/new-user-svnmy";
         String actualUrl= driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
+    }
+
+    @Then("login as a user")
+    public void loginAsUser() {
+        ReusableMethod.logIn("merveunal9444@gmail.com","2TnTELupi2J7bqQ");
+    }
+
+
+    @Then("login as a admin")
+    public void loginAsAAdmin() {
+        pages = new US_2_35();
+        ReusableMethod.logIn("admin010@trendlifebuy.com","Trendlife123");
+    }
+
+    @Given("go to admin panel {string}")
+    public void goToAdminPanel(String urlAdmin) {
+        getDriver().get(ConfigReader.getProperty("urlAdmin"));
+    }
+
+    @Then("click on product button")
+    public void clickOnProductButton() {
+        pages = new US_2_35();
+        pages.productButton.click();
+
+
+    }
+
+    @Then("click on product list button")
+    public void clickOnProductListButton() {
+        pages = new US_2_35();
+        pages.productListButton.click();
+    }
+
+    @And("verify that the visibility of product list")
+    public void verifyThatTheVisibilityOfProductList() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.productListText,2);
+        Assert.assertTrue(pages.productListText.isDisplayed());
+    }
+
+    @And("verify that all product feature headings")
+    public void verifyThatAllProductFeatureHeadings() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.NameText,2);
+        assertTrue(pages.SlText.isDisplayed());
+        assertTrue(pages.NameText.isDisplayed());
+        assertTrue(pages.ProductTypeText.isDisplayed());
+        assertTrue(pages.BrandText.isDisplayed());
+        assertTrue(pages.ImageText.isDisplayed());
+        assertTrue(pages.StockText.isDisplayed());
+        assertTrue(pages.StatusText.isDisplayed());
+    }
+
+    @And("verify that all prdouct list buttons are displayed")
+    public void verifyThatAllPrdouctListButtons() {
+        pages = new US_2_35();
+        ReusableMethod.waitForClickablility(pages.ProductListButton2,2);
+        ReusableMethod.waitForVisibility(pages.productListHead,2);
+        assertTrue(pages.ProductListButton2.isDisplayed());
+        assertTrue(pages.AlertListButton2.isDisplayed());
+        assertTrue(pages.OutOfStockListButton2.isDisplayed());
+        assertTrue(pages.DisabledButton2.isDisplayed());
+        assertTrue(pages.ProductSkuButton2.isDisplayed());
+    }
+
+    @And("verify that all prdouct list buttons go to the relevant page")
+    public void verifyThatAllPrdouctListButtonsGoToTheRelevantPage() {
+        pages = new US_2_35();
+        //String productListPage = driver.getWindowHandle();
+        pages.AlertListButton2.click();
+        ReusableMethod.waitForVisibility(pages.alertListHead,1);
+        String expectedpage = "Alert List";
+        String actualpage  = pages.alertListHead.getText();
+        Assert.assertEquals(actualpage,expectedpage);
+        //driver.switchTo().window(productListPage);
+
+        pages.ProductListButton2.click();
+        ReusableMethod.waitForVisibility(pages.productListHead,1);
+        String expectedpage1 = "Product List";
+        String actualpage1 = pages.productListHead.getText();
+        Assert.assertEquals(actualpage1,expectedpage1);
+
+
+        pages.OutOfStockListButton2.click();
+        ReusableMethod.waitForVisibility(pages.outofListHead,1);
+        String expectedpage2 = "Out Of Stock List";
+        String actualpage2 = pages.outofListHead.getText();
+        Assert.assertEquals(actualpage2,expectedpage2);
+
+
+        pages.DisabledButton2.click();
+        ReusableMethod.waitForVisibility(pages.disabledListHead,1);
+        String expectedpage3 = "Disabled Product List";
+        String actualpage3 = pages.disabledListHead.getText();
+        Assert.assertEquals(actualpage3,expectedpage3);
+
+
+        pages.ProductSkuButton2.click();
+        ReusableMethod.waitForVisibility(pages.skuListHead,1);
+        String expectedpage4 = "Product By SKU";
+        String actualpage4 = pages.skuListHead.getText();
+        Assert.assertEquals(actualpage4,expectedpage4);
+
+    }
+
+    @Then("wait for searchbox is visible")
+    public void waitForSearchboxIsVisible() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.quickSearch,1);
+    }
+
+    @Then("write on seearchbox keyword")
+    public void writeOnSeearchboxKeyword() {
+        pages = new US_2_35();
+        pages.quickSearch.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys("laptop").sendKeys(Keys.ENTER).perform();
+        ReusableMethod.bekle(2);
+    }
+
+    @And("tests that search from the search bar")
+    public void testsThatSearchFromTheSearchBar() {
+        pages = new US_2_35();
+
+        By totalentries2 = By.xpath("//div[@id='mainProductTable_info']");
+        List<WebElement> myElements = driver.findElements(totalentries2);
+        for(WebElement e : myElements) {
+            System.out.println(e.getText());
+        }
+        Assert.assertTrue(totalentries2.toString().contains("entries"));
+    }
+
+    @Then("switch toggle and verify status chanching")
+    public void switchToggle() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.togglecheckbox,1);
+        pages.togglecheckbox.click();
+        ReusableMethod.bekle(2);
+        String actualAlert = driver.switchTo().alert().getText();
+        String expectedAlert = "Updated successfully!";
+        Assert.assertEquals(actualAlert,expectedAlert);
+
+        //Assert.assertTrue(pages.successAlert.isDisplayed());
+    }
+
+
+    @Then("click on plus button")
+    public void clickOnPlusButton() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.plus,2);
+        pages.plus.click();
+
+    }
+
+    @Then("click on select button")
+    public void clickOnSelectButton() {
+        pages = new US_2_35();
+        pages.selectplus.click();
+        ReusableMethod.bekle(2);
+    }
+
+    @And("verify that view button is displayed")
+    public void verifyThatViewButtonIsDisplayed() {
+        pages = new US_2_35();
+        Assert.assertTrue(pages.viewplus.isDisplayed());
+    }
+
+    @Then("click on view button")
+    public void clickOnViewButton() {
+        pages = new US_2_35();
+        ReusableMethod.bekle(1);
+        pages.viewplus.click();
+    }
+
+    @And("verify that product details is displayed")
+    public void verifyThatProductDetailsIsDisplayed() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.viewdetails,2);
+        Assert.assertTrue(pages.viewdetails.getText().contains("Details"));
+    }
+
+
+    @And("verify that edit button is displayed")
+    public void verifyThatEditButtonIsDisplayed() {
+        pages = new US_2_35();
+        ReusableMethod.bekle(1);
+        Assert.assertTrue(pages.editbutton.isDisplayed());
+    }
+
+    @Then("click on edit button")
+    public void clickOnEditButton() {
+        pages = new US_2_35();
+        pages.editbutton.click();
+    }
+
+    @And("verify that edit button go to relevant page")
+    public void verifyThatEditButtonGoToRelevantPage() {
+        pages = new US_2_35();
+        String expectedUrl = "https://trendlifebuy.com/products/1/edit";
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl);
+    }
+
+    @And("verify that clone button is displayed")
+    public void verifyThatCloneButtonIsDisplayed() {
+        pages = new US_2_35();
+        Assert.assertTrue(pages.clonebutton.isDisplayed());
+    }
+
+    @Then("click on clone button")
+    public void clickOnCloneButton() {
+        pages = new US_2_35();
+        pages.clonebutton.click();
+        ReusableMethod.bekle(2);
+    }
+
+    @And("verify that clone button go to relevant page")
+    public void verifyThatCloneButtonGoToRelevantPage() {
+        pages = new US_2_35();
+        String expecteddata = "https://trendlifebuy.com/products/1/clone";
+        String actualdata = driver.getCurrentUrl();
+        ReusableMethod.bekle(2);
+        Assert.assertEquals(actualdata,expecteddata);
     }
 }

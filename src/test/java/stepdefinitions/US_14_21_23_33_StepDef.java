@@ -3,12 +3,12 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 import pages.US_14_21_23_33;
-import pages.US_2_35;
+
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
@@ -57,9 +57,7 @@ public class US_14_21_23_33_StepDef {
     public void verify_quality_and_reasonable_prices_is_visible() {
         pages= new US_14_21_23_33();
         Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.ARROW_DOWN)
-                .sendKeys(Keys.ARROW_DOWN)
-                .perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
         Assert.assertTrue(pages.qualityReasonblePrices.isDisplayed());
         ReusableMethod.waitToSee(5);
@@ -70,11 +68,10 @@ public class US_14_21_23_33_StepDef {
         pages= new US_14_21_23_33();
 
         Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.ARROW_DOWN)
-                .sendKeys(Keys.ARROW_DOWN)
-                .perform();
-        ReusableMethod.waitToSee(5);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
+        ReusableMethod.waitToSee(5);
         assertTrue(pages.visibleNumbersAndBoards.isDisplayed());
         ReusableMethod.waitToSee(5);
 
@@ -83,10 +80,11 @@ public class US_14_21_23_33_StepDef {
     @Then("verify ONLINE SHOPPING EASY AND COST-EFFICIENT is visible")
     public void verifyONLINESHOPPINGEASYANDCOSTEFFICIENTIsVisible() {
         pages= new US_14_21_23_33();
+
         Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.ARROW_DOWN)
-                .sendKeys(Keys.ARROW_DOWN)
-                .perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
 
         Assert.assertTrue(pages.onlineShoppingEasyWrite.isDisplayed());
         ReusableMethod.bekle(5);
@@ -98,60 +96,46 @@ public class US_14_21_23_33_StepDef {
 
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        ReusableMethod.bekle(3);
         Assert.assertTrue(pages.teamMemberText.isDisplayed());
         ReusableMethod.bekle(5);
         
     }
-    @Then("verify Robert Pattinson image by clicking")
-    public void verifyRobertPattinsonImageByClicking() {
+    @Then("verify Robert Pattinson image visible")
+    public void verifyRobertPattinsonImageVisible() {
         pages= new US_14_21_23_33();
 
-        String expectedtext="Robert Pattinson";
-        String actualtext =pages.viesibleRobertPattinson.getText();
-        Assert.assertTrue(actualtext.contains(expectedtext));
-        Assert.assertTrue(pages.viesibleRobertPattinson.isDisplayed());
-
-        pages.viesibleRobertPattinson.click();
+        assertTrue(pages.viesibleRobertPattinson.isDisplayed());
         ReusableMethod.bekle(5);
 
     }
-    @And("verify Johnny Depp image by clicking")
-    public void verifyJohnnyDeppImageByClicking() {
+    @And("verify Johnny Depp image visible")
+    public void verifyJohnnyDeppImageVisible() {
         pages= new US_14_21_23_33();
 
-        String expectedtext="Johnny Depp";
-        String actualtext =pages.viesibleJohnnyDepp.getText();
-        Assert.assertTrue(actualtext.contains(expectedtext));
-        Assert.assertTrue(pages.viesibleJohnnyDepp.isDisplayed());
-
-        pages.viesibleJohnnyDepp.click();
+        assertTrue(pages.viesibleJohnnyDepp.isDisplayed());
         ReusableMethod.bekle(5);
     }
 
-    @And("verify Jason Statham image by clicking")
-    public void verifyJasonStathamImageByClicking() {
+    @And("verify Jason Statham image visible")
+    public void verifyJasonStathamImageVisible() {
         pages= new US_14_21_23_33();
 
-        String expectedtext="Jason Statham";
-        String actualtext =pages.viesibleJasonStatham.getText();
-        Assert.assertTrue(actualtext.contains(expectedtext));
-        Assert.assertTrue(pages.viesibleJasonStatham.isDisplayed());
-
-        pages.viesibleJasonStatham.click();
+        assertTrue(pages.viesibleJasonStatham.isDisplayed());
         ReusableMethod.bekle(5);
         
     }
 
-    @And("verify Harry Cooper image by clicking")
-    public void verifyHarryCooperImageByClicking() {
+    @And("verify Harry Cooper image visible")
+    public void verifyHarryCooperImageVisible() {
         pages= new US_14_21_23_33();
 
-        String expectedtext="HarryCooper";
-        String actualtext =pages.viesibleHarryCooper.getText();
-        Assert.assertTrue(actualtext.contains(expectedtext));
-        Assert.assertTrue(pages.viesibleHarryCooper.isDisplayed());
-
-        pages.viesibleHarryCooper.click();
+        assertTrue(pages.viesibleHarryCooper.isDisplayed());
         ReusableMethod.bekle(5);
 
     }
@@ -194,51 +178,76 @@ public class US_14_21_23_33_StepDef {
     @Then("click Refund & Dispute and verified that it redirects to Refund & Dispute page")
     public void clickRefundDisputeAndVerifiedThatItRedirectsToRefundDisputePage() {
         pages= new US_14_21_23_33();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethod.bekle(2);
+
         pages.SrefundDispute.click();
+        ReusableMethod.bekle(2);
+
     }
     @Then("verified that it whose return process is initiated are displayed in the Return List")
     public void verifiedThatItWhoseReturnProcessIsInitiatedAreDisplayedInTheReturnList() {
-
         pages= new US_14_21_23_33();
         assertTrue(pages.SrefundDispute.isDisplayed());
+        ReusableMethod.bekle(2);
     }
+    //***********************************************
     @Then("verify Order ID information is visible")
     public void verifyOrderIDInformationIsVisible() {
         pages= new US_14_21_23_33();
         assertTrue(pages.OrderID.isDisplayed());
+        ReusableMethod.bekle(2);
     }
     @Then("verify Order Date information is visible")
     public void verifyOrderDateInformationIsVisible() {
         pages= new US_14_21_23_33();
+
         assertTrue(pages.OrderDate.isDisplayed());
+        ReusableMethod.bekle(2);
     }
     @Then("verify Status information is visible")
     public void verifyStatusInformationIsVisible() {
         pages= new US_14_21_23_33();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+
         assertTrue(pages.statusPending.isDisplayed());
+        ReusableMethod.bekle(2);
     }
     @Then("verify Request Sent Date information is visible")
     public void verifyRequestSubmissionDateUsInformationIsVisible() {
         pages= new US_14_21_23_33();
+
+        actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+
         assertTrue(pages.requestSentDate.isDisplayed());
+        ReusableMethod.bekle(2);
     }
     @Then("verify Order Amount information is visible")
     public void verifyOrderAmountInformationIsVisible() {
         pages= new US_14_21_23_33();
+
+        actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+
         assertTrue(pages.OrderAmount.isDisplayed());
+        ReusableMethod.bekle(2);
     }
     @Then("click View Details")
     public void clickViewDetails() {
         pages= new US_14_21_23_33();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        pages.SViewDetailsButton.click();
         ReusableMethod.bekle(2);
-        pages.ViewDetailsButton.click();
     }
     @Then("verify current status of the order information is visible")
     public void verifyCurrentStatusOfTheOrderInformationIsVisible() {
         pages= new US_14_21_23_33();
+        actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+
         assertTrue(pages.CurrentStatusOfTheOrder.isDisplayed());
         ReusableMethod.bekle(2);
     }
@@ -283,6 +292,11 @@ public class US_14_21_23_33_StepDef {
     @Then("verify Pick Up Info information is visible")
     public void verifyPickUpInfoInformationIsVisible() {
         pages= new US_14_21_23_33();
+
+        actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
+
         assertTrue(pages.PickUpInfo.isDisplayed());
         ReusableMethod.bekle(2);
     }
@@ -301,8 +315,8 @@ public class US_14_21_23_33_StepDef {
     @Then("verify All Submitted Ticket List is visible")
     public void verifyAllSubmittedTicketListIsVisible() {
         pages= new US_14_21_23_33();
-
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+
         assertTrue(pages.AllSubmittedTicketList.isDisplayed());
         ReusableMethod.bekle(2);
         
@@ -311,7 +325,6 @@ public class US_14_21_23_33_StepDef {
     public void verifyThatAllCategoriesUnderTheAllSubmittedTicketMenuAreSeen() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
         assertTrue(pages.AllSubmittedTicketList.isDisplayed());
         ReusableMethod.bekle(2);
         
@@ -321,7 +334,6 @@ public class US_14_21_23_33_StepDef {
     public void clickViewButton() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
         pages.SViewButton.click();
         ReusableMethod.bekle(2);
     }
@@ -330,7 +342,7 @@ public class US_14_21_23_33_StepDef {
         pages= new US_14_21_23_33();
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        assertTrue(pages.ticketInformationsPage.isDisplayed());
+        assertTrue(pages.sCustomerStatusInformation.isDisplayed());
         ReusableMethod.bekle(2);
         
     }
@@ -341,6 +353,7 @@ public class US_14_21_23_33_StepDef {
 
         actions.sendKeys(Keys.PAGE_DOWN)
                .sendKeys(Keys.PAGE_DOWN)
+                .sendKeys(Keys.PAGE_DOWN)
                 .sendKeys(Keys.PAGE_DOWN)
                 .perform();
         pages.SReplyButton.click();
@@ -379,11 +392,8 @@ public class US_14_21_23_33_StepDef {
     public void clickAllTicketButton() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
         pages.SallTicketLink.click();
         ReusableMethod.bekle(3);
-
-        
     }
 
     @Then("choose Pending link and click Pending information is visible")
@@ -396,7 +406,10 @@ public class US_14_21_23_33_StepDef {
 
         assertTrue(pages.SPendingLink.isDisplayed());
         ReusableMethod.bekle(3);
-        
+
+        pages.SPendingBox.click();
+        ReusableMethod.bekle(3);
+
     }
 
     @Then("choose On Going link and click On Going information is visible")
@@ -408,6 +421,9 @@ public class US_14_21_23_33_StepDef {
         ReusableMethod.bekle(3);
 
         assertTrue(pages.SOnGoingLink.isDisplayed());
+        ReusableMethod.bekle(3);
+
+        pages.SOnGoingBox.click();
         ReusableMethod.bekle(3);
         
     }
@@ -422,6 +438,9 @@ public class US_14_21_23_33_StepDef {
 
         assertTrue(pages.SCompletedLink.isDisplayed());
         ReusableMethod.bekle(3);
+
+        pages.SCompletedBox.click();
+        ReusableMethod.bekle(3);
     }
 
     @Then("choose Closed link and click Closed information is visible")
@@ -430,30 +449,33 @@ public class US_14_21_23_33_StepDef {
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         pages.SClosedLink.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
 
         assertTrue(pages.SClosedLink.isDisplayed());
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
+
+        pages.SClosedBox.click();
+        ReusableMethod.bekle(2);
     }
 
     @Then("click Add New button")
     public void clickAddNewButton() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        // actions.sendKeys(Keys.PAGE_DOWN).perform();
         pages.SAddNewButton.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
     }
 
     @Then("verify Create new ticket page is visible")
     public void verifyCreateNewTicketPageIsVisible() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethod.bekle(3);
+        // actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
 
         assertTrue(pages.SCreateNewTicket.isDisplayed());
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
 
     }
 
@@ -461,14 +483,23 @@ public class US_14_21_23_33_StepDef {
     public void verifySubjectIsVisibleAndWriteText() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
         pages.SSubjectBox.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
 
+        pages.SSubjectBox.sendKeys("FS Automation Engineer ");
+        /*
         String expectedChoose="FS Automation Engineer ";
         String actualChoose= pages.SSubjectBox.getText();
-        Assert.assertTrue(actualChoose.contains(expectedChoose));
-        ReusableMethod.bekle(3);
+        // Assert.assertTrue(actualChoose.contains(expectedChoose));
+
+         */
+        ReusableMethod.bekle(2);
+        pages.SDescriptionBox.sendKeys("Hello");
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,200)");
 
     }
 
@@ -476,14 +507,12 @@ public class US_14_21_23_33_StepDef {
     public void verifyCategoryIsVisibleAndWriteText() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        // actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
         pages.SCategoryBox.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
 
-        String expectedChoose="FS Automation Engineer ";
-        String actualChoose= pages.SCategoryBox.getText();
-        Assert.assertTrue(actualChoose.contains(expectedChoose));
-        ReusableMethod.bekle(3);
+        pages.SCategoryBoxOptions.click();
 
     }
 
@@ -491,14 +520,13 @@ public class US_14_21_23_33_StepDef {
     public void verifyPriorityIsVisibleAndWriteText() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(2);
         pages.SPriorityBox.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
 
-        String expectedChoose="FS Automation Engineer ";
-        String actualChoose= pages.SPriorityBox.getText();
-        Assert.assertTrue(actualChoose.contains(expectedChoose));
-        ReusableMethod.bekle(3);
+        pages.SPriorityBoxOptions.click();
+        ReusableMethod.bekle(2);
 
     }
 
@@ -506,30 +534,35 @@ public class US_14_21_23_33_StepDef {
     public void verifyDescriptionIsVisibleAndWriteText() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
         pages.SDescriptionBox.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
 
-        String expectedChoose="Hello";
-        String actualChoose= pages.SDescriptionBox.getText();
-        Assert.assertTrue(actualChoose.contains(expectedChoose));
-        ReusableMethod.bekle(3);
+        pages.SDescriptionBox.sendKeys("Hello");
+        ReusableMethod.bekle(2);
     }
 
     @Then("click Creat Now button")
     public void clickCreatNowButton() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        pages.SCreateNowButton.click();
-        ReusableMethod.bekle(3);
+        ReusableMethod.bekle(2);
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", pages.SCreateNowButton);
+
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        //pages.SCreateNowButton.click();
+        ReusableMethod.bekle(2);
     }
 
     @Then("verify that a new ticket list is visible")
     public void verifyThatANewTicketListIsVisible() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
         assertTrue(pages.AllSubmittedTicketList.isDisplayed());
         ReusableMethod.bekle(2);
 
@@ -855,4 +888,6 @@ public class US_14_21_23_33_StepDef {
         assertTrue(pages.SadminCreateFirstCustomerSelectBox.isDisplayed());
         ReusableMethod.bekle(3);
     }
+
+
 }

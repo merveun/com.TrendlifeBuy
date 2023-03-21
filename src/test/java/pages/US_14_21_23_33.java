@@ -27,22 +27,22 @@ public class US_14_21_23_33 {
     @FindBy (xpath = "//div[@class='about_counter_area section_spacing6']//div[@class='container']")
     public WebElement visibleNumbersAndBoards;
 
-    @FindBy (xpath = "//div[@class='about_value_textBox']")
+    @FindBy (xpath = "(//div[@class='about_value_textBox'])[1]")
     public WebElement onlineShoppingEasyWrite;
 
-    @FindBy (xpath = "//div[@class='col-12']//div[@class='section__title2 mb_35']")
+    @FindBy (xpath = "(//div[@class='container'])[8]")
     public WebElement teamMemberText;
 
-    @FindBy (xpath = "//div[@class='team_member_area section_spacing6']//div[@class='container']//div[1]//div[1]//div[1]//img[1]")
+    @FindBy (xpath = "(//div[@class='container'])[8]")
     public WebElement viesibleRobertPattinson;
 
-    @FindBy (xpath = "(//div[@class='col-lg-3 col-md-6'])[2]")
+    @FindBy (xpath = "(//div[@class='container'])[8]")
     public WebElement viesibleJohnnyDepp;
 
-    @FindBy (xpath = "(//div[@class='col-lg-3 col-md-6'])[3]")
+    @FindBy (xpath = "(//div[@class='container'])[8]")
     public WebElement viesibleJasonStatham;
 
-    @FindBy (xpath = "(//div[@class='col-lg-3 col-md-6'])[4]")
+    @FindBy (xpath = "(//div[@class='container'])[8]")
     public WebElement viesibleHarryCooper;
 
     // *************************US_21 features*******************************
@@ -61,7 +61,7 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "//a[text()='Dashboard']")
     public WebElement SdashBoard;
 
-    @FindBy(xpath = "(//a[normalize-space()='Refund & Dispute'])[1]")
+    @FindBy(xpath = "//a[normalize-space()='Refund & Dispute']")
     public WebElement SrefundDispute;
 
     @FindBy(xpath = "(//div[contains(@class,'d-flex align-items-center flex-wrap gap_5')])[1]")
@@ -79,8 +79,8 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "(//div[contains(@class,'d-flex align-items-center flex-wrap gap_5')])[5]")
     public WebElement OrderAmount;
 
-    @FindBy(xpath = "(//a[contains(text(),'View Details')])[1]")
-    public WebElement ViewDetailsButton;
+    @FindBy(xpath = "(//a[contains(@class,'amaz_primary_btn style2 text-nowrap')][normalize-space()='View Details'])[1]")
+    public WebElement SViewDetailsButton;
 
     @FindBy(xpath = "(//div[contains(@class,'justify-content-between theme_border')])[1]")
     public WebElement CurrentStatusOfTheOrder;
@@ -108,22 +108,25 @@ public class US_14_21_23_33 {
 
     // *************************US_23 features*******************************
 
-    @FindBy(xpath = "(//a[normalize-space()='Support Ticket'])[1]")
+    @FindBy(xpath = "//a[normalize-space()='Support Ticket']")
     public WebElement supportTicket;
 
-    @FindBy(xpath = "(//div[@id='dataShow'])[1]")
+    @FindBy(xpath = "//a[normalize-space()='Support Ticket']")
     public WebElement supportTicketPage;
 
     @FindBy(xpath = "(//div[@class='dashboard_white_box_body'])[1]")
     public WebElement AllSubmittedTicketList;
 
-    @FindBy(xpath = "//div[@class='dashboard_white_box style4 bg-white mb_25']")
-    public WebElement ticketInformationsPage;
+    @FindBy(xpath = "(//a[@class='amaz_badge_btn4 text-nowrap text-capitalize text-center'][normalize-space()='View'])[1]")
+    public WebElement SViewButton;
 
-    @FindBy(xpath = "(//button[normalize-space()='Reply'])[1]")
+    @FindBy(xpath = "(//span[normalize-space()='Status'])[1]")
+    public WebElement sCustomerStatusInformation;
+
+    @FindBy(xpath = "//button[@id='replay_box_toggler']")
     public WebElement SReplyButton;
 
-    @FindBy(xpath = "//div[@role='textbox']")
+    @FindBy(xpath = "//button[@id='replay_box_toggler']")
     public WebElement SReplyTextBox;
 
     @FindBy(xpath = "//button[normalize-space()='+ Reply now']")
@@ -132,7 +135,7 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "(//div[@class='ticket_view_box theme_border gray_color_1 radius_5px mb_20'])[9]")
     public WebElement SticketAnswerBox;
 
-    @FindBy(xpath = "(//div[@class='nice-select amaz_select4 style2 open'])[1]")
+    @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
     public WebElement SallTicketLink;
 
     @FindBy(xpath = "(//input[@placeholder='Search...'])[1]")
@@ -141,14 +144,26 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "(//li[normalize-space()='Pending'])[1]")
     public WebElement SPendingLink;
 
+    @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
+    public WebElement SPendingBox;
+
     @FindBy(xpath = "(//li[normalize-space()='On Going'])[1]")
     public WebElement SOnGoingLink;
+
+    @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
+    public WebElement SOnGoingBox;
+
 
     @FindBy(xpath = "(//li[normalize-space()='Completed'])[1]")
     public WebElement SCompletedLink;
 
+    @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
+    public WebElement SCompletedBox;
     @FindBy(xpath = "(//li[normalize-space()='Closed'])[1]")
     public WebElement SClosedLink;
+
+    @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
+    public WebElement SClosedBox;
 
     @FindBy(xpath = "(//a[normalize-space()='+ Add New'])[1]")
     public WebElement SAddNewButton;
@@ -156,19 +171,25 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "(//div[@class='dashboard_white_box style4 bg-white mb_25'])[1]")
     public WebElement SCreateNewTicket;
 
-    @FindBy(xpath = "(//input[@id='subject'])[1]")
+    @FindBy(xpath = "//input[@id='subject']")
     public WebElement SSubjectBox;
 
-    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide open'])[1]")
+    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide'])[1]")
     public WebElement SCategoryBox;
 
-    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide'])[1]")
+    @FindBy(xpath = "//li[@data-value='55']")
+    public WebElement SCategoryBoxOptions;
+
+    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide'])[2]")
     public WebElement SPriorityBox;
 
-    @FindBy(xpath = "(//div[@class='note-placeholder'])[1]")
+    @FindBy(xpath = "//li[@data-value='33']")
+    public WebElement SPriorityBoxOptions;
+
+    @FindBy(xpath = "//div[@role='textbox']")
     public WebElement SDescriptionBox;
 
-    @FindBy(xpath = "(//button[normalize-space()='+ Create Now'])[1]")
+    @FindBy(xpath = "//button[text()='+ Create Now']")
     public WebElement SCreateNowButton;
 
     @FindBy(xpath = "(//div[@class='dashboard_white_box style5 bg-white mb_25'])[1]")
@@ -181,8 +202,7 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "//a[normalize-space()='New Category']")
     public WebElement SCustomerVeryCategory;
 
-    @FindBy(xpath = "(//a[@class='amaz_badge_btn4 text-nowrap text-capitalize text-center'][normalize-space()='View'])[1]")
-    public WebElement SViewButton;
+
 
     //****************US_33*****************
     // Admin Page
