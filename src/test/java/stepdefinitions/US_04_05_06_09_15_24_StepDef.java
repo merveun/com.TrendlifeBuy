@@ -24,7 +24,7 @@ public class US_04_05_06_09_15_24_StepDef {
     //Url page
     @Given("go to {string}")
     public void go_to(String string) {
-        getDriver().get(ConfigReader.getProperty("url"));
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
 
     // Popup closed

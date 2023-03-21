@@ -28,6 +28,7 @@ public class US_3_16_19_28_29_StepDef {
 
     @Given("Kullanici Anasayfa {string} 'ine gider.")
     public void kullanici_anasayfa_ine_gider(String string) {
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
 
