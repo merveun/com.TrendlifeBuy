@@ -3,9 +3,12 @@ Feature: As a user, I would like to have a page where I can compare similar prod
 
   Scenario: TC_121 It should be verified that the products that users put on the Compare page while shopping are displayed side by side with their pictures and content information.
 
-    Given go to "url"
+    Given go to "Url"
     Then  close popup
-    Then  all-in-one logIn
+    Then  click log in
+    Then  type incorrect email
+    And   type valid password
+    Then  click sign in
     Then  scroll down for More Deal button
     Then  click product one
     Then  navigate page back
@@ -16,14 +19,14 @@ Feature: As a user, I would like to have a page where I can compare similar prod
     And   terminate test
 
 
-
-
-
   Scenario: TC_122 When the Reset Compare button is clicked, it should be verified that the products selected for comparison are deleted from the Compare page.
 
     Given go to "url"
     Then  close popup
-    Then  all-in-one logIn
+    Then  click log in
+    Then  type incorrect email
+    And   type valid password
+    Then  click sign in
     Then  scroll down for More Deal button
     Then  click product one
     Then  navigate page back

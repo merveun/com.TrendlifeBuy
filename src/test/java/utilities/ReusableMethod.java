@@ -370,5 +370,130 @@ public class ReusableMethod {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //--- EXPECTED URL OF LINKSS
+    public static String purchaseHistoryPageUrl(String expectedUrl) {
+        String purchaseHistoryPageUrl = "https://qa.trendlifebuy.com/my-purchase-histories";
+        return purchaseHistoryPageUrl;
+    }
+
+    public static String myWishlistPageUrl(String expectedUrl) {
+        String myWishlistPageUrl = "https://qa.trendlifebuy.com/my-wishlist";
+        return myWishlistPageUrl;
+    }
+
+    public static String myOrderPageUrl(String expectedUrl) {
+        String myOrderPageUrl = "https://qa.trendlifebuy.com/my-purchase-orders";
+        return myOrderPageUrl;
+    }
+
+    public static String giftPageUrl(String expectedUrl) {
+        String giftPageUrl = "https://qa.trendlifebuy.com/purchased-gift-cards";
+        return giftPageUrl;
+    }
+
+    public static String myWalletPageUrl(String expectedUrl) {
+        String myWalletPageUrl = "https://qa.trendlifebuy.com/wallet/customer/my-wallet-index";
+        return myWalletPageUrl;
+    }
+
+    public static String myCouponsPageUrl(String expectedUrl) {
+        String myCouponsPageUrl = "https://qa.trendlifebuy.com/profile/coupons";
+        return myCouponsPageUrl;
+    }
+
+    public static String refundDisputePageUrl(String expectedUrl) {
+        String refundDisputePageUrl = "https://qa.trendlifebuy.com/refund/my-refund-list";
+        return refundDisputePageUrl;
+    }
+
+    public static String myAccountPageUrl(String expectedUrl) {
+        String myAccountPageUrl = "https://qa.trendlifebuy.com/profile";
+        return myAccountPageUrl;
+    }
+
+    public static String digitalProductsPageUrl(String expectedUrl) {
+        String digitalProductsPageUrl = "https://qa.trendlifebuy.com/digital-products";
+        return digitalProductsPageUrl;
+    }
+
+    public static String referralPageUrl(String expectedUrl) {
+        String referralPageUrl = "https://qa.trendlifebuy.com/profile/referral";
+        return referralPageUrl;
+    }
+
+    public static String supportTicketPageUrl(String expectedUrl) {
+        String supportTicketPageUrl = "https://qa.trendlifebuy.com/support-ticket";
+        return supportTicketPageUrl;
+    }
+
+    public static String notificationPageUrl(String expectedUrl) {
+        String notificationPageUrl = "https://qa.trendlifebuy.com/profile/notifications";
+        return notificationPageUrl;
+    }
+    public static String notificationView_PageUrl(String expectedUrl) {
+        String notificationView_PageUrl = "https://qa.trendlifebuy.com/my-purchase-order-details/";
+        return notificationView_PageUrl;
+    }
+
+
+    public static String notificationSetting_PageUrl(String expectedUrl) {
+        String notificationSetting_PageUrl = "https://qa.trendlifebuy.com/profile/notification_setting";
+        return notificationSetting_PageUrl;
+    }
+
+
+    // ScrollDown_End_Of_Page --> Murat
+
+    public static void scrolldown_DownViewAll() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,600)");
+    }
+
+
+    public static void scrolldown_SideBarMenu() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,600)");
+    }
+
+
+    public static void scrolldown_NotificationsSettingMenu() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,300)");
+    }
+
+
+
+
 }
 

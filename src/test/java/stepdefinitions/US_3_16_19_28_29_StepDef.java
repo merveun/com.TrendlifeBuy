@@ -4,7 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.US_3_16_19_28_29;
 import utilities.ConfigReader;
@@ -13,6 +15,7 @@ import utilities.ReusableMethod;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -20,7 +23,6 @@ import static org.junit.Assert.*;
 public class US_3_16_19_28_29_StepDef {
     Actions actions = new Actions(Driver.getDriver());
     US_3_16_19_28_29 pages;
-    String ilkSayfaHandleDegeri;
     String expectedUrun = "";
     String actualUrun = "";
 
@@ -142,7 +144,7 @@ public class US_3_16_19_28_29_StepDef {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethod.bekle(2);
         pages.purchaseHistory.click();
-        ilkSayfaHandleDegeri = Driver.getDriver().getWindowHandle();
+
 
     }
 
@@ -461,12 +463,13 @@ public class US_3_16_19_28_29_StepDef {
     public void delete_ikonuna_tiklandiginda_ilgili_urunun_wishlist_ten_silindigi_dogrulanir() {
 
         pages = new US_3_16_19_28_29();
+        System.out.println("silinmeden önceki size = >"+pages.productsInWishList.size());
         pages.wishListDorduncuUrunDelete.click();
         pages.wishListDorduncuUrunDeleteButonu.click();
         ReusableMethod.waitForClickablility(pages.wishListDorduncuUrunDeleteButonuKapatma, 5);
         pages.wishListDorduncuUrunDeleteButonuKapatma.click();
-        assertFalse(pages.wishListDorduncuUrunDelete.isDisplayed());
-
+        int actualSize=pages.productsInWishList.size();
+        Assert.assertTrue(actualSize==2);
 
     }
     @Then("Yeni urun Wishliste eklenir")
@@ -484,4 +487,123 @@ public class US_3_16_19_28_29_StepDef {
         ReusableMethod.waitForClickablility(pages.wishList, 5);
 
     }
+    @Then("Buradaki urunlerin uzerine gelindiginde Add to Cart ikonunun gorundugu dogrulanir")
+    public void buradaki_urunlerin_uzerine_gelindiginde_add_to_cart_ikonunun_gorundugu_dogrulanir() {
+
+        pages = new US_3_16_19_28_29();
+        actions.sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        actions.moveToElement(pages.wishListikinciUrun).perform();
+        ReusableMethod.bekle(1);
+        assertTrue(pages.wishListAddttoCart.isDisplayed());
+    }
+    @Then("Buradaki urunlerin uzerine gelindiginde Add to Cart ikonunu tiklanir.")
+    public void buradaki_urunlerin_uzerine_gelindiginde_add_to_cart_ikonunu_tiklanir() {
+        pages = new US_3_16_19_28_29();
+        ReusableMethod.bekle(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethod.bekle(1);
+        actions.sendKeys(Keys.ARROW_UP).sendKeys(Keys.ARROW_UP).sendKeys(Keys.ARROW_UP).perform();
+        ReusableMethod.bekle(1);
+        actions.moveToElement(pages.wishListAddttoCart).perform();
+        //ReusableMethod.waitForClickablility(pages.wishListAddttoCartClick,5);
+        pages.wishListAddttoCartClick.click();
+    }
+    @Then("Wishlist'te ki urunu Cart sayfasina ekledigi dogrulanir")
+    public void wishlist_te_ki_urunu_cart_sayfasina_ekledigi_dogrulanir() {
+        pages = new US_3_16_19_28_29();
+        pages.wishListAddttoCartViewCart.click();
+        assertTrue(pages.wishListAddttoCartViewCartCart.isDisplayed());
+    }
+    @Given("Kullanici Admin Anasayfa {string} 'ine gider.")
+    public void kullanici_admin_anasayfa_ine_gider(String string) {
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+    }
+    @Then("Admin panelinin URL'ine erisilebilir oldugu dogrulanir")
+    public void admin_panelinin_url_ine_erisilebilir_oldugu_dogrulanir() {
+        //System.out.println(Driver.getDriver().getCurrentUrl()); https://trendlifebuy.com/admin/login
+        String actualAdUrl=Driver.getDriver().getCurrentUrl();
+        String expectedAdUrl="https://trendlifebuy.com/admin/login";
+        assertEquals(actualAdUrl,expectedAdUrl);
+    }
+    @Then("Gecerli bir admin {string} ve {string} girer")
+    public void gecerli_bir_admin_ve_girer(String string, String string2) {
+
+        pages = new US_3_16_19_28_29();
+        pages.AdemailTextBox.sendKeys(ConfigReader.getProperty("adminEmailM"));
+        ReusableMethod.bekle(1);
+        pages.AdpasswordTextBox.sendKeys(ConfigReader.getProperty("adminPasswordM"));
+        ReusableMethod.bekle(1);
+    }
+    @Then("Signed\\(ad) in butonuna basar")
+    public void signed_ad_in_butonuna_basar() {
+
+        pages = new US_3_16_19_28_29();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        pages.AdsignInButton.click();
+        ReusableMethod.bekle(3);
+    }
+    @Then("Admin Dashboard sayfasina login olundugu dogrulanir")
+    public void admin_dashboard_sayfasina_login_olundugu_dogrulanmali() {
+
+
+        String actualAdUrl=Driver.getDriver().getCurrentUrl();
+        System.out.println(actualAdUrl);
+        String expectedAdUrl="https://trendlifebuy.com/admin-dashboard";
+        assertEquals(actualAdUrl,expectedAdUrl);
+    }
+    @Then("Sayfanin ust bolumunde Search TextBox'inin gorunur oldugu dogrulanir")
+    public void sayfanin_ust_bolumunde_search_text_box_inin_gorunur_oldugu_dogrulanir() {
+        pages = new US_3_16_19_28_29();
+        assertTrue(pages.AdSearch.isDisplayed());
+    }
+    @Then("Search TextBox'i kullanilarak site icinde arama yapilabildigi dogrulanmali")
+    public void search_text_box_i_kullanilarak_site_icinde_arama_yapilabildigi_dogrulanmali() {
+        pages = new US_3_16_19_28_29();
+        pages.AdSearch.sendKeys("New Customers",Keys.ENTER);
+    }
+    @Then("Menu ikonuna tiklandiginda Dashboard Side Bar'inin daralip genisledigi dogrulanmali")
+    public void menu_ikonuna_tiklandiginda_dashboard_side_bar_inin_daralip_genisledigi_dogrulanmali() {
+
+        pages = new US_3_16_19_28_29();
+        pages.AdMenuikonu.click();
+        assertTrue(pages.AdMiniSidebar.isDisplayed());
+        pages.AdMenuikonu.click();
+        assertTrue(pages.AdSidebar.isDisplayed());
+    }
+    @Then("Website botununa tiklanir")
+    public void website_botununa_tiklanir() {
+
+    }
+    @Then("Sitenin kullanici arayuzune yonlendirdigi dogrulanmali")
+    public void sitenin_kullanici_arayuzune_yonlendirdigi_dogrulanmali() {
+        pages = new US_3_16_19_28_29();
+        String ilkSayfaWHD=Driver.getDriver().getWindowHandle();
+        pages.AdWEbsite.click();
+
+        Set<String> ikiSayfaninWHDegerleriSeti=Driver.getDriver().getWindowHandles();
+        String ikinciSayfaWHD="";
+
+        for (String eachWHD:ikiSayfaninWHDegerleriSeti) {
+            if (!eachWHD.equals(ilkSayfaWHD)){
+                ikinciSayfaWHD=eachWHD;
+            }
+        }
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD);
+
+        String expectedCusUrl="https://trendlifebuy.com/";
+        String actualCusUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedCusUrl,actualCusUrl);
+    }
+    @Then("İlgili butonlarina sirayla tiklandiginda Summary Boarddaki verilerin secilen degere gore degistigi dogrulanir")
+    public void i̇lgili_butonlarina_sirayla_tiklandiginda_summary_boarddaki_verilerin_secilen_degere_gore_degistigi_dogrulanir() {
+        pages = new US_3_16_19_28_29();
+        pages.AdToday.click();
+        String visitor=pages.AdVisitor.getText();
+        System.out.println("Visitor=" +visitor);
+
+    }
+
 }
