@@ -1,3 +1,4 @@
+@smoke
 Feature: As a user, I would like to have a page where I can compare similar products on the site.
 
 

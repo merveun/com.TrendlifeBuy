@@ -1,3 +1,4 @@
+@smoke
 Feature: US_015 As a user, I would like to have a special dashboard page on the site to control my operations and settings on the site.
 
   Scenario: TC_123 When you click on the Dashboard link from the main page,

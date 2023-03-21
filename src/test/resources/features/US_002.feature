@@ -1,3 +1,4 @@
+@smoke
 Feature: Verify that the functions in the top menu of the home page are active
 
 

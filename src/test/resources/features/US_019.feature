@@ -1,3 +1,4 @@
+@smoke
 Feature: Bir kullanici olarak sitedeki alisverislerde
          kullanabilecegim bir cüzdanimin olmasini ve
          bu cüzdanla ilgili islemlerimi yapabilcegim bir sayfanin olmasini istiyorum.

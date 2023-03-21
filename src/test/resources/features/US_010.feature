@@ -1,8 +1,7 @@
-
+@smoke
 Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünleri atacagim
   ve devaminda alisveris islemlerimi gerceklestirebilecegim bir sepet sayfasi olmasini istiyorum.
 
-  @deneme
   Scenario: US_010 --> TC_001 - Shipping charge free from,
             Order Summary,Subtotal,Shipping Charge,
             Discount,VAT/TAX/GST ve Total yazılarınin görünür oldugu dogrulanmali.
