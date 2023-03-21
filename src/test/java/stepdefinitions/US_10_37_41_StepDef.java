@@ -32,10 +32,12 @@ public class US_10_37_41_StepDef {
     }
     @Then("subscribe popup kapatilir")
     public void subscribe_popup_kapatilir() {
-        pages = new US_10_37_41();
+       pages = new US_10_37_41();
+       pages.categoryErrorMessage.click();
+        /* pages = new US_10_37_41();
         ReusableMethod.waitForClickablility(pages.subscribePopupExit,10);
         pages.subscribePopupExit.click();
-
+*/
         /*JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].click();",pages.subscribePopupExit);*/
 
