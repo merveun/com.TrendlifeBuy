@@ -187,6 +187,26 @@ public class US_2_35 {
     @FindBy(xpath = "(//a[@class='dropdown-item delete_product'])[2]")
     public WebElement deletebutton;
 
+    //ÜRÜN GÜNCEL BİLGİSİ > FİYAT
+    @FindBy(xpath = "///input[@id='selling_price']")
+    public WebElement sellingprice;
+
+    //ÜRÜN GÜNCEL BİLGİSİ > STOK
+    @FindBy(xpath = "//input[@id='single_stock']")
+    public WebElement single_stock;
+
+    //ürün stok yazısı
+    @FindBy(xpath = "//label[@for='single_stock']")
+    public WebElement stockhead;
+
+    //ürün fiyat yazısı
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[22]")
+    public WebElement pricehead;
+
+    //radio button > product type
+    @FindBy(xpath = "//input[@id='variant_prod']")
+    public WebElement productTypeRadioButton2;
 
 
 
