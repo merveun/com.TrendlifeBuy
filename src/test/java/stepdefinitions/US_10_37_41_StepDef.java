@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
@@ -14,10 +15,12 @@ import utilities.Driver;
 import utilities.ReusableMethod;
 
 import java.util.List;
+import java.util.Random;
 
 public class US_10_37_41_StepDef {
 
     US_10_37_41 pages;
+    String subjectText;
     String dashboardHandleDegeri="";
     String orderIDfromDashboard;
     String customerNameFromDashboard;
@@ -205,6 +208,13 @@ public class US_10_37_41_StepDef {
     @Then("shipping charge free yazisinin gorunur oldugunu dogrula")
     public void shipping_charge_free_yazisinin_gorunur_oldugunu_dogrula() {
         Assert.assertTrue(pages.shippinChargeFreeFromText.isDisplayed());
+
+        /*
+        Sofassert. x isdisplayed
+        Sofassert. y isdisplayed
+        Sofassert. z isdisplayed
+        Sofassert. aisdisplayed , " a elementi  "
+         */
     }
     @Then("order summary yazisinin gorunur oldugunu dogrula")
     public void order_summary_yazisinin_gorunur_oldugunu_dogrula() {
@@ -321,9 +331,130 @@ public class US_10_37_41_StepDef {
         Assert.assertTrue(pages.orderIDFromOrderManage.getText().contains(orderIDfromDashboard));
     }
 
+    @Then("supportTicket dropdownuna tiklar")
+    public void support_ticket_dropdownuna_tiklar() {
+        pages = new US_10_37_41();
+        pages.supportTicketDropDown.click();
+    }
+    @Then("support ticket butonuna tiklar")
+    public void support_ticket_butonuna_tiklar() {
+        pages=new US_10_37_41();
+        pages.supportTicketLinkMenu.click();
+    }
+    @Then("{string} sayfasina gittigi dogrulanir")
+    public void sayfasina_gittigi_dogrulanir(String url) {
+        ReusableMethod.waitForPageToLoad(10);
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl=ConfigReader.getProperty(url);
+        Assert.assertEquals(actualUrl,expectedUrl,"Beklenen url ile asıl url esit degil");
+    }
+
+    @Then("add new butonuna tiklar")
+    public void add_new_butonuna_tiklar() {
+        pages=new US_10_37_41();
+        pages.addNewButtonOnTicketPage.click();
+    }
+
+    @Then("create ticket butonuna tiklar")
+    public void create_ticket_butonuna_tiklar() {
+        pages=new US_10_37_41();
+        pages.createTicketButton.click();
+    }
+    @Then("gerekli yazilarin gorunur oldugunu dogrular")
+    public void gerekli_yazilarin_gorunur_oldugunu_dogrular() {
+        ReusableMethod.waitForPageToLoad(5);
+        Assert.assertTrue(pages.subjectErrorMessage.isDisplayed());
+        Assert.assertTrue(pages.categoryErrorMessage.isDisplayed());
+        Assert.assertTrue(pages.priorityErrorMessage.isDisplayed());
+        Assert.assertTrue(pages.statusErrorMessage.isDisplayed());
+        Assert.assertTrue(pages.descriptionErrorMessage.isDisplayed());
+    }
+
+    @Then("new browser add butonuna tiklar")
+    public void new_browser_add_butonuna_tiklar() {
+        pages = new US_10_37_41();
+        pages.addBrowserButton.click();
+    }
+    @Then("yeni browserBox olustugunu dogrular")
+    public void yeni_browser_box_olustugunu_dogrular() {
+        pages=new US_10_37_41();
+        int expectedSize=2;
+        int actualSize=pages.browserDivList.size();
+        Assert.assertEquals(actualSize,expectedSize);
+    }
+    @Then("delete browser butonuna tiklar")
+    public void delete_browser_butonuna_tiklar() {
+        pages = new US_10_37_41();
+        pages.deleteBrowserButton.click();
+    }
+    @Then("browserBox silindigini dogrular")
+    public void browser_box_silindigini_dogrular() {
+        pages=new US_10_37_41();
+        int expectedSize=1;
+        int actualSize=pages.browserDivList.size();
+        Assert.assertEquals(actualSize,expectedSize);
+    }
+
+    @Then("ticket bilgilerini doldurur")
+    public void ticket_bilgilerini_doldurur() {
+        pages=new US_10_37_41();
+        Faker faker = new Faker();
+        subjectText=faker.name().fullName();
+        pages.subjectTextBox.sendKeys(subjectText);
+        pages.descriptionTextBox.sendKeys(faker.lorem().paragraph());
+        // Choose category
+        ReusableMethod.chooseItemFromMenuWhichIsInAddTicketPage(pages.categoryList,pages.categoryListButton);
+        // Choose priortiy
+        ReusableMethod.chooseItemFromMenuWhichIsInAddTicketPage(pages.priorityList,pages.priorityListButton);
+        // Choose UserList
+        ReusableMethod.chooseItemFromMenuWhichIsInAddTicketPage(pages.userList,pages.userListButton);
+        // Choose status
+        ReusableMethod.chooseItemFromMenuWhichIsInAddTicketPage(pages.statusList,pages.statusListButton);
+        // Choose assign to
+        ReusableMethod.chooseItemFromMenuWhichIsInAddTicketPage(pages.assignToList,pages.assignToListButton);
+        pages.attachFileBox.sendKeys(System.getProperty("user.dir")+"\\test-data\\ornek.txt");
+    }
+    @Then("ticket listte yeni ticket olusturuldugunu dogrular")
+    public void ticket_listte_yeni_ticket_olusturuldugunu_dogrular() {
+        pages=new US_10_37_41();
+        String actualText=pages.firstSubjectofTicket.getText();
+        Assert.assertEquals(actualText,subjectText);
+    }
+
     @Then("sayfayi kapat")
     public void sayfayi_kapat() {
         Driver.quitDriver();
     }
 
+    @Then("category dropbox seceneklerinin gorunu ve secilebilir oldugunu dogrular")
+    public void categoryDropboxSeceneklerininGorunuVeSecilebilirOldugunuDogrular() throws InterruptedException {
+        ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.categoryList,pages.categoryListButton,pages.categoryListCurrentText);
+
+    }
+
+    @Then("priority dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
+    public void priorityDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
+        ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.priorityList,pages.priorityListButton,pages.priorityListCurrentText);
+
+    }
+
+    @Then("user dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
+    public void userDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
+       /* ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.userList,pages.userListButton,pages.userListButton);
+
+        */
+    }
+
+    @Then("status dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
+    public void statusDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
+        ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.statusList,pages.statusListButtonOnSupportTicket,pages.statusListCurrentText);
+    }
 }

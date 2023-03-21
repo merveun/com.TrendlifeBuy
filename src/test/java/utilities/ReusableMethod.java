@@ -13,10 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 
 import static utilities.Driver.driver;
@@ -360,10 +357,36 @@ public class ReusableMethod {
         return wElementSS;
     }
 
+    // Its choose random item from requested menu which is in "add ticket page"
+    public static void chooseItemFromMenuWhichIsInAddTicketPage(List<WebElement> listOfMenu,WebElement buttonOfMenu){
+        waitForClickablility(buttonOfMenu,5);
+        Random random = new Random();
+        int index = random.nextInt(1,5);
+        buttonOfMenu.click();
+        Actions actions = new Actions(Driver.getDriver());
+        waitForClickablility(listOfMenu.get(index),5);
+        listOfMenu.get(index).click();
+    }
 
-
-
-
+    public static void verifyAllItemsAreClickable(List<WebElement> listOfMenu,WebElement buttonOfMenu,WebElement currentText) throws InterruptedException {
+        buttonOfMenu.click();
+        for (WebElement each : listOfMenu)
+        {
+            String actualText=each.getText();
+            try{
+                each.click();
+            }
+            catch (Exception e)
+            {
+                waitForClickablility(each,5);
+                each.click();
+            }
+            Thread.sleep(500);
+            Assert.assertEquals(actualText,currentText.getText());
+            buttonOfMenu.click();
+            waitForClickablility(each,5);
+        }
+    }
 
 
 
