@@ -118,44 +118,23 @@ Feature: As an administrator, I want the product lists page to be able to access
     Then login as a admin
     Then click on product button
     Then click on product list button
-
-  Scenario: TC_011--->(US_035) It should be verified that the Clone link is visible on the select tab in the Action
-  column in the Product List and when it is clicked, it redirects to the Clone Product page.
-
-    Given go to admin panel "urlAdmin"
-    Then login as a admin
-    Then click on product button
-    Then click on product list button
     Then click on plus button
     Then click on select button
-    And verify that clone button is displayed
-    Then click on clone button
-    And verify that clone button go to relevant page
+    Then click on edit button
+    Then enter stock amount
+    Then click on plus button
+    Then click on select button
+    Then click on edit button
+    And verify that stock amount is updated
     And close browser
 
-  Scenario: TC_012--->(US_035) Verify that Product Information, Price Info And Stock, Weight Height Info, Product Image Info,
-  Pdf Specifications, Product Video Info, Others Info information is changeable on Clone Product page
 
-  Scenario: TC_013--->(US_035) On the Save button, it should be verified that the message reminding that the information
-  on the Related Product, Up Sale, Cross Sale pages must be filled before registration is visible.
 
-  Scenario: TC_014--->(US_035) After updating the information on the General Information, Related Product, Up Sale,
-  Cross Sale pages, verify that the updated information is saved with the Save button.
 
-  Scenario: TC_015--->(US_035) It should be verified that the Delete link is visible on the select tab in the Action
-  column in the Product List and that the Delete operation can be performed when clicked.
 
-  Scenario: TC_016--->(US_035) In the Product By SKU List, verify that the products are listed under the headings SL,
-  Name, Brand, SKU, Selling Price, Image, Action.
 
-  Scenario: TC_017--->(US_035) It should be verified that filtering can be done on the List through Product By SKU titles.
 
-  Scenario: TC_018--->(US_035) Verify that it is possible to search the Product By SKU List with the Quick Search TextBox
 
-  Scenario: TC_019--->(US_035) It should be verified that when the Edit link is clicked on the select tab in the Action column,
-  it redirects to the Edit page and the information is edited and saved.
-
-  Scenario: TC_020--->(US_035) It should be verified that it is possible to switch between pages in the Product By SKU List.
 
 
 
