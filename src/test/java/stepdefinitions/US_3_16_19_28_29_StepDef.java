@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import pages.US_3_16_19_28_29;
 import utilities.ConfigReader;
@@ -600,8 +601,90 @@ public class US_3_16_19_28_29_StepDef {
     public void i̇lgili_butonlarina_sirayla_tiklandiginda_summary_boarddaki_verilerin_secilen_degere_gore_degistigi_dogrulanir() {
         pages = new US_3_16_19_28_29();
         pages.AdToday.click();
-        String visitor=pages.AdVisitor.getText();
+        String visitor= Driver.getDriver().findElement(By.xpath("//h1[@class='gradient-color2 total_visitors']")).getText();
         System.out.println("Visitor=" +visitor);
+
+    }
+    @Then("İlgili butonlara tiklandiginda ilgili sayfalara yonlendirdigi dogrulanmali")
+    public void i̇lgili_butonlara_tiklandiginda_ilgili_sayfalara_yonlendirdigi_dogrulanmali() {
+
+        pages = new US_3_16_19_28_29();
+        String ilkSayfaWHD="";
+        String expAdminUrl="";
+        String actAdminUrl="";
+
+        ReusableMethod.waitForVisibility(pages.AdVisitor,10);
+        ilkSayfaWHD=Driver.getDriver().getWindowHandle();
+        pages.AdTotalOrder.click();
+        ReusableMethod.bekle(2);
+        Set<String> ikiSayfaninWHDegerleriSeti=Driver.getDriver().getWindowHandles();
+        String ikinciSayfaWHD="";
+
+        for (String eachWHD:ikiSayfaninWHDegerleriSeti) {
+            if (!eachWHD.equals(ilkSayfaWHD)){
+                ikinciSayfaWHD=eachWHD;
+            }
+        }
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD);
+        expAdminUrl="https://trendlifebuy.com/ordermanage/total-sales-list";
+        actAdminUrl=Driver.getDriver().getCurrentUrl();
+        assertEquals(expAdminUrl,actAdminUrl);
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD).close();
+        Driver.getDriver().switchTo().window(ilkSayfaWHD);
+
+
+        ReusableMethod.waitForVisibility(pages.AdVisitor,10);
+        pages.AdTotalPendingOrder.click();
+        ReusableMethod.bekle(2);
+        ikiSayfaninWHDegerleriSeti=Driver.getDriver().getWindowHandles();
+
+        for (String eachWHD:ikiSayfaninWHDegerleriSeti) {
+            if (!eachWHD.equals(ilkSayfaWHD)){
+                ikinciSayfaWHD=eachWHD;
+            }
+        }
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD);
+        expAdminUrl="https://trendlifebuy.com/ordermanage/total-sales-list";
+        actAdminUrl=Driver.getDriver().getCurrentUrl();
+        assertEquals(expAdminUrl,actAdminUrl);
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD).close();
+        Driver.getDriver().switchTo().window(ilkSayfaWHD);
+
+        ReusableMethod.waitForVisibility(pages.AdVisitor,10);
+        pages.AdTotalCompletedOrder.click();
+        ReusableMethod.bekle(2);
+        ikiSayfaninWHDegerleriSeti=Driver.getDriver().getWindowHandles();
+
+        for (String eachWHD:ikiSayfaninWHDegerleriSeti) {
+            if (!eachWHD.equals(ilkSayfaWHD)){
+                ikinciSayfaWHD=eachWHD;
+            }
+        }
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD);
+        expAdminUrl="https://trendlifebuy.com/ordermanage/total-sales-list";
+        actAdminUrl=Driver.getDriver().getCurrentUrl();
+        assertEquals(expAdminUrl,actAdminUrl);
+        Driver.getDriver().switchTo().window(ikinciSayfaWHD).close();
+        Driver.getDriver().switchTo().window(ilkSayfaWHD);
+
+        ReusableMethod.waitForVisibility(pages.AdVisitor,10);
+        pages.AdVisitor.click();
+        ReusableMethod.bekle(2);
+        expAdminUrl="https://trendlifebuy.com/admin-report/visitor-report";
+        actAdminUrl=Driver.getDriver().getCurrentUrl();
+        assertEquals(expAdminUrl,actAdminUrl);
+
+        Driver.getDriver().navigate().back();
+
+        ReusableMethod.waitForVisibility(pages.AdVisitor,10);
+        pages.AdTotalSubcriber.click();
+        ReusableMethod.bekle(2);
+        expAdminUrl="https://trendlifebuy.com/marketing/subscribers";
+        actAdminUrl=Driver.getDriver().getCurrentUrl();
+        assertEquals(expAdminUrl,actAdminUrl);
+
+        Driver.getDriver().navigate().back();
+
 
     }
 
