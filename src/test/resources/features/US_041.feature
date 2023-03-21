@@ -87,3 +87,35 @@ Feature: US_041 - US_041 - Bir yönetici olarak acilan support ticketleri ile il
     And sayfayi kapat
 
 
+    Scenario: US_041 --> TC_008 - Support Ticket sayfasinda Priority dropdown'dan Select One,
+    High, Medium, Low seceneklerinin görünür ve secilebilir oldugu dogrulanmali
+
+      Given kullanici "adminLogin" sayfasina git
+      Given kullanici bilgilerini gir
+      Given sign in butonuna tiklar
+      Then supportTicket dropdownuna tiklar
+      Then support ticket butonuna tiklar
+      Then priority dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular
+      And sayfayi kapat
+
+  Scenario: US_041 --> TC_009 - Support Ticket sayfasinda User List dropdown'dan
+      herhangi bir kullanıcının görünür ve secilebilir oldugu dogrulanmali
+
+    Given kullanici "adminLogin" sayfasina git
+    Given kullanici bilgilerini gir
+    Given sign in butonuna tiklar
+    Then supportTicket dropdownuna tiklar
+    Then support ticket butonuna tiklar
+    Then user dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular
+    And sayfayi kapat
+
+  Scenario: US_041 --> TC_010 - Support Ticket sayfasinda Status dropdown'dan Select One,
+  Pending, On Going, Completed, Closed seceneklerinin görünür ve secilebilir oldugu dogrulanmali
+
+    Given kullanici "adminLogin" sayfasina git
+    Given kullanici bilgilerini gir
+    Given sign in butonuna tiklar
+    Then supportTicket dropdownuna tiklar
+    Then support ticket butonuna tiklar
+    Then status dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular
+    And sayfayi kapat

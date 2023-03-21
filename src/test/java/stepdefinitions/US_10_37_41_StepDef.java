@@ -428,24 +428,33 @@ public class US_10_37_41_StepDef {
 
     @Then("category dropbox seceneklerinin gorunu ve secilebilir oldugunu dogrular")
     public void categoryDropboxSeceneklerininGorunuVeSecilebilirOldugunuDogrular() throws InterruptedException {
+        ReusableMethod.waitForPageToLoad(3);
         pages=new US_10_37_41();
-        pages.categoryListButton.click();
-        for(WebElement each : pages.categoryList)
-        {
-            String actualText=each.getText();
-            try{
-                each.click();
-            }
-            catch (Exception e)
-            {
-                ReusableMethod.waitForClickablility(each,5);
-                each.click();
-            }
-            Assert.assertEquals(actualText,pages.categoryListCurrentText.getText());
-            System.out.println(each.getText() + " > görüntülendi");
-            pages.categoryListButton.click();
-            Thread.sleep(750);
+        ReusableMethod.verifyAllItemsAreClickable(pages.categoryList,pages.categoryListButton,pages.categoryListCurrentText);
 
-        }
+    }
+
+    @Then("priority dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
+    public void priorityDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
+        ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.priorityList,pages.priorityListButton,pages.priorityListCurrentText);
+
+    }
+
+    @Then("user dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
+    public void userDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
+       /* ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.userList,pages.userListButton,pages.userListButton);
+
+        */
+    }
+
+    @Then("status dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
+    public void statusDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
+        ReusableMethod.waitForPageToLoad(3);
+        pages=new US_10_37_41();
+        ReusableMethod.verifyAllItemsAreClickable(pages.statusList,pages.statusListButtonOnSupportTicket,pages.statusListCurrentText);
     }
 }

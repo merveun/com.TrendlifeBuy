@@ -245,6 +245,10 @@ public class US_10_37_41 {
     @FindBy(xpath = "(//span[@class='current'])[5]")
     public WebElement statusListButton;
 
+    // Support Ticket > Status List Button
+    @FindBy(xpath = "(//span[@class='current'])[4]")
+    public WebElement statusListButtonOnSupportTicket;
+
     // New Ticket > assignTo List Butonu;
     @FindBy(xpath = "(//span[@class='current'])[6]")
     public WebElement assignToListButton;
@@ -264,6 +268,15 @@ public class US_10_37_41 {
     // Support Ticket > Category Current Text
     @FindBy(xpath = "(//div[@class='primary_input mb-25']//span[@class='current'])[1]")
     public WebElement categoryListCurrentText;
+
+    // Support Ticket > Priority Current Text;
+    @FindBy (xpath = "(//div[@class='primary_input mb-25']//span[@class='current'])[2]")
+    public WebElement priorityListCurrentText;
+
+    // Support Ticket > statusList Current Text;
+    @FindBy (xpath = "(//div[@class='primary_input mb-25']//span[@class='current'])[3]")
+    public WebElement statusListCurrentText;
+
 
 
 

@@ -368,6 +368,25 @@ public class ReusableMethod {
         listOfMenu.get(index).click();
     }
 
+    public static void verifyAllItemsAreClickable(List<WebElement> listOfMenu,WebElement buttonOfMenu,WebElement currentText) throws InterruptedException {
+        buttonOfMenu.click();
+        for (WebElement each : listOfMenu)
+        {
+            String actualText=each.getText();
+            try{
+                each.click();
+            }
+            catch (Exception e)
+            {
+                waitForClickablility(each,5);
+                each.click();
+            }
+            Thread.sleep(500);
+            Assert.assertEquals(actualText,currentText.getText());
+            buttonOfMenu.click();
+            waitForClickablility(each,5);
+        }
+    }
 
 
 
