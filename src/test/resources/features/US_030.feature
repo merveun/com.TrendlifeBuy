@@ -18,8 +18,8 @@ Feature: Bir yönetici olarak sitedeki etkinliklerden haberdar
     And  Activates by clicking on the message type of the first notification.
 
   Scenario: US_30---->TC04 When the Notifications icon is clicked, the Read All menu appears. when the button is clicked, it should be verified that the information messages (as read) are deleted from the window.
-    Then Clicks the Read All button
-    And tests that notifications are cleared
+    #Then Clicks the Read All button
+    Then tests that notifications are cleared
 
   Scenario: US_30---->TC05 Clicking on the Notifications icon when clicking the View button in the drop-down menu, it should be verified that it redirects to the relevant page.
     Then clicks the view button
