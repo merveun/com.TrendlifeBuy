@@ -106,7 +106,6 @@ public class US_1_11_12_18_25_31_38_StepDef {
     public void readMoreLinkineTiklandigindaIlgiliSayfayaYonlendirildigiDogrulanir() {
 
 
-
         ReusableMethod.bekle(3);
 
         String expectedUrl = "https://qa.trendlifebuy.com/blog/post/society--the-soil-in-which-we-grow";
@@ -177,7 +176,7 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
         pages = new US_1_11_12_18_25_31_38();
 
-        Actions actions=new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
@@ -219,9 +218,7 @@ public class US_1_11_12_18_25_31_38_StepDef {
     public void popularPostsBolumundekiBasliklarDaIlgiliBloglarinGoruntulendigiKontrolEdilirDogrulanir() {
 
 
-
-
-        actions=new Actions(Driver.getDriver());
+        actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
@@ -275,7 +272,7 @@ public class US_1_11_12_18_25_31_38_StepDef {
     @And("Get in Touch bolumundeki Text Box'lara Name, E-mail, Messages ve Customer,Installation,Product Returns kısımları kriterlere uygun  doldurulur")
     public void getInTouchBolumundekiTextBoxLaraNameEMailMessagesVeCustomerInstallationProductReturnsKısımlarıKriterlereUygunDoldurulur() {
 
-      Actions  actions = new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
@@ -303,9 +300,11 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
         pages.installation.click();
         pages.searchboxgiris.sendKeys("Customer");
+        ReusableMethod.bekle(3);
         pages.customersarch.click();
+
         pages.messageyaz.sendKeys("Abdurrahman test yapıyor :)");
-        pages.sendbutton.click();
+
 
         //DEVAM EDİLECEK DROPDOWN MENU YAPILACAK
 
@@ -321,7 +320,12 @@ public class US_1_11_12_18_25_31_38_StepDef {
     }
 
     @Then("Emailin başarili bir şekilde gönderildigi dogrulanir")
-    public void emailinBaşariliBirŞekildeGönderildigiDogrulanir() {
+    public void emailinBaşariliBirŞekildeGönderildigiDogrulanir() throws IOException {
+
+
+        ReusableMethod.waitForClickablility(pages.messagegittimi, 3);
+        assertTrue(pages.messagegittimi.isDisplayed());
+        ReusableMethod.getScreenshotWebElement("SuccessMessageAlert", pages.messagegittimi);
 
 
     }
@@ -426,11 +430,11 @@ public class US_1_11_12_18_25_31_38_StepDef {
     public void my_order_sayfasindaki_urun_boardindan_order_details_butonuna_tiklanir() {
 
         actions.sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN).
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).
                 perform();
         ReusableMethod.bekle(2);
 
@@ -466,18 +470,17 @@ public class US_1_11_12_18_25_31_38_StepDef {
         assertTrue(pages.orderAmount.isDisplayed());
         assertTrue(pages.price.isDisplayed());
         actions.sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN)
-                        .sendKeys(Keys.ARROW_DOWN).perform();
-       assertTrue(pages.shippingInfo.isDisplayed());
-       assertTrue(pages.billingInfo.isDisplayed());
-      assertTrue(pages.paymentInfo.isDisplayed());
-
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN)
+                .sendKeys(Keys.ARROW_DOWN).perform();
+        assertTrue(pages.shippingInfo.isDisplayed());
+        assertTrue(pages.billingInfo.isDisplayed());
+        assertTrue(pages.paymentInfo.isDisplayed());
 
 
     }
@@ -532,7 +535,6 @@ public class US_1_11_12_18_25_31_38_StepDef {
         Assert.assertTrue(pages.selectCancelReason.isDisplayed());
 
 
-
     }
 
     @Then("cancel order butonuna tiklanir")
@@ -552,25 +554,20 @@ public class US_1_11_12_18_25_31_38_StepDef {
                 perform();
         ReusableMethod.bekle(6);
 
-      if(pages.cancelOrder.isDisplayed()) {
-          pages.cancelOrder.click();
+        if (pages.cancelOrder.isDisplayed()) {
+            pages.cancelOrder.click();
 
-      }
-      else {
-          ReusableMethod.bekle(3);
-          String expectedKelime="Order Cancelled";
-          String actualKelime=pages.orderCancelled.getText();
-          Assert.assertTrue(actualKelime.contains(expectedKelime));
-
-
-      }
+        } else {
+            ReusableMethod.bekle(3);
+            String expectedKelime = "Order Cancelled";
+            String actualKelime = pages.orderCancelled.getText();
+            Assert.assertTrue(actualKelime.contains(expectedKelime));
 
 
         }
 
 
-
-
+    }
 
 
     @Then("Logout linkinin gorunurlugu test edilmeli")
@@ -726,10 +723,9 @@ public class US_1_11_12_18_25_31_38_StepDef {
         ReusableMethod.bekle(1);
 
 
-        ReusableMethod.waitForClickablility(pages.updatesuccess,3);
+        ReusableMethod.waitForClickablility(pages.updatesuccess, 3);
         assertTrue(pages.updatesuccess.isDisplayed());
         ReusableMethod.getScreenshotWebElement("SuccessMessageAlert", pages.updatesuccess);
-
 
 
     }
@@ -770,11 +766,6 @@ public class US_1_11_12_18_25_31_38_StepDef {
                 .sendKeys(ReusableMethod.getFaker().address().fullAddress())
 
                 .perform();
-
-
-
-
-
 
 
         ReusableMethod.bekle(3);
@@ -887,8 +878,6 @@ public class US_1_11_12_18_25_31_38_StepDef {
         pages.reasonSend.click();
 
 
-
-
     }
 
     @Then("Sayfalar arasi gecis yaptıgı dogrulanmali")
@@ -904,13 +893,12 @@ public class US_1_11_12_18_25_31_38_StepDef {
         Assert.assertTrue(pages.sayfadagecisonay.isDisplayed());
 
 
-
     }
 
     @Then("Order Details sayfasinda ürünle ilgili Shipping Info, Billing Info, Payment Info bilgilerine erisilebilir oldugu dogrulanmali")
     public void orderDetailsSayfasindaÜrünleIlgiliShippingInfoBillingInfoPaymentInfoBilgilerineErisilebilirOlduguDogrulanmali() {
 
-        Actions actions=new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).
@@ -930,10 +918,11 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
 
     }
+
     @Then("Read More linkine tiklar")
     public void readMoreLinkineTiklar() {
 
-        ReusableMethod.waitForClickablility(pages.readmorelinki,10);
+        ReusableMethod.waitForClickablility(pages.readmorelinki, 10);
         pages.readmorelinki.click();
 
 
@@ -943,13 +932,9 @@ public class US_1_11_12_18_25_31_38_StepDef {
     public void searchpostboxKutusundaCategorilereGoreBlogIsmiGirilir() {
 
 
-
         pages.searchpostsbox.sendKeys("Nature");
 
         ReusableMethod.bekle(2);
-
-
-
 
 
     }
@@ -959,11 +944,11 @@ public class US_1_11_12_18_25_31_38_StepDef {
 
         pages.categoryBloglari.click();
         ReusableMethod.bekle(2);
-        String expectedUrl="https://qa.trendlifebuy.com/blog/category/posts/nature-7";
-        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.trendlifebuy.com/blog/category/posts/nature-7";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(actualUrl.contains(expectedUrl));
 
 
     }
-}
 
+}

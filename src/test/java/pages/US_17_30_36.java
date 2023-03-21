@@ -52,13 +52,32 @@ public class US_17_30_36 {
     @FindBy(xpath = "//span[text()='Prev']")
     public WebElement buttonPrev;
 
+    @FindBy (xpath="(//a[@class='arrow_btns d-inline-flex align-items-center justify-content-center'])[1]")
+    public WebElement buttonNext;
+
+
+
+    //span[text()='Next']
+
+
+    @FindBy (id = "date_dynamic")
+    public WebElement andPage;
+
+            //) //footer[@class='home_three_footer']
+    //div[@class='copy_right_text d-flex align-items-center gap_20 flex-wrap justify-content-between']
+    //div[@class='col-md-12']
+
+    @FindBy (id = "id=back-top")
+    public WebElement buttonUp;
+
+
 
     //US17-----TC002
 
     @FindBy (xpath = "//button[@id='home-tab']" )
     public WebElement buttonAll;
 
-    @FindBy (xpath ="//button[@class='nav-link active']" )
+    @FindBy (xpath = "//button[@id='Pay-tab']")
     public WebElement buttonToPay;
 
     @FindBy (xpath = "//button[@id='Ship-tab'] ")
@@ -67,21 +86,45 @@ public class US_17_30_36 {
     @FindBy(xpath = "//button[@id='Receive-tab'] ")
     public WebElement buttonToReceive;
 
+    @FindBy (xpath = "//div[@class='col-lg-12 empty_list']")
+    public WebElement noOrderFound;
+
     //-----US17-----TC03-----
 
-    @FindBy(xpath = "//div[@id='myTabContent']")
+    @FindBy(xpath = "(//div[@class='white_box_header d-flex align-items-center gap_20 flex-wrap  amazy_bb3 justify-content-between '][1])")
     public WebElement bilgiAlani;
+
+    @FindBy (xpath = "//h4[text()='Order ID: ']")
+    public WebElement OrderId;
+
+    @FindBy (xpath = "//h4[text()='Status: ']")
+    public WebElement Status;
+
+    @FindBy (xpath = "//h4[text()='Order date : ']")
+    public WebElement OrderDate;
+
+    @FindBy (xpath = "//h4[text()='Order amount: ']")
+    public WebElement OrderAmount;
+
+    @FindBy (xpath = "//h4[text()='Paid By: ']")
+    public WebElement PaidBy;
 
     //------US17----TC04-----
 
-    @FindBy (xpath = "//option[text()='Last 5 orders']")
+    @FindBy (xpath = "//li[@class='option selected focus']")
     public WebElement last5Orders;
+    //option[text()='Last 5 orders']
 
-    @FindBy (xpath = "//option[text()='Last 20 orders']")
+    @FindBy (xpath = "//li[text()='Last 20 orders']")
     public WebElement last2Orders;
+    //option[text()='Last 20 orders']
 
-    @FindBy (xpath = "//option[text()='Last 40 orders']")
+    @FindBy (xpath = "//li[text()='Last 40 orders']")
     public WebElement last4Orders;
+
+    @FindBy (xpath = "//div[@class='nice-select amaz_select5']")
+    public WebElement searchOrders;
+
 
     //-------------------------------------US30----------------------------------------------//
     //TC01
@@ -111,13 +154,18 @@ public class US_17_30_36 {
     @FindBy (xpath = "//span[@class='checkmark']")
     public WebElement buttonType;
 
-    @FindBy (xpath = "//div[text()='Updated successfully!']")
+    @FindBy (xpath = "//div[text()='Success']")
     public WebElement messageUptadeSuccsess;
-
-        //div[@class='toast-title']
+         //div[text()='Updated successfully!']
+        //div[@class='toast-title'] id = "toast-container"
+   // css = ".toast-success"
 
     @FindBy  (xpath = "//a[text()='Read all']")
     public WebElement buttonReadAll;
+
+    @FindBy (xpath = "//div[@class='Notification_body']")
+    public WebElement screenAll;
+
 
     @FindBy (xpath = "//a[text()='View']")
     public WebElement buttonView;
@@ -193,6 +241,8 @@ public class US_17_30_36 {
     //----TC12-------
     @FindBy(id = "dataDeleteBtn")
     public WebElement buttonDeleteSon;
+
+
 
 
 

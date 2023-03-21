@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
+import static utilities.ReusableMethod.bekle;
 import static utilities.ReusableMethod.logIn;
 
 public class US_2_35_StepDef {
@@ -34,7 +35,7 @@ public class US_2_35_StepDef {
     @Then("close the popup")
     public void close_the_popup() {
         pages = new US_2_35();
-        ReusableMethod.waitForClickablility(pages.popupclose,5);
+        ReusableMethod.waitForClickablility(pages.popupclose,8);
         pages.popupclose.click();
     }
 
@@ -168,7 +169,7 @@ public class US_2_35_StepDef {
     @Then("click on login button")
     public void clickOnLoginButton() {
         pages = new US_2_35();
-        ReusableMethod.waitForClickablility(pages.userloginButton,1);
+        ReusableMethod.waitForClickablility(pages.userloginButton,8);
         pages.userloginButton.click();
 
     }
@@ -310,14 +311,14 @@ public class US_2_35_StepDef {
     @And("verify that the visibility of product list")
     public void verifyThatTheVisibilityOfProductList() {
         pages = new US_2_35();
-        ReusableMethod.waitForVisibility(pages.productListText,2);
+        ReusableMethod.waitForVisibility(pages.productListText,8);
         Assert.assertTrue(pages.productListText.isDisplayed());
     }
 
     @And("verify that all product feature headings")
     public void verifyThatAllProductFeatureHeadings() {
         pages = new US_2_35();
-        ReusableMethod.waitForVisibility(pages.NameText,2);
+        ReusableMethod.waitForVisibility(pages.NameText,8);
         assertTrue(pages.SlText.isDisplayed());
         assertTrue(pages.NameText.isDisplayed());
         assertTrue(pages.ProductTypeText.isDisplayed());
@@ -330,8 +331,8 @@ public class US_2_35_StepDef {
     @And("verify that all prdouct list buttons are displayed")
     public void verifyThatAllPrdouctListButtons() {
         pages = new US_2_35();
-        ReusableMethod.waitForClickablility(pages.ProductListButton2,2);
-        ReusableMethod.waitForVisibility(pages.productListHead,2);
+        ReusableMethod.waitForClickablility(pages.ProductListButton2,8);
+        ReusableMethod.waitForVisibility(pages.productListHead,8);
         assertTrue(pages.ProductListButton2.isDisplayed());
         assertTrue(pages.AlertListButton2.isDisplayed());
         assertTrue(pages.OutOfStockListButton2.isDisplayed());
@@ -344,35 +345,35 @@ public class US_2_35_StepDef {
         pages = new US_2_35();
         //String productListPage = driver.getWindowHandle();
         pages.AlertListButton2.click();
-        ReusableMethod.waitForVisibility(pages.alertListHead,1);
+        ReusableMethod.waitForVisibility(pages.alertListHead,8);
         String expectedpage = "Alert List";
         String actualpage  = pages.alertListHead.getText();
         Assert.assertEquals(actualpage,expectedpage);
         //driver.switchTo().window(productListPage);
 
         pages.ProductListButton2.click();
-        ReusableMethod.waitForVisibility(pages.productListHead,1);
+        ReusableMethod.waitForVisibility(pages.productListHead,8);
         String expectedpage1 = "Product List";
         String actualpage1 = pages.productListHead.getText();
         Assert.assertEquals(actualpage1,expectedpage1);
 
 
         pages.OutOfStockListButton2.click();
-        ReusableMethod.waitForVisibility(pages.outofListHead,1);
+        ReusableMethod.waitForVisibility(pages.outofListHead,8);
         String expectedpage2 = "Out Of Stock List";
         String actualpage2 = pages.outofListHead.getText();
         Assert.assertEquals(actualpage2,expectedpage2);
 
 
         pages.DisabledButton2.click();
-        ReusableMethod.waitForVisibility(pages.disabledListHead,1);
+        ReusableMethod.waitForVisibility(pages.disabledListHead,8);
         String expectedpage3 = "Disabled Product List";
         String actualpage3 = pages.disabledListHead.getText();
         Assert.assertEquals(actualpage3,expectedpage3);
 
 
         pages.ProductSkuButton2.click();
-        ReusableMethod.waitForVisibility(pages.skuListHead,1);
+        ReusableMethod.waitForVisibility(pages.skuListHead,8);
         String expectedpage4 = "Product By SKU";
         String actualpage4 = pages.skuListHead.getText();
         Assert.assertEquals(actualpage4,expectedpage4);
@@ -382,7 +383,7 @@ public class US_2_35_StepDef {
     @Then("wait for searchbox is visible")
     public void waitForSearchboxIsVisible() {
         pages = new US_2_35();
-        ReusableMethod.waitForVisibility(pages.quickSearch,1);
+        ReusableMethod.waitForVisibility(pages.quickSearch,8);
     }
 
     @Then("write on seearchbox keyword")
@@ -409,7 +410,7 @@ public class US_2_35_StepDef {
     @Then("switch toggle and verify status chanching")
     public void switchToggle() {
         pages = new US_2_35();
-        ReusableMethod.waitForVisibility(pages.togglecheckbox,1);
+        ReusableMethod.waitForVisibility(pages.togglecheckbox,8);
         pages.togglecheckbox.click();
         ReusableMethod.bekle(2);
         String actualAlert = driver.switchTo().alert().getText();
@@ -423,7 +424,7 @@ public class US_2_35_StepDef {
     @Then("click on plus button")
     public void clickOnPlusButton() {
         pages = new US_2_35();
-        ReusableMethod.waitForVisibility(pages.plus,2);
+        ReusableMethod.waitForVisibility(pages.plus,8);
         pages.plus.click();
 
     }
@@ -451,7 +452,7 @@ public class US_2_35_StepDef {
     @And("verify that product details is displayed")
     public void verifyThatProductDetailsIsDisplayed() {
         pages = new US_2_35();
-        ReusableMethod.waitForVisibility(pages.viewdetails,2);
+        ReusableMethod.waitForVisibility(pages.viewdetails,8);
         Assert.assertTrue(pages.viewdetails.getText().contains("Details"));
     }
 
@@ -497,5 +498,43 @@ public class US_2_35_StepDef {
         String actualdata = driver.getCurrentUrl();
         ReusableMethod.bekle(2);
         Assert.assertEquals(actualdata,expecteddata);
+    }
+
+    @And("verify that single price value is visible")
+    public void verifyThatSinglePriceValueIsFilled() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.sellingprice,8);
+        Assert.assertTrue(pages.pricehead.isDisplayed());
+    }
+
+    @And("verify that stock amount is visible")
+    public void verifyThatStockAmountIsFilled() {
+        pages = new US_2_35();
+        ReusableMethod.waitForVisibility(pages.single_stock,8);
+        Assert.assertTrue(pages.stockhead.isDisplayed());
+    }
+
+    @Then("tests that product type is not changed")
+    public void testsThatProductTypeIsNotChanged() {
+        pages = new US_2_35();
+        pages.productTypeRadioButton2.click();
+        Assert.assertFalse(pages.productTypeRadioButton2.isSelected());
+    }
+
+    @Then("enter stock amount")
+    public void enterStockAmount() {
+        pages = new US_2_35();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys("1001").sendKeys(Keys.ENTER).perform();
+        String newstock = pages.single_stock.getText();
+        pages.updatebutton.click();
+    }
+
+    @Then("verify that stock amount is updated")
+    public void verifyThatStockAmountIsUpdated() {
+        pages = new US_2_35();
+        ReusableMethod.bekle(2);
+        ReusableMethod.scrolldown();
+        Assert.assertTrue(pages.single_stock.getText().contains("1001"));
     }
 }
