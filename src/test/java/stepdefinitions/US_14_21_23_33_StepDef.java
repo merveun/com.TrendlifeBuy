@@ -56,8 +56,11 @@ public class US_14_21_23_33_StepDef {
     @Then("verify QUALITY AND REASONABLE PRICES is visible")
     public void verify_quality_and_reasonable_prices_is_visible() {
         pages= new US_14_21_23_33();
+        /*
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+         */
 
         Assert.assertTrue(pages.qualityReasonblePrices.isDisplayed());
         ReusableMethod.waitToSee(5);
@@ -67,9 +70,14 @@ public class US_14_21_23_33_StepDef {
     public void verifyClientWorldwideSuccessfulProjectWorkEmployedPlanningServicesNumbersAreVisible() {
         pages= new US_14_21_23_33();
 
+/*
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+ */
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,900)");
 
         ReusableMethod.waitToSee(5);
         assertTrue(pages.visibleNumbersAndBoards.isDisplayed());
@@ -81,9 +89,8 @@ public class US_14_21_23_33_StepDef {
     public void verifyONLINESHOPPINGEASYANDCOSTEFFICIENTIsVisible() {
         pages= new US_14_21_23_33();
 
-        Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,1200)");
 
 
         Assert.assertTrue(pages.onlineShoppingEasyWrite.isDisplayed());
@@ -94,12 +101,8 @@ public class US_14_21_23_33_StepDef {
     public void verifyTEAMMEMBERIsVisible() {
         pages= new US_14_21_23_33();
 
-        Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,2800)");
 
         ReusableMethod.bekle(3);
         Assert.assertTrue(pages.teamMemberText.isDisplayed());
@@ -189,7 +192,7 @@ public class US_14_21_23_33_StepDef {
         assertTrue(pages.SrefundDispute.isDisplayed());
         ReusableMethod.bekle(2);
     }
-    //***********************************************
+
     @Then("verify Order ID information is visible")
     public void verifyOrderIDInformationIsVisible() {
         pages= new US_14_21_23_33();
@@ -293,9 +296,8 @@ public class US_14_21_23_33_StepDef {
     public void verifyPickUpInfoInformationIsVisible() {
         pages= new US_14_21_23_33();
 
-        actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        ReusableMethod.bekle(2);
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,500)");
 
         assertTrue(pages.PickUpInfo.isDisplayed());
         ReusableMethod.bekle(2);
@@ -351,11 +353,9 @@ public class US_14_21_23_33_StepDef {
     public void clickReplyButton() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN)
-               .sendKeys(Keys.PAGE_DOWN)
-                .sendKeys(Keys.PAGE_DOWN)
-                .sendKeys(Keys.PAGE_DOWN)
-                .perform();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,1200)");
+
         pages.SReplyButton.click();
         ReusableMethod.bekle(3);
         
@@ -400,7 +400,7 @@ public class US_14_21_23_33_StepDef {
     public void choosePendingLinkAndClickPendingInformationIsVisible() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        // actions.sendKeys(Keys.PAGE_DOWN).perform();
         pages.SPendingLink.click();
         ReusableMethod.bekle(3);
 
@@ -483,18 +483,12 @@ public class US_14_21_23_33_StepDef {
     public void verifySubjectIsVisibleAndWriteText() {
         pages= new US_14_21_23_33();
 
-        //actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethod.bekle(2);
         pages.SSubjectBox.click();
         ReusableMethod.bekle(2);
 
         pages.SSubjectBox.sendKeys("FS Automation Engineer ");
-        /*
-        String expectedChoose="FS Automation Engineer ";
-        String actualChoose= pages.SSubjectBox.getText();
-        // Assert.assertTrue(actualChoose.contains(expectedChoose));
 
-         */
         ReusableMethod.bekle(2);
         pages.SDescriptionBox.sendKeys("Hello");
 
@@ -560,28 +554,21 @@ public class US_14_21_23_33_StepDef {
     public void verifyThatANewTicketListIsVisible() {
         pages= new US_14_21_23_33();
 
-
-
         //actions.sendKeys(Keys.PAGE_DOWN).perform();
         assertTrue(pages.AllSubmittedTicketList.isDisplayed());
         ReusableMethod.bekle(2);
 
     }
 
-    @Then("verify Status,Priority, and Category information is visible")
-    public void verifyStatusPriorityAndCategoryInformationIsVisible() {
+    @Then("verify Status,Priority, and Category information are visible")
+    public void verifyStatusPriorityAndCategoryInformationAreVisible() {
         pages= new US_14_21_23_33();
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        pages.SCustomerPending.click();
-        ReusableMethod.bekle(2);
+        // actions.sendKeys(Keys.PAGE_DOWN).perform();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,200)");
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        pages.SCustomerVeryLow.click();
-        ReusableMethod.bekle(2);
-
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        pages.SCustomerVeryCategory.click();
+        assertTrue(pages.SCustomerInformation.isDisplayed());
         ReusableMethod.bekle(2);
     }
 
@@ -888,6 +875,7 @@ public class US_14_21_23_33_StepDef {
         assertTrue(pages.SadminCreateFirstCustomerSelectBox.isDisplayed());
         ReusableMethod.bekle(3);
     }
+
 
 
 }

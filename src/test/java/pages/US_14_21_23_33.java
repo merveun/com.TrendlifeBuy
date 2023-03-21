@@ -129,7 +129,7 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "//button[@id='replay_box_toggler']")
     public WebElement SReplyTextBox;
 
-    @FindBy(xpath = "//button[normalize-space()='+ Reply now']")
+    @FindBy(xpath = "//button[@id='replay_box_toggler']")
     public WebElement SReplyNowButton;
 
     @FindBy(xpath = "(//div[@class='ticket_view_box theme_border gray_color_1 radius_5px mb_20'])[9]")
@@ -152,7 +152,6 @@ public class US_14_21_23_33 {
 
     @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
     public WebElement SOnGoingBox;
-
 
     @FindBy(xpath = "(//li[normalize-space()='Completed'])[1]")
     public WebElement SCompletedLink;
@@ -192,9 +191,6 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "//button[text()='+ Create Now']")
     public WebElement SCreateNowButton;
 
-    @FindBy(xpath = "(//div[@class='dashboard_white_box style5 bg-white mb_25'])[1]")
-    public WebElement SCustomerInformation;
-
     @FindBy(xpath = "//a[normalize-space()='Pending']")
     public WebElement SCustomerPending;
     @FindBy(xpath = "//a[normalize-space()='Very Low']]")
@@ -202,6 +198,8 @@ public class US_14_21_23_33 {
     @FindBy(xpath = "//a[normalize-space()='New Category']")
     public WebElement SCustomerVeryCategory;
 
+    @FindBy(xpath = "//div[@class='dashboard_white_box style5 bg-white mb_25']")
+    public WebElement SCustomerInformation;
 
 
     //****************US_33*****************

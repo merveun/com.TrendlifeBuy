@@ -56,7 +56,7 @@ Feature: US_023 As a user, I would like to have a page where I can open a suppor
     Then  click the DashBoard button
     Then  click Support Ticket and verified that it redirects to Support Ticket page
     Then  click View button
-    Then  verify Status,Priority, and Category information is visible
+    Then  verify Status,Priority, and Category information are visible
     And   terminate the test
 
   Scenario: TC_006 Verify that the response returned to the Ticket opened on the Show page is displayed
