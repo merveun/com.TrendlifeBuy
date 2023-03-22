@@ -19,7 +19,7 @@ Feature: As a user, I would like to have a page where I can compare similar prod
     Then  verify content information of products are displayed
     And   terminate test
 
-
+  @demo
   Scenario: TC_122 When the Reset Compare button is clicked, it should be verified that the products selected for comparison are deleted from the Compare page.
 
     Given go to "url"

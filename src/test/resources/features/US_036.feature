@@ -1,13 +1,13 @@
 Feature:Bir yönetici olarak site kullanicilari icin gift cardlar hazirlamak,
   editlemek veya silmek icin bu fonksiyonlari gerceklestirebilecek bir sayfanin olmasini istiyorum.
-
+  @demo
   Scenario:US_036 --> TC_001 It should be verified that the Gift Card List page is accessible from the
   Gift Card tab in the Promotional menu on the Dashboard Side Bar.
     Given Login on the "adminUrl" page.
     Then Click on Gift Card drapdown
     Then clicks the gift card list button
     Then tests that the gift card page is opened
-
+  @demo
   Scenario:US_036 --> TC_002 Verify that the Gift Card List is visible on the Gift Card List page.
     Given Login on the "adminUrl" page.
     Then Click on Gift Card drapdown

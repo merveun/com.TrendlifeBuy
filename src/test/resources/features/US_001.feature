@@ -1,4 +1,5 @@
 @smoke
+@demo
 Feature: US00101 Bir kullanıcı olarak ana sayfaya erişebilmeliyim
 
   Scenario:TC0101 URL girildiğinde ana sayfa erişilebilir olmalıdır.
