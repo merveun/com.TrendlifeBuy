@@ -457,6 +457,6 @@ public class US_10_37_41_StepDef {
     public void statusDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
         ReusableMethod.waitForPageToLoad(3);
         pages=new US_10_37_41();
-        ReusableMethod.verifyAllItemsAreClickable(pages.statusList,pages.statusListButtonOnSupportTicket,pages.statusListCurrentText);
+        ReusableMethod.verifyAllItemsAreClickable(pages.statusListonSupportTicket,pages.statusListButtonOnSupportTicket,pages.statusListCurrentText);
     }
 }
