@@ -1,4 +1,5 @@
 Feature: US_014 As a user, I would like to have an About Us page on the site so that I can have more information about the site I shopped at.
+  @smoke
   Scenario: TC_001 Verify that you have access to the About Us page from the home page
     Given go to the browser "url"
     Then  close popup windows

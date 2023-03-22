@@ -98,6 +98,7 @@ Feature: US_041 - US_041 - Bir yönetici olarak acilan support ticketleri ile il
       Then priority dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular
       And sayfayi kapat
 
+#BUG
   Scenario: US_041 --> TC_009 - Support Ticket sayfasinda User List dropdown'dan
       herhangi bir kullanıcının görünür ve secilebilir oldugu dogrulanmali
 

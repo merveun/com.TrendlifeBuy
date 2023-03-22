@@ -1,3 +1,4 @@
+@smoke
 Feature: US_004 Verify that the functions in the submenu of the Home page are visible and active
 
   Scenario: TC_101 Verify that My Account, Order Status, Referral, Coupons links are visible

@@ -1,6 +1,6 @@
 Feature: Bir kullanici olarak siparislerimle ilgili islemleri gerceklestirebilmek icin
   siparislerimi gösteren bir sayfanin olmasini istiyorum.
-
+  @smoke
   Scenario: US_017--> TC001 - Dashboard sayfasinda bulunan side bar'daki My Order linkinin
   Order sayfasina yönlendirdigi dogrulanmali.
 

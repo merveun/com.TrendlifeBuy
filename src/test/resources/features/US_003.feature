@@ -1,3 +1,4 @@
+@smoke
 Feature: All Categories menüsü altındaki tüm kategorilerin görünür ve aktif olduğunu doğrulayın.
 
   Scenario: TC_001-Computer & Accessories, Electronics Devices,

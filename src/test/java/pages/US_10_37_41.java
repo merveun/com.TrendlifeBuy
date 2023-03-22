@@ -225,6 +225,9 @@ public class US_10_37_41 {
     @FindBy(xpath = "(//ul[@class='list'])[5]/li")
     public List<WebElement> statusList;
 
+    @FindBy(xpath = "(//ul[@class='list'])[4]/li")
+    public List<WebElement> statusListonSupportTicket;
+
     // New Ticket > Assign to List
     @FindBy(xpath = "(//ul[@class='list'])[6]/li")
     public List<WebElement> assignToList;
