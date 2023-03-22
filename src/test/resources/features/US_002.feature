@@ -1,9 +1,9 @@
 @smoke
-@demo
+
 Feature: Verify that the functions in the top menu of the home page are active
 
 
-
+  @demo
   Scenario: TC_001--->(US_002) Play store and apple store buttons should redirect to the relevant page
 
     Given go to the "url"
@@ -15,7 +15,7 @@ Feature: Verify that the functions in the top menu of the home page are active
     Then click on appstore button
     And verify that the appstore link opens
     And close browser
-
+  @demo
   Scenario: TC_002--->(US_002) Track Your Order button should lead to the relevant page
 
     Given go to the "url"

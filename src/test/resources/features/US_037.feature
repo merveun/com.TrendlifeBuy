@@ -11,7 +11,7 @@ Feature: US_037 - Bir yönetici olarak sitedeki aktivite verilerinin daha anlasi
     And gerekli grafiklerin gorunur oldugunu dogrular
     And sayfayi kapat
 
-
+  @demo
   Scenario: US_037 --> TC_004 -Top 10 Product, New Customers, Recently Added Products, Top Refferers, Latest Order,
   Latest Search Keyword, Appealed Disputed Top Customers,
   Recent Reviews Product Reviews listelerinin görünür olduğu doğrulanmali.

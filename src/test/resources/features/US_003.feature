@@ -12,7 +12,7 @@ Feature: All Categories menüsü altındaki tüm kategorilerin görünür ve akt
     And   All Categories menusu altindaki tum kategorileri goruntulenir
     And   Sayfayi kapatir
 
-
+  @demo
     Scenario: TC_002-Computer & Accessories, Electronics Devices,
               Watches & Accessories, Fashions, Toys,Kids&Babies,
               Bag&Shoes, Lifestyle&Home, TV & Home Appliances,

@@ -99,6 +99,7 @@ Feature: US_041 - US_041 - Bir yönetici olarak acilan support ticketleri ile il
       And sayfayi kapat
 
 #BUG
+  @demo
   Scenario: US_041 --> TC_009 - Support Ticket sayfasinda User List dropdown'dan
       herhangi bir kullanıcının görünür ve secilebilir oldugu dogrulanmali
 

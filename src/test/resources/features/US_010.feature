@@ -49,7 +49,7 @@ Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünl
       Then view cart butonuna tiklar
       And total ucretin degisebilir oldugunu dogrular
       And sayfayi kapat
-  @brkr
+
   Scenario: US_010 --> TC_004 - Price bölümünde ürünün birim fiyati ve varsa indirim miktarinin yazdigi dogrulanmali.
     Given kullanici "url" sayfasina git
     Then subscribe popup kapatilir
