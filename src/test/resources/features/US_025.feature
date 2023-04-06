@@ -1,10 +1,10 @@
 Feature: US_025 Bir kullanici olarak sitede alisverisimi tamamladiktan sonra siteden logout yapabilmek istiyorum.
-
+  @smokeDemo
   Scenario: US_025--->TC_02501 Ana sayfada Logout linkinin görünür oldugu dogrulanmali.
 
     Given Login butonuna tiklar
     Then Logout linkinin gorunurlugu test edilmeli
-
+  @smokeDemo
   Scenario: US_025--->TC_02502 Ana sayfadaki Logout linkine tiklayinca hesaptan cikis yapildigi dogrulanmali.
 
     Given Login butonuna tiklar

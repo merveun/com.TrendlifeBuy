@@ -2,7 +2,7 @@
 Feature: Bir kullanici olarak sitedeki alisverislerde
          kullanabilecegim bir cüzdanimin olmasini ve
          bu cüzdanla ilgili islemlerimi yapabilcegim bir sayfanin olmasini istiyorum.
-
+  @smokeDemo
   Scenario: TC_001-Dashboard sayfasinda bulunan side bar'daki My Wallet linkinin
             Wallet sayfasina yönlendirdigi dogrulanmali.
 
@@ -16,7 +16,7 @@ Feature: Bir kullanici olarak sitedeki alisverislerde
     And   My Wallet sayfasina yonlendirdigi dogrulanir
     And   Sayfayi kapatir
 
-
+  @smokeDemo
     Scenario: TC_002-My Wallet sayfasinda Total Balance, Running Balance,
               Pending Balance boardlarinin görünür oldugu dogrulanmali.
 

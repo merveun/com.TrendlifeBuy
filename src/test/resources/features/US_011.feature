@@ -9,7 +9,7 @@ Feature: US_011 Bir kullanici olarak alisveris yaptigim sitede ürünler veya al
     Then Blog sayfasinda oldugu dogrulanir
     Then sayfayi kapat
 
-
+  @smokeDemo
   Scenario:  US_011-->TC_01102 Read more linkine tıklandığında ilgili sayfaya yönlendirdigi dogrulanmali.
 
     Given kullanici "url" sayfasina git

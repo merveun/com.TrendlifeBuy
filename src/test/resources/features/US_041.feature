@@ -1,6 +1,6 @@
 Feature: US_041 - US_041 - Bir yönetici olarak acilan support ticketleri ile ilgili
   islemleri yapabilmek icin support ticket sayfasinin olamsini istiyorum.
-
+  @smokeDemo
   Scenario: US_041 --> TC_001 - Support Ticket linki ile Support Ticket sayfasina gidildigi dogrulanir
 
     Given kullanici "adminLogin" sayfasina git
@@ -22,7 +22,7 @@ Feature: US_041 - US_041 - Bir yönetici olarak acilan support ticketleri ile il
     Then add new butonuna tiklar
     And "adminOpenaTicket" sayfasina gittigi dogrulanir
     And sayfayi kapat
-
+  @smokeDemo
   Scenario: US_041 --> TC_003 - Yeni bir ticket acma sayfasinda Subject, User List,
   Assign to, Description, Category List, Priority, Status, Attach File bilgilerinin girilmesinin istendigi dogrulanmali
 
@@ -99,7 +99,7 @@ Feature: US_041 - US_041 - Bir yönetici olarak acilan support ticketleri ile il
       And sayfayi kapat
 
 #BUG
-  @demo
+  @demoDeneme
   Scenario: US_041 --> TC_009 - Support Ticket sayfasinda User List dropdown'dan
       herhangi bir kullanıcının görünür ve secilebilir oldugu dogrulanmali
 

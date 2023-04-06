@@ -1,6 +1,6 @@
 @smoke
 Feature: As a user, I want to be able to login with my registered email and password information.
-
+  @smokeDemo
   Scenario: TC 114 When clicking the Click Here link next to Forgot Password? text, verify that it redirects to the relevant page
 
     Given   go to "Url"
@@ -10,7 +10,7 @@ Feature: As a user, I want to be able to login with my registered email and pass
     And     terminate test
 
 
-
+  @smokeDemo
   Scenario: TC 115 Verify that when the Sign Up link next to Don't have an Account? text is clicked, it redirects to the relevant page
 
     Given   go to "Url"

@@ -1,6 +1,7 @@
 @smoke
 Feature: Bir kullanici olarak verdigim siparislerimin son durumunu takip edebilmek icin siparis detaylarini görebilecegim bir sayfanin olmasini istiyorum.
 
+  @smokeDemo
   Scenario:US_018--->TC_01801 My Order sayfasindaki urun boardindan Order Details butonuna tiklayinca ilgili siparisin detay sayfasina gidildigi dogrulanmali.
 
     Then Login butonuna tiklar

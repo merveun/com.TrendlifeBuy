@@ -1,6 +1,6 @@
 @smoke
 Feature: All Categories menüsü altındaki tüm kategorilerin görünür ve aktif olduğunu doğrulayın.
-
+  @smokeDemo
   Scenario: TC_001-Computer & Accessories, Electronics Devices,
             Watches & Accessories, Fashions, Toys,Kids&Babies,
             Bag&Shoes, Lifestyle&Home, TV & Home Appliances,

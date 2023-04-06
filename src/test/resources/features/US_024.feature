@@ -1,6 +1,6 @@
 Feature: US_15 As a user, I want to have a page where I can organize the notifications
   from the site and see the notifications.
-
+  @smokeDemo
   Scenario: TC_133 Verify that the Notification page is accessible.
 
     Given go to "url"

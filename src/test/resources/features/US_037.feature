@@ -1,7 +1,7 @@
 Feature: US_037 - Bir yönetici olarak sitedeki aktivite verilerinin daha anlasilabilir
   olmasi icin sitedeki verileri grafikler ve listeler seklinde görebilmek istiyorum.
 
-
+  @smokeDemo
   Scenario: US_037 --> TC_001 - Dashboard ana sayfasindaki Products,Orders Summary,Guest/Authorized Order Today,Today Order summary
   başlıklarındaki grafiklerin görünür olduğunu doğrulanmali.
 
@@ -12,6 +12,7 @@ Feature: US_037 - Bir yönetici olarak sitedeki aktivite verilerinin daha anlasi
     And sayfayi kapat
 
   @demo
+  @smokeDemo
   Scenario: US_037 --> TC_004 -Top 10 Product, New Customers, Recently Added Products, Top Refferers, Latest Order,
   Latest Search Keyword, Appealed Disputed Top Customers,
   Recent Reviews Product Reviews listelerinin görünür olduğu doğrulanmali.

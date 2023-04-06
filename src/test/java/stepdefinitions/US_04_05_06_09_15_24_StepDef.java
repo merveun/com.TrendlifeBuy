@@ -47,6 +47,7 @@ public class US_04_05_06_09_15_24_StepDef {
     public void scrollDownForViewAll() {
         ReusableMethod.scrolldown_DownViewAll();
         ReusableMethod.waitToSee(2);
+        ReusableMethod.waitForPageToLoad();
     }
 
 

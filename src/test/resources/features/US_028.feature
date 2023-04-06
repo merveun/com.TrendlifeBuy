@@ -1,7 +1,7 @@
 Feature: Bir kullanici olarak begendigim ürünleri daha sonra degerlendirmek ve
          belkide satin almak icin bir sayfada listelenmesini istiyorum.
 
-
+  @smokeDemo
   Scenario: TC_001-Kullanicinin My Wishlist sayfasina erisebildigi dogrulanmali.
 
     Given Kullanici Anasayfa "url" 'ine gider.

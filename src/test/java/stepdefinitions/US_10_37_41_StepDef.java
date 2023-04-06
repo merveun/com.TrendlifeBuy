@@ -444,11 +444,10 @@ public class US_10_37_41_StepDef {
 
     @Then("user dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")
     public void userDropboxSeceneklerininGorunurVeSecilebilirOldugunuDogrular() throws InterruptedException {
-       /* ReusableMethod.waitForPageToLoad(3);
+       ReusableMethod.waitForPageToLoad(3);
         pages=new US_10_37_41();
         ReusableMethod.verifyAllItemsAreClickable(pages.userList,pages.userListButton,pages.userListButton);
 
-        */
     }
 
     @Then("status dropbox seceneklerinin gorunur ve secilebilir oldugunu dogrular")

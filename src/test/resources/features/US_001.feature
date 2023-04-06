@@ -1,4 +1,4 @@
-@smoke
+@smokeDemo
 @demo
 Feature: US00101 Bir kullanıcı olarak ana sayfaya erişebilmeliyim
 

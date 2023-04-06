@@ -2,6 +2,7 @@
 Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünleri atacagim
   ve devaminda alisveris islemlerimi gerceklestirebilecegim bir sepet sayfasi olmasini istiyorum.
   @demo
+  @smokeDemo
   Scenario: US_010 --> TC_001 - Shipping charge free from,
             Order Summary,Subtotal,Shipping Charge,
             Discount,VAT/TAX/GST ve Total yazılarınin görünür oldugu dogrulanmali.
@@ -24,6 +25,7 @@ Feature: Bir kullanici olarak alisveris yaparken satin almayi dusundugum ürünl
     And total yazisinin gorunur oldugunu dogrula
     And sayfayi kapat
   @demo
+  @smokeDemo
   Scenario:US_010 --> TC_002 - Quantity bölümünden alınacak ürünün adedinin degistirilebildigi dogrulanmali.
     Given kullanici "url" sayfasina git
     Then subscribe popup kapatilir

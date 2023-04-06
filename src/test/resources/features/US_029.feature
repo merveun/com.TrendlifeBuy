@@ -21,7 +21,7 @@ Feature: Bir yönetici olarak site verilerine erisebilmek,
       Then  Admin Dashboard sayfasina login olundugu dogrulanir
       And   Sayfayi kapatir
 
-
+  @smokeDemo
     Scenario: TC_003-Dashboard sayfasinin üst bölümünde Search TextBox'ınin görünür oldugu ve
               Search TextBox'i kullanilarak site icinde arama yapilabildigi dogrulanmali.
 
