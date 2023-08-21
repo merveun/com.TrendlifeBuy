@@ -251,11 +251,6 @@ public class US_10_37_41_StepDef {
        actions.scrollToElement(Driver.getDriver().findElement(By.xpath("//canvas"))).perform();
         ReusableMethod.bekle(1);
         SoftAssert softAssert = new SoftAssert();
-        /*for (WebElement graphic : pages.adminDashboardGraphics)
-        {
-            softAssert.assertTrue(graphic.isDisplayed());
-        }
-        softAssert.assertAll();*/
 
     }
 

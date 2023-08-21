@@ -284,13 +284,13 @@ public class US_14_21_23_33_StepDef {
     public void verifyProcessingOperatorAndExplanationVisible() {
         pages= new US_14_21_23_33();
         assertTrue(pages.ProcessingOperator.isDisplayed());
-        ReusableMethod.bekle(2);
+        ReusableMethod.bekle(3);
     }
     @Then("verify Completed operator and explanation visible")
     public void verifyCompletedOperatorAndExplanationVisible() {
         pages= new US_14_21_23_33();
         assertTrue(pages.CompletedOperator.isDisplayed());
-        ReusableMethod.bekle(2);
+        ReusableMethod.bekle(3);
     }
     @Then("verify Pick Up Info information is visible")
     public void verifyPickUpInfoInformationIsVisible() {
