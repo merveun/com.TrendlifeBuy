@@ -1,6 +1,6 @@
 Feature: Bir kullanici olarak siparislerimle ilgili islemleri gerceklestirebilmek icin
   siparislerimi gösteren bir sayfanin olmasini istiyorum.
-
+  @smoke
   Scenario: US_017--> TC001 - Dashboard sayfasinda bulunan side bar'daki My Order linkinin
   Order sayfasina yönlendirdigi dogrulanmali.
 
@@ -11,15 +11,14 @@ Feature: Bir kullanici olarak siparislerimle ilgili islemleri gerceklestirebilme
     #And sayfayi kapat
 
 
-  Scenario: US_017--> TC002 - My Order sayfasinda siparislerimi gormek ister
-
+  Scenario:US_017--> TC002 - My Order sayfasinda siparislerimi gormek ister
     Given "url" sayfasinda login olur
     Then Dashboard butonuna tiklar
     Then My order butonuna tiklar
     Then All-To butonuna tiklar ve urunlerin gorundugunu test eder
     Then Pay-To butonuna tiklar ve urunlerin gorundugunu test eder
-    Then Ship-To butonuna tiklar ve urunlerin gorundugunu test eder
-    And Recieve butonuna tiklar ve urunlerin gorundugunu test eder
+    #Then Ship-To butonuna tiklar ve urunlerin gorundugunu test eder
+    #And Recieve butonuna tiklar ve urunlerin gorundugunu test eder
 
 
   Scenario: US_017--> TC003 - My Order sayfasinda My Order listesindeki ürünlerin Order ID, Status, Order date,

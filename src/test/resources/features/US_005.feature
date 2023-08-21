@@ -1,3 +1,5 @@
+@smoke
+@demo
 Feature: US_005 Verify that the functions in the body of the home page are active
 
   Scenario: TC_110 Trending Products,Hot Categories,House Appliances,Recommendation For You,Top Brand,Popular Searches,Trendlifebuy|Verify that ONLINE SHOPPING are visible

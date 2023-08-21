@@ -35,7 +35,6 @@ public class US_14_21_23_33_StepDef {
 
     @And("terminate the test")
     public void terminateTheTest() {
-        pages= new US_14_21_23_33();
         Driver.quitDriver();
     }
 

@@ -10,7 +10,6 @@ import java.util.List;
 public class US_10_37_41 {
     public US_10_37_41() {
         PageFactory.initElements(Driver.getDriver(),this);
-
     }
 
     // US_037 ait locate'ler
@@ -158,10 +157,128 @@ public class US_10_37_41 {
     @FindBy (xpath = "//div[@class='main-title d-flex']//h3")
     public WebElement orderIDFromOrderManage;
 
+    // Admin Dashboard > Navbar > Support Ticket DropDown
+    @FindBy (xpath = "//div[@class='nav_title']//span[text()='Support Ticket']")
+    public WebElement supportTicketDropDown;
 
+    // Admin Dashboard > Support Ticket Button ,under the Support Ticket dropdown
+    @FindBy(xpath = "//li[@class='mm-active']//a[text()='Support Ticket']")
+    public WebElement supportTicketLinkMenu;
 
+    // Tickets > Add new Button
+    @FindBy(id = "add_new")
+    public WebElement addNewButtonOnTicketPage;
 
+    // New Ticket > Error Messages "The subject field is required."
+    @FindBy(id = "error_subject")
+    public WebElement subjectErrorMessage;
 
+    // New Ticket > Error Messages "The category id field is required."
+    @FindBy(id = "error_category_id")
+    public WebElement categoryErrorMessage;
+
+    // New Ticket > Error Messages "The priority id field is required."
+    @FindBy(id = "error_priority_id")
+    public WebElement priorityErrorMessage;
+
+    // New Ticket > Error Messages "The status field is required."
+    @FindBy(id = "error_status")
+    public WebElement statusErrorMessage;
+
+    // New Ticket > Error Messages "The description field is required."
+    @FindBy(id = "error_message")
+    public WebElement descriptionErrorMessage;
+
+    // New Ticket > Submit Create Ticket
+    @FindBy(xpath = "//i[@class='ti-check']")
+    public WebElement createTicketButton;
+
+    // New Ticket > Browser Div List
+    @FindBy(xpath = "//div[@class='primary_file_uploader']")
+    public List<WebElement> browserDivList;
+
+    // New Ticket > Add Browser Button
+    @FindBy(xpath = "//button[@id='ticket_file_add']")
+    public WebElement addBrowserButton;
+
+    // New Ticket > Delete Browser Button
+    @FindBy(xpath = "//button[@class='primary-btn delete-ticket-message-attach small fix-gr-bg custom_plus_btn']")
+    public WebElement deleteBrowserButton;
+
+    // New Ticket > Subject TextBox
+    @FindBy(id = "subject")
+    public WebElement subjectTextBox;
+
+    // New Ticket > CategoryList
+    @FindBy(xpath = "(//ul[@class='list'])[2]/li")
+    public List<WebElement> categoryList;
+
+    // New Ticket > PriorityList
+    @FindBy (xpath = "(//ul[@class='list'])[3]/li")
+    public List<WebElement> priorityList;
+
+    // New Ticket > User List
+    @FindBy(xpath = "(//ul[@class='list'])[4]/li")
+    public List<WebElement> userList;
+
+    // New Ticket > Status List
+    @FindBy(xpath = "(//ul[@class='list'])[5]/li")
+    public List<WebElement> statusList;
+
+    @FindBy(xpath = "(//ul[@class='list'])[4]/li")
+    public List<WebElement> statusListonSupportTicket;
+
+    // New Ticket > Assign to List
+    @FindBy(xpath = "(//ul[@class='list'])[6]/li")
+    public List<WebElement> assignToList;
+
+    // New Ticket > Category List Butonu;
+    @FindBy(xpath = "(//span[@class='current'])[2]")
+    public WebElement categoryListButton;
+
+    // New Ticket > priority List Butonu;
+    @FindBy (xpath = "(//span[@class='current'])[3]")
+    public WebElement priorityListButton;
+
+    // New Ticket > user List Butonu;
+    @FindBy(xpath = "(//span[@class='current'])[4]")
+    public WebElement userListButton;
+
+    // New Ticket > status List Butonu;
+    @FindBy(xpath = "(//span[@class='current'])[5]")
+    public WebElement statusListButton;
+
+    // Support Ticket > Status List Button
+    @FindBy(xpath = "(//span[@class='current'])[4]")
+    public WebElement statusListButtonOnSupportTicket;
+
+    // New Ticket > assignTo List Butonu;
+    @FindBy(xpath = "(//span[@class='current'])[6]")
+    public WebElement assignToListButton;
+
+    // New Ticket > attach Browser textBox;
+    @FindBy(xpath = "//input[@id='ticket_file']")
+    public WebElement attachFileBox;
+
+    // New Ticket > description TextBox;
+    @FindBy(xpath = "//div[@role='textbox']/p")
+    public WebElement descriptionTextBox;
+
+    // Ticket List > First Subject of Ticket
+    @FindBy(xpath = "(//tr/td/a)[1]")
+    public WebElement firstSubjectofTicket;
+
+    // Support Ticket > Category Current Text
+    @FindBy(xpath = "(//div[@class='primary_input mb-25']//span[@class='current'])[1]")
+    public WebElement categoryListCurrentText;
+
+    // Support Ticket > Priority Current Text;
+    @FindBy (xpath = "(//div[@class='primary_input mb-25']//span[@class='current'])[2]")
+    public WebElement priorityListCurrentText;
+
+    // Support Ticket > statusList Current Text;
+    @FindBy (xpath = "(//div[@class='primary_input mb-25']//span[@class='current'])[3]")
+    public WebElement statusListCurrentText;
 
 
 

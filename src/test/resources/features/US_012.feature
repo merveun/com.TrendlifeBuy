@@ -10,7 +10,7 @@ Feature: Bir kullanici olarak alisveris yaptigim site yöneticileri ile iletisim
     Then Get in touch,Social Media, Head office yazilarinin gorunur oldugunu dogrula
     Then sayfayi kapat
 
-
+  @smoke
     Scenario: Get in Touch bölümündeki Text Box'lara Name, E-mail,
     Messages ve Customer/Installation/Product Returns kısımları kriterlere uygun olarak doldurulduktan
     sonra Send Message butonuna tiklandiginda emailin başarılı bir şekilde gönderildiği doğrulanmalı.

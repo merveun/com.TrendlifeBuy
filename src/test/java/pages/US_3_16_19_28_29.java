@@ -461,20 +461,46 @@ public class US_3_16_19_28_29 {
     public WebElement AdThisYear;
 
     //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
-    @FindBy(xpath = "//h1[@class='gradient-color2 total_visitors']")
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][1]")
     public WebElement AdVisitor;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//h1[@class='gradient-color2 total_visitors']")
+    public WebElement AdVisitorText;
 
 
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][2]")
+    public WebElement AdTotalOrder;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][3]")
+    public WebElement AdTotalPendingOrder;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][4]")
+    public WebElement AdTotalCompletedOrder;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][5]")
+    public WebElement AdTotalSale;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][6]")
+    public WebElement AdTotalReview;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][7]")
+    public WebElement AdTodayRevenue;
 
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][8]")
+    public WebElement AdActiveCustomer;
 
-
+    //AdminHomePage>Login > Sign In Button>Dashboard>Visitor
+    @FindBy(xpath = "//div[@class='col-xl-3 col-lg-4 col-md-4 col-sm-6'][9]")
+    public WebElement AdTotalSubcriber;
 
 
     }

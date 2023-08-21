@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
+import static utilities.ReusableMethod.bekle;
 import static utilities.ReusableMethod.logIn;
 
 public class US_2_35_StepDef {
@@ -518,5 +519,22 @@ public class US_2_35_StepDef {
         pages = new US_2_35();
         pages.productTypeRadioButton2.click();
         Assert.assertFalse(pages.productTypeRadioButton2.isSelected());
+    }
+
+    @Then("enter stock amount")
+    public void enterStockAmount() {
+        pages = new US_2_35();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys("1001").sendKeys(Keys.ENTER).perform();
+        String newstock = pages.single_stock.getText();
+        pages.updatebutton.click();
+    }
+
+    @Then("verify that stock amount is updated")
+    public void verifyThatStockAmountIsUpdated() {
+        pages = new US_2_35();
+        ReusableMethod.bekle(2);
+        ReusableMethod.scrolldown();
+        Assert.assertTrue(pages.single_stock.getText().contains("1001"));
     }
 }
